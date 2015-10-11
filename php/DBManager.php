@@ -1,6 +1,6 @@
 <?php
 /*
- *  Clase destinada a la manejar cualquier interaccion con la base de datos
+ *  Clase destinada a manejar cualquier interaccion con la base de datos
  *  Creada por Felipe Vieira para el proyecto de interfaces de usuario
  */
 class DBManager {
