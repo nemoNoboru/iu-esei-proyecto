@@ -68,7 +68,7 @@ class DBManager {
     return false;
   }
   public function insertarRol($name,$desc){
-    if(!existeRol($name)){
+    if(!$this->existeRol($name)){
       $toQuery = "insert into Rol (rol_name,rol_desc) values ('".$name."','".$desc."');";
       doQuery($this->db,$toQuery); // si no DIE es que todo fue bien. (en determinado momento podriamos hacer algo mejor)
       return true;
@@ -84,7 +84,7 @@ class DBManager {
     return false;
   }
   public function listRolesByUser($rol,$user){
-    $toQuery = "select rol_name from User , Rol"
+    $toQuery = "select rol_name from User , Rol";
   }
 }
 ?>
