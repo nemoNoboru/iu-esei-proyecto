@@ -20,7 +20,7 @@ class DBManager {
     return $result;
   }
   public function existeFun($name){
-    $toQuery = "select * from Funcionalidad where fun_name = ".$name;
+    $toQuery = "select * from Funcionalidad where fun_name = '".$name."'";
     $result = $this->doQuery($this->db,$toQuery);
     if($result->num_rows==0){
       return false;
@@ -28,7 +28,7 @@ class DBManager {
     return true;
   }
   public function existePag($name){
-    $toQuery = "select * from Pagina where pag_name = ".$name;
+    $toQuery = "select * from Pagina where pag_name = '".$name."'";
     $result = $this->doQuery($this->db,$toQuery);
     if($result->num_rows==0){
       return false;
@@ -36,7 +36,7 @@ class DBManager {
     return true;
   }
   public function existeRol($name){
-    $toQuery = "select * from Rol where rol_name = ".$name;
+    $toQuery = "select * from Rol where rol_name = '".$name."'";
     $result = $this->doQuery($this->db,$toQuery);
     if($result->num_rows==0){
       return false;
@@ -44,7 +44,7 @@ class DBManager {
     return true;
   }
   public function existeUser($name){
-    $toQuery = "select * from Usuario where user_name = ".$name;
+    $toQuery = "select * from Usuario where user_name = '".$name."'";
     $result = $this->doQuery($this->db,$toQuery);
     if($result->num_rows==0){
       return false;
