@@ -55,25 +55,36 @@ class DBManager {
     if(!existeFun($name)){
       $toQuery = "insert into Funcionalidad (fun_name,fun_desc) values ('".$name."','".$desc."');";
       doQuery($this->db,$toQuery); // si no DIE es que todo fue bien. (en determinado momento podriamos hacer algo mejor)
+      return true;
     }
+    return false;
   }
   public function insertarPag($name,$desc){
     if(!existePag($name)){
       $toQuery = "insert into Pagina (pag_name,pag_desc) values ('".$name."','".$desc."');";
       doQuery($this->db,$toQuery); // si no DIE es que todo fue bien. (en determinado momento podriamos hacer algo mejor)
+      return true;
     }
+    return false;
   }
   public function insertarRol($name,$desc){
     if(!existeRol($name)){
       $toQuery = "insert into Rol (rol_name,rol_desc) values ('".$name."','".$desc."');";
       doQuery($this->db,$toQuery); // si no DIE es que todo fue bien. (en determinado momento podriamos hacer algo mejor)
+      return true;
     }
+    return false;
   }
   public function insertarUser($name,$pass,$desc,$email){
     if(!existeUser($name)){
       $toQuery = "insert into Usuario (user_name,user_pass,user_desc,user_email) values ('".$name."','".$pass."','".$desc."','".$email."');";
       doQuery($this->db,$toQuery); // si no DIE es que todo fue bien. (en determinado momento podriamos hacer algo mejor)
+      return true;
     }
+    return false;
+  }
+  public function listRolesByUser($rol,$user){
+    $toQuery = "select rol_name from User , Rol"
   }
 }
 ?>
