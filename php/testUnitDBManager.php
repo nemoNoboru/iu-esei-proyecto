@@ -3,7 +3,7 @@
  * Felipe Vieira
  */
  <?php
-  require "DBManager.php"
+  require "DBManager.php";
   $man = new DBManager;
 
   function say_error($correct){
@@ -25,3 +25,4 @@
     say_error($man->insertarPag("pagDummy2","pagina de test unit"));
     say_error($man->insertarUser("userDummy2","12345","usuario de test unit","dummy@dummy"));
   }
+?>

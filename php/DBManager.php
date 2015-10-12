@@ -21,7 +21,7 @@ class DBManager {
   }
   public function existeFun($name){
     $toQuery = "select * from Funcionalidad where fun_name = ".$name;
-    $result = doQuery($this->db,$toQuery);
+    $result = $this->doQuery($this->db,$toQuery);
     if($result->num_rows==0){
       return false;
     }
@@ -29,7 +29,7 @@ class DBManager {
   }
   public function existePag($name){
     $toQuery = "select * from Pagina where pag_name = ".$name;
-    $result = doQuery($this->db,$toQuery);
+    $result = $this->doQuery($this->db,$toQuery);
     if($result->num_rows==0){
       return false;
     }
@@ -37,7 +37,7 @@ class DBManager {
   }
   public function existeRol($name){
     $toQuery = "select * from Rol where rol_name = ".$name;
-    $result = doQuery($this->db,$toQuery);
+    $result = $this->doQuery($this->db,$toQuery);
     if($result->num_rows==0){
       return false;
     }
@@ -45,46 +45,46 @@ class DBManager {
   }
   public function existeUser($name){
     $toQuery = "select * from Usuario where user_name = ".$name;
-    $result = doQuery($this->db,$toQuery);
+    $result = $this->doQuery($this->db,$toQuery);
     if($result->num_rows==0){
       return false;
     }
     return true;
   }
   public function insertarFun($name,$desc){
-    if(!existeFun($name)){
+    if(!$this->existeFun($name)){
       $toQuery = "insert into Funcionalidad (fun_name,fun_desc) values ('".$name."','".$desc."');";
-      doQuery($this->db,$toQuery); // si no DIE es que todo fue bien. (en determinado momento podriamos hacer algo mejor)
+      $this->doQuery($this->db,$toQuery); // si no DIE es que todo fue bien. (en determinado momento podriamos hacer algo mejor)
       return true;
     }
     return false;
   }
   public function insertarPag($name,$desc){
-    if(!existePag($name)){
+    if(!$this->existePag($name)){
       $toQuery = "insert into Pagina (pag_name,pag_desc) values ('".$name."','".$desc."');";
-      doQuery($this->db,$toQuery); // si no DIE es que todo fue bien. (en determinado momento podriamos hacer algo mejor)
+      $this->doQuery($this->db,$toQuery); // si no DIE es que todo fue bien. (en determinado momento podriamos hacer algo mejor)
       return true;
     }
     return false;
   }
   public function insertarRol($name,$desc){
-    if(!existeRol($name)){
+    if(!$this->existeRol($name)){
       $toQuery = "insert into Rol (rol_name,rol_desc) values ('".$name."','".$desc."');";
-      doQuery($this->db,$toQuery); // si no DIE es que todo fue bien. (en determinado momento podriamos hacer algo mejor)
+      $this->doQuery($this->db,$toQuery); // si no DIE es que todo fue bien. (en determinado momento podriamos hacer algo mejor)
       return true;
     }
     return false;
   }
   public function insertarUser($name,$pass,$desc,$email){
-    if(!existeUser($name)){
+    if(!$this->existeUser($name)){
       $toQuery = "insert into Usuario (user_name,user_pass,user_desc,user_email) values ('".$name."','".$pass."','".$desc."','".$email."');";
-      doQuery($this->db,$toQuery); // si no DIE es que todo fue bien. (en determinado momento podriamos hacer algo mejor)
+      $this->doQuery($this->db,$toQuery); // si no DIE es que todo fue bien. (en determinado momento podriamos hacer algo mejor)
       return true;
     }
     return false;
   }
   public function listRolesByUser($rol,$user){
-    $toQuery = "select rol_name from User , Rol"
+    $toQuery = "select rol_name from User , Rol";
   }
 }
 ?>
