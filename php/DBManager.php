@@ -119,5 +119,14 @@ class DBManager {
     $result = $this->doQuery($toQuery);
     return $result->fetch_array();
   }
+  public function listUsersbyFun($fun){
+    $toQuery = "select user_name
+                from Usuario , Funcionalidad , User_Fun
+                where fun_name = '".$rol."' and
+                      Funcionalidad.fun_id = User_Fun.fun_id and
+                      User_Fun.user_id = Usuario.user_id";
+    $result = $this->doQuery($toQuery);
+    return $result->fetch_array();
+  }
 }
 ?>
