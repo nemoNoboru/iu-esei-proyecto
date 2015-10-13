@@ -83,12 +83,39 @@ class DBManager {
     }
     return false;
   }
-  public function listRolesByUser($rol,$user){
+  public function listRolesByUser($user){
     $toQuery = "select rol_name
                 from Usuario , Rol , User_Rol
                 where Usuario.user_name = '".$user."' and
                       Usuario.user_id = User_Rol.user_id and
                       User_Rol.rol_id = Rol.rol_id";
+    $result = $this->doQuery($toQuery);
+    return $result->fetch_array();
+  }
+  public function listRolesByFun($fun){
+    $toQuery = "select rol_name
+                from Funcionalidad , Rol , Rol_Fun
+                where Funcionalidad.fun_name = '".$fun."' and
+                      Funcionalidad.fun_id = Rol_Fun.fun_id and
+                      Rol_Fun.rol_id = Rol.rol_id";
+    $result = $this->doQuery($toQuery);
+    return $result->fetch_array();
+  }
+  public function listUsersByRol($rol){
+    $toQuery = "select user_name
+                from Usuario , Rol , User_Rol
+                where rol_name = '".$rol."' and
+                      Rol.rol_id = User_Rol.rol_id and
+                      User_Rol.user_id = Usuario.user_id";
+    $result = $this->doQuery($toQuery);
+    return $result->fetch_array();
+  }
+  public function listUsersByPag($pag){
+    $toQuery = "select user_name
+                from Usuario , Pagina , Pag_Fun
+                where pag_name = '".$pag."' and
+                      Pagina.pag_id = Pag_Fun.pag_id and
+                      Pag_Fun.user_id = Usuario.user_id";
     $result = $this->doQuery($toQuery);
     return $result->fetch_array();
   }
