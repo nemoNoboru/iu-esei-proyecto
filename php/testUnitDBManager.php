@@ -24,5 +24,6 @@
     say_error($man->insertarFun("funDummy2","funcion de test unit"));
     say_error($man->insertarPag("pagDummy2","pagina de test unit"));
     say_error($man->insertarUser("userDummy2","12345","usuario de test unit","dummy@dummy"));
+    echo $man->listRolesByUser("dum","dum");
   }
 ?>
