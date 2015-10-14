@@ -1,8 +1,8 @@
 <?php
-  $items = array("Gestion usuarios","Gestion roles","Gestion paginas","Gestion funcionalidades");
   echo "<div id='lateral'>";
   echo "<ul id='lista'>";
-  function renderLateral($no){
+  function RenderLateral($no){
+    $items = array("Gestion usuarios","Gestion roles","Gestion paginas","Gestion funcionalidades");
     echo "<li><span id='marcado'>";
     echo $items[$no];
     unset($items[$no]);
