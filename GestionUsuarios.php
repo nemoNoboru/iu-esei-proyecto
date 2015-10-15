@@ -38,7 +38,7 @@
       <td><strong>Rol</strong></td>
       <td><button>Crear</button></td>
     </tr>
-    <!-- Mira mamá, estoy metiendo relleno.... implicando naruto 2015 -->
+    <!-- Mira mamá, estoy metiendo relleno -->
     <tr>
       <td>Username1</td>
       <td>rol1</td>
