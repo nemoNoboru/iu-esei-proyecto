@@ -173,7 +173,7 @@ class DBManager {
     $result = $this->doQuery($toQuery);
     return $result->fetch_array();
   }
-  public function listFunByFun($fun){
+  public function listFunByFun($fun){ //Checkea esta funcion, felipe
     $toQuery = "select fun_name
                 from Funcionalidad , Funcionalidad , User_Fun
                 where fun_name = '".$rol."' and
