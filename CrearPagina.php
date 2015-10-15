@@ -35,7 +35,9 @@
 			</table>
 		</div>
 
-		<a href="javascript:history.back()" class="button,atras">Atras</a>
+		<form action="javascript:history.back()">
+	    <input type="submit" value="Atras">
+		</form>
 		<input type="submit" value="continuar" class="continuar"/>
 
 	</form>
