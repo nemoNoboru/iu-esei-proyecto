@@ -6,7 +6,7 @@
 	<form action="php/ProcesarLogin.php" method="post">
 	ID: <input type="text" name="username"><br>
 	Contraseña: <input type="text" name="pass"><br>
-	<input type="submit" name="login"> 
+	<input type="submit" name="login" value="Login">
 	</form>
 
 	</div>
