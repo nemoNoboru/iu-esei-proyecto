@@ -1,0 +1,45 @@
+<html>
+    
+        <?php include ("views/header.php");
+	RenderBanner("Cabecera");
+?>
+
+<?php include ("views/lateral.php");
+        RenderBanner ("Menu");
+?>
+    <div>
+        <h1>Crear Rol</h1>
+        Nombre de Rol: <INPUT TYPE="text" NAME="NOMBRE" SIZE=19 MAXLENGTH=19><br><br>
+        Descripción:   <TEXTAREA COLS="20" ROWS="1" NAME="DESCRIPCION"></TEXTAREA> <br><br>
+
+        <table frame="void" rules="rows">
+    <tr align="center" bgcolor = grey>
+        <td>Función</td>
+        <td></td>
+        <td>Permitir</td>
+    </tr>
+    <tr align ="center">
+        <td>Función 1</td>
+        <td></td>
+        <td> <input type="checkbox" name="permitir"/></td>
+    </tr>
+    <tr align ="center">
+        <td>Función 2</td>
+        <td></td>
+        <td> <input type="checkbox" name="permitir" checked="checked" /></td>
+    </tr>
+    <tr align="center">
+        <td>Función 3</td>
+        <td></td>
+        <td><input type="checkbox" name="permitir"/></td>
+    </tr>
+    <tr align ="center">
+        <td>Función 4</td>
+        <td></td>
+        <td><input type="checkbox" name="permitir" checked="checked" /></td>
+    </tr>
+</table><br>   
+ <button>Atrás</button>
+ <button>Confirmar</button> 
+   </div>
+</html>
