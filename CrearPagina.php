@@ -35,9 +35,7 @@
 			</table>
 		</div>
 
-		<form action="javascript:history.back()">
-	    <input type="submit" value="Atras">
-		</form>
+	  <input type="submit" onclick="history.go(-1)" value="Atras">
 		<input type="submit" value="continuar" class="continuar"/>
 
 	</form>
