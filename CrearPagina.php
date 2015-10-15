@@ -17,7 +17,7 @@
 
 		<div class="tabla"> <!-- esta tabla va a ser creada dinamicamente en un futuro -->
 			<table>
-				<tr><th>Funcion</th><th>Permitir</th></tr>
+				<tr><th>Funcionalidades</th><th>Permitir</th></tr>
 				<tr><td>Funcion1</td><td><input type="checkbox" name="funcion1"/></td></tr>
 				<tr><td>Funcion2</td><td><input type="checkbox" name="funcion2"/></td></tr>
 				<tr><td>Funcion3</td><td><input type="checkbox" name="funcion3"/></td></tr>
