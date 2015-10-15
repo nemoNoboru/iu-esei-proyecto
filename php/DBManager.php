@@ -7,6 +7,7 @@ class DBManager {
   public function connect(){ // se conecta a la base de datos
     $this->db = new mysqli('localhost','AdminGSTR','AdminPass','GSTRDB');
     if ($this->db->connect_errno) {
+        echo "error connecting to BBDD";
         die("Failed to connect to MySQL: " . $this->db->connect_error);
         return false;
     }
