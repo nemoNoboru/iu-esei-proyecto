@@ -23,7 +23,7 @@
 </br></br></br></br>
   <!-- Datos principales -->
 
-  <form action="" method="post">
+  <form>
 
     <span>ID de Usuario</span>
     <input type="text" value= "EjemploID" name="IDdeUsuario"></br></br>
