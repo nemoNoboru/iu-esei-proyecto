@@ -128,5 +128,8 @@ class DBManager {
     $result = $this->doQuery($toQuery);
     return $result->fetch_array();
   }
+  public function listPagbyUsers($user){
+    
+  }
 }
 ?>
