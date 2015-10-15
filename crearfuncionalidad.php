@@ -8,7 +8,7 @@
 
 
 
-<FORM method=post action="cgi-bin/script.pl">
+<FORM >
 <h1>Crear Funcionalidad</h1>
 <TABLE BORDER=0>
 
