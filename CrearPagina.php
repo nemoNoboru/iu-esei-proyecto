@@ -13,7 +13,7 @@
 
 		<h1>Crear pagina</h1>
 		Nombre: <input type="text" name="nombre"><br/>
-		Descripcion: <input type="textarea" name="desc"><br/>
+		Descripcion: <textarea name="desc"></textarea><br/>
 
 		<div class="tabla"> <!-- esta tabla va a ser creada dinamicamente en un futuro -->
 			<table>
