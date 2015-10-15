@@ -1,4 +1,3 @@
-<html>
     <?php include ("views/header.php");
     RenderBanner("Cabecera");
     ?>
@@ -11,9 +10,9 @@
         <table frame ="void" rules="none">
             <tr align="center">
                 <td>
-                    <FORM METHOD="GET" ACTION="">
-                        <INPUT TYPE="SUBMIT" VALUE="Básico" style='width:75px; height:35px'></form>
-                
+                    <FORM METHOD="post" ACTION="process_modificarRol_1.php">
+                        <INPUT TYPE="SUBMIT" VALUE="Bï¿½sico" style='width:75px; height:35px'></form>
+
                 </td>
                 <td></td>
                 <td></td>
@@ -24,7 +23,7 @@
                 </td>
             </tr>
             <tr>
-                <td>Puede modificar el nombre, <br>la descripción y <br>las funcionalidades del Rol</td>
+                <td>Puede modificar el nombre, <br>la descripciï¿½n y <br>las funcionalidades del Rol</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -32,9 +31,8 @@
             </tr>
         </table>
         <br>
-         <button>Atrás</button>
+         <button>Atrï¿½s</button>
     </div>
     <?php include ("views/footer.php");
     RenderBanner("Pie");
     ?>
-</html>

@@ -7,8 +7,17 @@ class DBManager {
   public function connect(){ // se conecta a la base de datos
     $this->db = new mysqli('localhost','AdminGSTR','AdminPass','GSTRDB');
     if ($this->db->connect_errno) {
+        echo "error connecting to BBDD";
         die("Failed to connect to MySQL: " . $this->db->connect_error);
         return false;
+    }
+    return true;
+  }
+  public function tryLogin($user,$pass){
+    $toQuery = "select * from Usuario where user_name='".$user."' and user_pass = '".$pass."'";
+    $result = $this->doQuery($toQuery);
+    if($result->num_rows==0){
+      return false;
     }
     return true;
   }
@@ -119,12 +128,57 @@ class DBManager {
     $result = $this->doQuery($toQuery);
     return $result->fetch_array();
   }
-  public function listUsersbyFun($fun){
+  public function listUsersByFun($fun){
     $toQuery = "select user_name
                 from Usuario , Funcionalidad , User_Fun
                 where fun_name = '".$rol."' and
                       Funcionalidad.fun_id = User_Fun.fun_id and
                       User_Fun.user_id = Usuario.user_id";
+    $result = $this->doQuery($toQuery);
+    return $result->fetch_array();
+  }
+  public function listPagsByUsers($user){
+    $toQuery = "select pag_name
+                from Usuario , Pagina , User_Pag
+                where user_name = '".$user."' and
+                      Funcionalidad.fun_id = User_Pag.user_id and
+                      User_Pag.pag_id = Pagina.pag_id";
+    $result = $this->doQuery($toQuery);
+    return $result->fetch_array();
+  }
+  public function listPagsByFun($fun){
+    $toQuery = "select pag_name
+                from Pagina , Funcionalidad , Pag_Fun
+                where fun_name = '".$fun."' and
+                      Funcionalidad.fun_id = Pag_Fun.fun_id and
+                      Pag_Fun.pag_id = Pagina.pag_id";
+    $result = $this->doQuery($toQuery);
+    return $result->fetch_array();
+  }
+  public function listFunsByRol($rol){
+    $toQuery = "select fun_name
+                from Funcionalidad , Rol , User_Rol
+                where rol_name = '".$rol."' and
+                      Rol.rol_id = User_Rol.rol_id and
+                      User_Rol.user_id = Funcionalidad.user_id";
+    $result = $this->doQuery($toQuery);
+    return $result->fetch_array();
+  }
+  public function listFunsByPag($pag){
+    $toQuery = "select fun_name
+                from Funcionalidad , Pagina , Pag_Fun
+                where pag_name = '".$pag."' and
+                      Pagina.pag_id = Pag_Fun.pag_id and
+                      Pag_Fun.user_id = Funcionalidad.user_id";
+    $result = $this->doQuery($toQuery);
+    return $result->fetch_array();
+  }
+  public function listFunByFun($fun){
+    $toQuery = "select fun_name
+                from Funcionalidad , Funcionalidad , User_Fun
+                where fun_name = '".$rol."' and
+                      Funcionalidad.fun_id = User_Fun.fun_id and
+                      User_Fun.user_id = Funcionalidad.user_id";
     $result = $this->doQuery($toQuery);
     return $result->fetch_array();
   }
