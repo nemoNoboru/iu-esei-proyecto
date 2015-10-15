@@ -1,4 +1,3 @@
-<html>
     <?php include ("views/header.php");
     RenderBanner("Cabecera");
     ?>
@@ -7,47 +6,48 @@
     RenderBanner ("Menu");
     ?>
     <div>
+      <form action="process_ModificarRol_2.php" method="post">
         <h1>Modificar Rol</h1>
         Seleccionar Rol: <SELECT NAME="Lista"><OPTION>Rol 1 <OPTION>Rol 2 <OPTION>Rol 3 </SELECT><br><br>
         Nombre de Rol: <INPUT TYPE="text" NAME="NOMBRE" SIZE=19 MAXLENGTH=19><br><br>
-        Descripción:   <TEXTAREA COLS="20" ROWS="1" NAME="DESCRIPCION"></TEXTAREA> <br><br>
-        
+        Descripciï¿½n:   <TEXTAREA COLS="20" ROWS="1" NAME="DESCRIPCION"></TEXTAREA> <br><br>
+
         <table frame="void" rules="rows">
     <tr align="center" bgcolor = grey>
-        <td>Función</td>
+        <td>Funciï¿½n</td>
         <td></td>
         <td></td>
         <td>Permitir</td>
     </tr>
     <tr align ="center">
-        <td>Función 1</td>
+        <td>Funciï¿½n 1</td>
         <td></td>
         <td></td>
         <td> <input type="checkbox" name="permitir"/></td>
     </tr>
     <tr align ="center">
-        <td>Función 2</td>
+        <td>Funciï¿½n 2</td>
         <td></td>
         <td></td>
         <td> <input type="checkbox" name="permitir" checked="checked" /></td>
     </tr>
     <tr align="center">
-        <td>Función 3</td>
+        <td>Funciï¿½n 3</td>
         <td></td>
         <td></td>
         <td><input type="checkbox" name="permitir"/></td>
     </tr>
     <tr align ="center">
-        <td>Función 4</td>
+        <td>Funciï¿½n 4</td>
         <td></td>
         <td></td>
         <td><input type="checkbox" name="permitir" checked="checked" /></td>
     </tr>
-</table><br>   
- <button>Atrás</button>
- <button>Confirmar</button> 
+</table><br>
+ <button>Atrï¿½s</button>
+ <button>Confirmar</button>
+ </form> 
     </div>
     <?php include ("views/footer.php");
     RenderBanner("Pie");
     ?>
-</html>

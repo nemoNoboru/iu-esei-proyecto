@@ -1,4 +1,3 @@
-<html>
 <?php include ("views/header.php");
 	RenderBanner("Cabecera");
 ?>
@@ -7,35 +6,34 @@
         RenderBanner ("Menu");
 ?>
 <div>
+	<form action="process_gestionRoles" method="post">
 <table border ="2px">
     <tr align="center">
         <td>Rol</td>
-        <td>Descripción</td>
+        <td>Descripciï¿½n</td>
         <td>Eliminar</td>
     </tr>
     <tr align ="center">
         <td>Rol 1</td>
-        <td>Descripción Rol 1</td>
+        <td>Descripciï¿½n Rol 1</td>
         <td><button>x</button></td>
     </tr>
     <tr align ="center">
         <td>Rol 2</td>
-        <td>Descripción Rol 2</td>
+        <td>Descripciï¿½n Rol 2</td>
         <td><button>x</button></td>
     </tr>
     <tr align="center">
         <td>Rol 3</td>
-        <td>Descripción Rol 3</td>
+        <td>Descripciï¿½n Rol 3</td>
         <td><button>x</button></td>
     </tr>
 </table><br>
-        <button>Crear</button>
+        <button type="submit" value="Confirmar">Crear</button>
         <button>Modificar</button>
-
+</form>
 </div>
 <?php include ("views/footer.php");
         RenderBanner("Pie");
 ?>
 </html>
-
-
