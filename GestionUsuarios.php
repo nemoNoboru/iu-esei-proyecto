@@ -14,7 +14,7 @@
 <!-- Cuerpo -->
 
 <div> <!-- Este div llega hasta footer, representa toda la interfaz principal -->
-  <form action="" method="post">
+  <form>
     <!-- Barra de busqueda por texto -->
     <span>Búsqueda Usuarios</span>
     <input type="text" name="Buscar">
