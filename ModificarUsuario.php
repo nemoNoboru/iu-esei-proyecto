@@ -7,14 +7,19 @@
 ?>
 
 <div id="contenido">
-	<form action="php/process_crearUsuario.php" method="post">
+	<form action="php/process_modificarUsuario.php" method="post">
 
-		<h1>Crear Usuario</h1>
+		<h1>Modificar Usuario</h1>
+		Seleccionar usuario:<select name="SelectUserID">
+													<option value="" selected="selected">ID</option> <!-- Esto puede mejorarse -->
+													<option>01</option>
+							            <option>02</option>
+							            <option>03</option>
+							          </select><br>
 		Nombre: <input type="text" name="nombre"><br/>
 		Apellidos: <input type="text" name="apellidos"><br/>
 		email: <input type="text" name="email"><br/>
-		Contraseña: <input type="password" name="pass1"><br/>
-    Repetir Contraseña: <input type="password" name="pass2"><br/>
+		Contraseña: <button>Modificar contraseña</button> <!-- En otro momento miro como enlazar esto bien -->
 
 		<div class="tabla"> <!-- esta tabla va a ser creada dinamicamente en un futuro -->
 			<table>

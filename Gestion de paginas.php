@@ -3,10 +3,10 @@
 ?>
 
 <?php include("views/lateral.php");
-	RenderLateral("Menu1");
+	RenderLateral(1);
 ?>
 
-	<select name="Funcionalidad">    
+	<select name="Funcionalidad">
 	   <option value="F1" selected="selected">Funcionalidad 1</option>
 	   <option value="F2">Funcionalidad 2</option>
 	   <option value="F3">Funcionalidad 3</option>
@@ -25,7 +25,7 @@
 	<tr>
 		<td>/url1</td><td>Rol1</td><td><button>Editar</button></td><td><button>x</button></td>
 	</tr>
-	
+
 </table>
 
 

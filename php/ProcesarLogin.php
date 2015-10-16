@@ -1,4 +1,6 @@
-<?php include("DBManager.php");
+<?php
+
+require_once("DBManager.php");
 //Usamos una funcion de DBManager para comprobar el login
 $man = new DBManager;
 $man->connect();
