@@ -1,17 +1,29 @@
 <?php
 /*
- *  Clase destinada a manejar cualquier interaccion con la base de datos
+ *  Clase singleton destinada a manejar cualquier interaccion con la base de datos
  *  Creada por Felipe Vieira para el proyecto de interfaces de usuario
  */
 class DBManager {
-  public function connect(){ // se conecta a la base de datos
-    $this->db = new mysqli('localhost','AdminGSTR','AdminPass','GSTRDB');
-    if ($this->db->connect_errno) {
-        echo "error connecting to BBDD";
-        die("Failed to connect to MySQL: " . $this->db->connect_error);
-        return false;
+  public function DBManager(){
+    if(isset($manager)){
+      return $manager;
+    }else{
+      $manager = new DBManager; // cuidado con esta recursividad
+      return $manager;
     }
-    return true;
+  }
+  public function connect(){ // se conecta a la base de datos
+    if(isset($this->db)){
+      return true;
+    }else{
+      $this->db = new mysqli('localhost','AdminGSTR','AdminPass','GSTRDB');
+      if ($this->db->connect_errno) {
+          echo "error connecting to BBDD";
+          die("Failed to connect to MySQL: " . $this->db->connect_error);
+          return false;
+      }
+      return true;
+    }
   }
   public function tryLogin($user,$pass){
     $toQuery = "select * from Usuario where user_name='".$user."' and user_pass = '".$pass."'";
@@ -180,6 +192,26 @@ class DBManager {
                       Funcionalidad.fun_id = User_Fun.fun_id and
                       User_Fun.user_id = Funcionalidad.user_id";
     $result = $this->doQuery($toQuery);
+    return $result->fetch_array();
+  }
+  public function listFuns(){
+    $toQuery = "select fun_name from Funcionalidad";
+    $result = this->doQuery($toQuery);
+    return $result->fetch_array();
+  }
+  public function listUsers(){
+    $toQuery = "select user_name from Usuario";
+    $result = this->doQuery($toQuery);
+    return $result->fetch_array();
+  }
+  public function listPags(){
+    $toQuery = "select pag_name from Pagina";
+    $result = this->doQuery($toQuery);
+    return $result->fetch_array();
+  }
+  public function listRols(){
+    $toQuery = "select rol_name from Rol";
+    $result = this->doQuery($toQuery);
     return $result->fetch_array();
   }
 }
