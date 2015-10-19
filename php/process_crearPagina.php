@@ -4,7 +4,7 @@
  */
 
 require_once("DBManager.php");
-$man = new DBManager; //crea instancia
+$man = DBManager::getInstance(); //crea instancia
 $man->connect(); //conectate a la bbdd
 if($man->insertarPag($_POST['nombre'],$_POST['desc'])){
   echo "Pagina creada correctamente";

@@ -6,8 +6,8 @@
 
  class RenderTable {
    public function renderTable(){
-     $this->man = new DBManager;
-     $this->man->connect;
+     $this->man = DBManager::getInstance();
+     $this->man->connect();
    }
 
    private function echoInit($nameTable){
@@ -20,17 +20,19 @@
      echo '</div>';
    }
    private function echoline($name){
-     echo "<tr><td>"$name"</td><td><input type='checkbox' name='".$name."'/></td></tr>";
+     echo "<tr><td>".$name."</td><td><input type='checkbox' name='".$name."'/></td></tr>";
    }
    private function echoMarkedLine($name){
-     echo "<tr><td>"$name"</td><td><input type='checkbox' checked name='".$name."'/></td></tr>";
+     echo "<tr><td>".$name."</td><td><input type='checkbox' checked name='".$name."'/></td></tr>";
    }
    private function complexTable($all,$relation){
      foreach ($all as $allItem) {
        $marked = false;
-       foreach ($relation as $itemRelation) {
-         if($itemRelation==$allItem){
-           $marked = true;
+       if(is_array($relation)){
+         foreach ($relation as $itemRelation) {
+           if($itemRelation==$allItem){
+             $marked = true;
+           }
          }
        }
        if($marked){
@@ -41,7 +43,7 @@
      }
    }
    public function tableBlankUsuario(){
-     $this->echoInit();
+     $this->echoInit("Usuario");
      $result = $this->man->listUsers();
      foreach ($result as $item) {
        $this->echoline($item);
@@ -49,7 +51,7 @@
      $this->echoFin();
    }
    public function tableBlankRol(){
-     $this->echoInit();
+     $this->echoInit("Rol");
      $result = $this->man->listRols();
      foreach ($result as $item) {
        $this->echoline($item);
@@ -57,7 +59,7 @@
      $this->echoFin();
    }
    public function tableBlankPagina(){
-     $this->echoInit();
+     $this->echoInit("Pagina");
      $result = $this->man->listPags();
      foreach ($result as $item) {
        $this->echoline($item);
@@ -65,7 +67,7 @@
      $this->echoFin();
    }
    public function tableBlankFuncionalidad(){
-     $this->echoInit();
+     $this->echoInit("Funcionalidad");
      $result = $this->man->listFuns();
      foreach ($result as $item) {
        $this->echoline($item);
@@ -75,7 +77,7 @@
    public function tableRolByUser($user){
      $relations = $this->man->listRolesByUser($user);
      $all = $this->man->listRols();
-     $this->echoInit();
+     $this->echoInit("Rol");
      $this->complexTable($all,$relations);
      $this->echoFin();
    }

@@ -4,7 +4,7 @@
  */
 
 require_once("DBManager.php");
-$man = new DBManager; //crea instancia
+$man = DBManager::getInstance(); //crea instancia
 $man->connect(); //conectate a la bbdd
 if($man->updatePass($_POST['pass1'],$_POST['pass2'])){
   echo "Contraseña cambiada correctamente"

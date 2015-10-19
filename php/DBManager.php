@@ -4,12 +4,16 @@
  *  Creada por Felipe Vieira para el proyecto de interfaces de usuario
  */
 class DBManager {
-  public function DBManager(){
-    if(isset($manager)){
-      return $manager;
+  private static $man = null;
+  
+  protected function DBManager(){}
+
+  public static function getInstance(){
+    if(isset(DBManager::$man)){
+      return DBManager::$man;
     }else{
-      $manager = new DBManager; // cuidado con esta recursividad
-      return $manager;
+      DBManager::$man = new DBManager;
+      return DBManager::$man;
     }
   }
   public function connect(){ // se conecta a la base de datos
@@ -17,6 +21,7 @@ class DBManager {
       return true;
     }else{
       $this->db = new mysqli('localhost','AdminGSTR','AdminPass','GSTRDB');
+      echo "make new cursor to DDBB <br/>";
       if ($this->db->connect_errno) {
           echo "error connecting to BBDD";
           die("Failed to connect to MySQL: " . $this->db->connect_error);
@@ -196,22 +201,22 @@ class DBManager {
   }
   public function listFuns(){
     $toQuery = "select fun_name from Funcionalidad";
-    $result = this->doQuery($toQuery);
+    $result = $this->doQuery($toQuery);
     return $result->fetch_array();
   }
   public function listUsers(){
     $toQuery = "select user_name from Usuario";
-    $result = this->doQuery($toQuery);
+    $result = $this->doQuery($toQuery);
     return $result->fetch_array();
   }
   public function listPags(){
     $toQuery = "select pag_name from Pagina";
-    $result = this->doQuery($toQuery);
+    $result = $this->doQuery($toQuery);
     return $result->fetch_array();
   }
   public function listRols(){
     $toQuery = "select rol_name from Rol";
-    $result = this->doQuery($toQuery);
+    $result = $this->doQuery($toQuery);
     return $result->fetch_array();
   }
 }
