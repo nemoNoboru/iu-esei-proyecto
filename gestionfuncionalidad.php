@@ -19,8 +19,9 @@
 			<td>Funcionalidad1</td><td>Datos funcion 4</td><td><button>x</button><button>CONF</button></td>
 		</tr>
 	</table>
-	<button>Crear</button>
-	<button>Modificar</button>
+	
+	<div><button>Crear</button></div>
+	<div><button>Modificar</button></div>
 
 
 </div>
