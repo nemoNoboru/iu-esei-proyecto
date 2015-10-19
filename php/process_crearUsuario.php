@@ -6,7 +6,7 @@ if($_POST['pass1']!=$_POST['pass2']){
   require_once("DBManager.php");
   $man = DBManager::getInstance(); //crea instancia
   $man->connect(); //conectate a la bbdd
-  if($man->insertarPag($_POST['nombre'],$_POST['pass1'],$_POST['desc'],$_POST['email'])){//cambiar
+  if($man->insertarUser($_POST['nombre'],$_POST['apellidos'],$_POST['email'],$_POST['pass'])){//cambiar
     echo "Usuario creado correctamente";
     // redireccion a mensaje correcto aqui
   }else{
