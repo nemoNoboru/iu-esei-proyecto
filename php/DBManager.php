@@ -101,9 +101,9 @@ class DBManager {
     }
     return false;
   }
-  public function insertarUser($name,$apellidos,$email,$pass){ //ATENTO A ESTA MIERDA Felipe
-    if(!$this->existeUser($email)){                              //Chekea si en mysql estan estos valores, que el copypaste que hiciste los puso trambolikos y acabo de ponerlos bien
-      $toQuery = "insert into Usuario (user_name,user_apellidos,user_email,user_pass) values ('".$name."','".$apellidos."','".$email."','".$pass."');";
+  public function insertarUser($name,$apellidos,$email,$pass){
+    if(!$this->existeUser($email)){                           
+      $toQuery = "insert into Usuario (user_name,user_email,user_pass) values ('".$name."','".$email."','".$pass."');";
       $this->doQuery($toQuery); // si no DIE es que todo fue bien. (en determinado momento podriamos hacer algo mejor)
       return true;
     }
