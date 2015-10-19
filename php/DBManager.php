@@ -5,7 +5,7 @@
  */
 class DBManager {
   private static $man = null;
-  
+
   protected function DBManager(){}
 
   public static function getInstance(){
@@ -218,6 +218,75 @@ class DBManager {
     $toQuery = "select rol_name from Rol";
     $result = $this->doQuery($toQuery);
     return $result->fetch_array();
+  }
+  public function existUserRol($user,$rol){
+    $toQuery = "select * from Usuario, Rol, User_Rol
+                where Usuario.user_name = '".$user."' and
+                      Rol.rol_name = '".$rol."' and
+                      Rol.rol_id = User_Rol.rol_id and
+                      Usuario.user_id = User_Rol.user_id";
+    $result = $this->doQuery($toQuery);
+    return $result->num_rows != 0;
+  }
+  public function existUserPag($user,$pag){
+    $toQuery = "select * from Usuario, Pagina, User_Pag
+                where Usuario.user_name = '".$user."' and
+                      Pagina.pag_name = '".$pag."' and
+                      Pagina.pag_id = User_Pag.pag_id and
+                      Usuario.user_id = User_Rol.user_id";
+    $result = $this->doQuery($toQuery);
+    return $result->num_rows != 0;
+  }
+  public function existUserFun($user,$fun){
+    $toQuery = "select * from Usuario, Funcionalidad, User_Fun
+                where Usuario.user_name = '".$user."' and
+                      Funcionalidad.fun_name = '".$fun."' and
+                      Funcionalidad.fun_id = User_Fun.fun_id and
+                      Usuario.user_id = User_Rol.user_id";
+    $result = $this->doQuery($toQuery);
+    return $result->num_rows != 0;
+  }
+  public function existPagFun($pag,$fun){
+    $toQuery = "select * from Pagina, Funcionalidad, Pag_Fun
+                where Pagina.pag_name = '".$pag."' and
+                      Funcionalidad.fun_name = '".$fun."' and
+                      Funcionalidad.fun_id = Pag_Fun.pag_id and
+                      Pagina.pag_id = Pag_Fun.pag_id";
+    $result = $this->doQuery($toQuery);
+    return $result->num_rows != 0;
+  }
+  public function existRolFun($rol,$fun){
+    $toQuery = "select * from Rol, Funcionalidad, Rol_Fun
+                where Rol.rol_name = '".$rol."' and
+                      Funcionalidad.fun_name = '".$fun."' and
+                      Funcionalidad.fun_id = Pag_Fun.pag_id and
+                      Rol.rol_id = Rol_Fun.rol_id";
+    $result = $this->doQuery($toQuery);
+    return $result->num_rows != 0;
+  }
+  public function getIdUser($user){
+    $toQuery = "select user_id from Usuario where user_name = '".$user."'";
+    $result = $this->doQuery($toQuery);
+    $result = $result->fetch_assoc();
+    return $result['user_id'];
+  }
+  public function getIdPag($pag){
+    $toQuery = "select pag_id from Pagina where pag_name = '".$pag."'";
+    $result = $this->doQuery($toQuery);
+    $result = $result->fetch_assoc();
+    return $result['pag_id'];
+  }
+  public function getIdRol($rol){
+    $toQuery = "select rol_id from Rol where rol_name = '".$rol."'";
+    $result = $this->doQuery($toQuery);
+    $result = $result->fetch_assoc();
+    return $result['rol_id'];
+  }
+  public function getIdFun($fun){
+    $toQuery = "select fun_id from Funcionalidad where fun_name = '".$fun."'";
+    $result = $this->doQuery($toQuery);
+    $result = $result->fetch_assoc();
+    return $result['fun_id'];
   }
 }
 ?>
