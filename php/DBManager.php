@@ -5,7 +5,7 @@
  */
 class DBManager {
   private static $man = null;
-  
+
   protected function DBManager(){}
 
   public static function getInstance(){
@@ -69,8 +69,8 @@ class DBManager {
     }
     return true;
   }
-  public function existeUser($name){
-    $toQuery = "select * from Usuario where user_name = '".$name."'";
+  public function existeUser($email){ //Esto tambien lo he tocado, email es mejor clave unica
+    $toQuery = "select * from Usuario where user_email = '".$email."'";
     $result = $this->doQuery($toQuery);
     if($result->num_rows==0){
       return false;
@@ -101,9 +101,9 @@ class DBManager {
     }
     return false;
   }
-  public function insertarUser($name,$pass,$desc,$email){
-    if(!$this->existeUser($name)){
-      $toQuery = "insert into Usuario (user_name,user_pass,user_desc,user_email) values ('".$name."','".$pass."','".$desc."','".$email."');";
+  public function insertarUser($name,$apellidos,$email,$pass){
+    if(!$this->existeUser($email)){                           
+      $toQuery = "insert into Usuario (user_name,user_email,user_pass) values ('".$name."','".$email."','".$pass."');";
       $this->doQuery($toQuery); // si no DIE es que todo fue bien. (en determinado momento podriamos hacer algo mejor)
       return true;
     }

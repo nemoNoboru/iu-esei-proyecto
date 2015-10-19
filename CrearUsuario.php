@@ -11,7 +11,7 @@
 
 		<h1>Crear Usuario</h1>
 		Nombre: <input type="text" name="nombre"><br/>
-		Apellidos: <input type="text" name="apellidos"><br/>
+		<!-- Apellidos: <input type="text" name="apellidos"><br/> solo como idea, estos dos campos se juntan en nombre-->
 		email: <input type="text" name="email"><br/>
 		Contraseña: <input type="password" name="pass1"><br/>
     Repetir Contraseña: <input type="password" name="pass2"><br/>
