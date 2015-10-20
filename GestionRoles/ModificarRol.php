@@ -1,6 +1,6 @@
 
     <?php include ("../views/header.php");
-    RenderBanner("Gestion de Roles");
+    RenderBanner("Gestión de Roles");
     ?>
 
     <?php include ("../views/lateral.php");
@@ -8,7 +8,7 @@
     ?>
 
     <div id="contenido">
-	    <form action="php/process_ModificarRol.php" method="post">
+	    <form action="../php/GestionRoles/process_ModificarRol.php" method="post">
             <h1>Modificar Rol</h1>
             Seleccionar Rol: <SELECT NAME="Lista"><OPTION>Rol 1 <OPTION>Rol 2 <OPTION>Rol 3 </SELECT><br><br>
             Nombre: <INPUT TYPE="text" NAME="nombre" SIZE=19 MAXLENGTH=19><br><br>

@@ -1,19 +1,26 @@
-<!-- Vista crear funcionalidad (formato modelo)
-     Creada por FVieira para interfaces de Usuario ET1 -->
 <?php include("../views/header.php");
-	RenderBanner("Gestion de Funcionalidades");
+	RenderBanner("Gestión de Funcionalidades");
 ?>
 
 <?php include("../views/lateral.php");
-	RenderLateral(3); //gestion paginas esta el 2 en el array de lateral
+	RenderLateral(3);
 ?>
 
 <div id="contenido">
-	<form action="../php/GestionFuncionalidades/process_crearFuncionalidad.php" method="post">
 
-		<h1>Crear funcionalidad</h1>
-		Nombre: <input type="text" name="nombre"><br/>
-		Descripcion: <textarea name="desc"></textarea><br/>
+	<form method=post action="../php/GestionFuncinalidades/process_ModificarFunc.php" method="post">
+		<h1>Modificar Funcionalidad</h1>
+		<div>
+		Seleccionar Funcionalidad
+		<select name="SelectFun">
+		   <option value="F1" selected="selected">Funcionalidad 1</option>
+		   <option value="F2">Funcionalidad 2</option>
+		   <option value="F3">Funcionalidad 3</option>
+		   <option value="F4">Funcionalidad 4</option>
+		</select><br>
+		Nombre Funcionalidad:<input type=text name="nombre"><br>
+		Descripcion:<textarea rows="5" cols="30" name="comentarios"></textarea><br>
+		</div>
 
 		<div class="tabla"> <!-- esta tabla va a ser creada dinamicamente en un futuro -->
 			<table>
@@ -45,12 +52,12 @@
 			</table>
 		</div>
 
-	  <input type="submit" onclick="history.go(-1)" value="Atras">
+		<input type="submit" onclick="history.go(-1)" value="Atras">
 		<input type="submit" value="Guardar" class="continuar"/>
 
 	</form>
-</div>
 
+</div>
 <?php include("../views/footer.php");
-	renderFooter("Admin"); //aqui va a ir el nombre de usuario de la sesion php
+	renderFooter("Admin");
 ?>
