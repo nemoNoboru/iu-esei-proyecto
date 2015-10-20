@@ -1,0 +1,43 @@
+<?php
+$Idioma = array(
+'Iniciar sesion' => 'Log In',
+'Contraseña' => 'Password',
+'Menu Principal' => 'Main Index',
+'Menu' => 'Index',
+'Roles' => 'Roles',
+'Usuarios' => 'Users',
+'Funcionalidades' => 'Features',
+'Paginas' => 'Pages',
+'Gestion de roles' => 'Roles management',
+'Gestion de usuarios' => 'Users management',
+'Gestion de funcionalidades' => 'Features management',
+'Gestion de paginas' => 'Pages management',
+'Rol' => 'Rol',
+'Crear rol' => 'Create rol',
+'Nombre' => 'First name',
+'Descripcion' => 'Description',
+'Eliminar' => 'Delete',
+'Crear' => 'Create',
+'Modificar' => 'Edit',
+'Atras' => 'Back',
+'Guardar' => 'Save',
+'Salir' => 'Exit',
+'Modificar rol' => 'Rol edit',
+'Seleccionar Rol' => 'Select rol',
+'Apellidos' => 'Last name',
+'Correo electronico' => 'Mail',
+'Repetir contraseña' => 'Repeat password',
+'Seleccionar usuario' => 'Select user',
+'Modificar contraseña' => 'Edit password',
+'Modificar contraseña de usuario' => 'Edit user password',
+'Crear funcionalidad' => 'Create feature',
+'Url' => 'Url',
+'Seleccionar pagina' => 'Select page',
+'Ha ocurrido un error' => 'An error has ocurred',
+'¿Esta usted seguro/a?' => 'Are you sure?',
+'Accion a confirmar' => 'Action to confirm',
+
+
+ 
+)
+?>
