@@ -6,7 +6,7 @@
         RenderLateral (1);
 ?>
 	<div id="contenido">
-	<form action="php/process_GestionRoles.php" method="post">
+	<form action="../php/GestionRoles/process_GestionRoles.php" method="post">
 	<div class="tabla">
 		<table>
     	<tr><th>Rol</th><th>Descripción</th><th>Eliminar</th></tr>
@@ -18,12 +18,7 @@
 </table>
 </div><br>
 </form>
-<form action="crearRol.php">
-    <input type="submit" value="Crear"/>
-</form>
-<form action="ModificarRol.php">
-    <input type="submit" value="Modificar" class="Modificar"/>
-</form>
+<button>Crear</button><button>Modificar</button>
 </div>
 <?php include ("../views/footer.php");
         RenderFooter("Admin");

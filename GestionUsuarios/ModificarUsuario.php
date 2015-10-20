@@ -9,7 +9,16 @@
 <div id="contenido">
 	<form action="../php/GestionUsuarios/process_crearUsuario.php" method="post">
 
-		<h1>Crear Usuario</h1>
+		<h1>Modificar Usuario</h1>
+
+
+    Seleccionar Funcionalidad
+		<select name="SelectUser">
+		   <option value="ID1" selected="selected">ID1</option>
+		   <option value="ID2">ID2</option>
+		   <option value="ID3">ID3</option>
+		   <option value="ID4">ID4</option>
+		</select><br>
 		Nombre: <input type="text" name="nombre"><br/>
 		Apellidos: <input type="text" name="apellidos"><br/>
 		email: <input type="text" name="email"><br/>
