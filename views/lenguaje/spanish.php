@@ -1,0 +1,43 @@
+<?php
+$Idioma = array(
+'Iniciar sesion' => 'Iniciar sesion',
+'Contraseña' => 'Contraseña',
+'Menu Principal' => 'Menu Principal',
+'Menu' => 'Menu',
+'Roles' => 'Roles',
+'Usuarios' => 'Usuarios',
+'Funcionalidades' => 'Funcionalidades',
+'Paginas' => 'Paginas',
+'Gestion de roles' => 'Gestion de roles',
+'Gestion de usuarios' => 'Gestion de usuarios',
+'Gestion de funcionalidades' => 'Gestion de funcionalidades',
+'Gestion de paginas' => 'Gestion de paginas',
+'Rol' => 'Rol',
+'Crear rol' => 'Crear rol',
+'Nombre' => 'Nombre',
+'Descripcion' => 'Descripcion',
+'Eliminar' => 'Eliminar',
+'Crear' => 'Crear',
+'Modificar' => 'Modificar',
+'Atras' => 'Atras',
+'Guardar' => 'Guardar',
+'Salir' => 'Salir',
+'Modificar rol' => 'Modificar rol',
+'Seleccionar Rol' => 'Seleccionar Rol',
+'Apellidos' => 'Apellidos',
+'Correo electronico' => 'Correo electronico',
+'Repetir contraseña' => 'Repetir contraseña',
+'Seleccionar usuario' => 'Seleccionar usuario',
+'Modificar contraseña' => 'Modificar contraseña',
+'Modificar contraseña de usuario' => 'Modificar contraseña de usuario',
+'Crear funcionalidad' => 'Crear funcionalidad',
+'Url' => 'Url',
+'Seleccionar pagina' => 'Seleccionar pagina',
+'Ha ocurrido un error' => 'Ha ocurrido un error',
+'¿Esta usted seguro/a?' => '¿Esta usted seguro/a?',
+'Accion a confirmar' => 'Accion a confirmar',
+
+
+ 
+)
+?>
