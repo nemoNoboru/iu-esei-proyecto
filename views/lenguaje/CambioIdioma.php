@@ -1,7 +1,7 @@
 <?php
 //Pagina para detectar y mostrar idioma.
 
-// Geteamos la variable de idioma
+// Recibimos el nuevo idioma a mostrar
 $Lenguaje = $_GET['idioma'];
 
 // iniciamos sesion
@@ -20,7 +20,7 @@ $salto = str_replace('/','',$salto);
 //en el caso de que la pagina de vuelta sea ProcesarLogin.php o ProcesarRegistro.php lo
 //enviaremos a Login.php o Registro.php
 if (!strpos($salto,'ProcesarLogin'))
-	$salto = '../controllers/Login.php';
+	$salto = 'ruta/Login.php';	//aqui la ruta que corresponda
 
 
 

@@ -5,16 +5,18 @@ function CargaIdioma()
 {
 
 	//incluimos el array de idioma correspondiente con el indicado en la session
+	//Simplemente recivo el idioma elegido y mediante la siguiente funcion carga 
+	//el arrai correspondiente al idioma.
 	switch ($_SESSION['idioma'])
 	{
 	case 'espanhol':
-		include '../views/lenguaje/Spanish.php';
+		include 'Spanish.php';
 		break;
 	case 'english':
-		include '../views/lenguaje/English.php';
+		include 'English.php';
 		break;
 	DEFAULT:
-		include '../views/lenguaje/Spanish.php';
+		include 'Spanish.php';
 		break;
 	}
 	return $Idioma;
