@@ -181,10 +181,10 @@ class DBManager {
   }
   public function listFunsByRol($rol){
     $toQuery = "select fun_name
-                from Funcionalidad , Rol , User_Rol
+                from Funcionalidad , Rol , Rol_Fun
                 where rol_name = '".$rol."' and
-                      Rol.rol_id = User_Rol.rol_id and
-                      User_Rol.user_id = Funcionalidad.user_id";
+                      Rol.rol_id = Rol_Fun.rol_id and
+                      Rol_Fun.fun_id = Funcionalidad.fun_id";
     $result = $this->doQuery($toQuery);
     return $this->returnArray($result);
   }
@@ -257,7 +257,7 @@ class DBManager {
                 where Usuario.user_name = '".$user."' and
                       Pagina.pag_name = '".$pag."' and
                       Pagina.pag_id = User_Pag.pag_id and
-                      Usuario.user_id = User_Rol.user_id";
+                      Usuario.user_id = User_Pag.user_id";
     $result = $this->doQuery($toQuery);
     return $result->num_rows != 0;
   }
@@ -266,7 +266,7 @@ class DBManager {
                 where Usuario.user_name = '".$user."' and
                       Funcionalidad.fun_name = '".$fun."' and
                       Funcionalidad.fun_id = User_Fun.fun_id and
-                      Usuario.user_id = User_Rol.user_id";
+                      Usuario.user_id = User_Fun.user_id";
     $result = $this->doQuery($toQuery);
     return $result->num_rows != 0;
   }
@@ -332,7 +332,7 @@ class DBManager {
       return false;
     }else{
       $userid = $this->getIdUser($user);
-      $rolid  = $this->getIdRol($pag);
+      $rolid  = $this->getIdRol($rol);
       if($rolid && $userid){
         $toQuery = "insert into User_Rol (user_id,rol_id) values ('".$userid."','".$rolid."')";
         $this->doQuery($toQuery);

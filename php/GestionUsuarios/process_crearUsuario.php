@@ -9,20 +9,20 @@ if($_POST['pass1']==$_POST['pass2']){
   if($man->insertarUser($_POST['nombre'],$_POST['pass1'],$_POST['desc'],$_POST['email'])){//cambiar
     $roles = $man->listRols();
     foreach ($roles as $rol) {
-      if($_POST[$rol['rol_name']]=='Yes'){
-        $man->insertRelationUserRol($_POST['nombre'],$rol);
+      if(isset($_POST[$rol['rol_name']])){
+        $man->insertRelationUserRol($_POST['nombre'],$rol['rol_name']);
       }
     }
     $paginas = $man->listPags();
     foreach ($paginas as $pag) {
-      if($_POST[$pag['pag_name']]=='Yes'){
-        $man->insertRelationUserPag($_POST['nombre'],$pag);
+      if(isset($_POST[$pag['pag_name']])){
+        $man->insertRelationUserPag($_POST['nombre'],$pag['pag_name']);
       }
     }
     $funcionalidades = $man->listFuns();
     foreach ($funcionalidades as $fun) {
-      if($_POST[$fun['fun_name']]=='Yes'){
-        $man->insertRelationUserRol($_POST['nombre'],$fun);
+      if(isset($_POST[$fun['fun_name']])){
+        $man->insertRelationUserRol($_POST['nombre'],$fun['fun_name']);
       }
     }
     echo "Usuario creado correctamente";
