@@ -24,7 +24,8 @@
 				<tr><td>/url1</td><td>Rol1</td><td><button>Editar</button></td><td><button>x</button></td></tr>
 			</table>
 		</div>
-		<button>Crear</button><button>Modificar</button>
+		<button onclick="location.href='CrearPagina.php'">Crear</button>
+		<button onclick="location.href='ModificarPagina.php'">Modificar</button>
 </div>
 
 <?php include("../views/footer.php");

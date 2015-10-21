@@ -18,7 +18,8 @@
 </table>
 </div><br>
 </form>
-<button>Crear</button><button>Modificar</button>
+<button onclick="location.href='CrearRol.php'">Crear</button>
+<button onclick="location.href='ModificarRol.php'">Modificar</button>
 </div>
 <?php include ("../views/footer.php");
         RenderFooter("Admin");
