@@ -190,15 +190,6 @@ class DBManager {
     $result = $this->doQuery($toQuery);
     return $result->fetch_array();
   }
-  public function listFunByFun($fun){ //Checkea esta funcion, felipe
-    $toQuery = "select fun_name
-                from Funcionalidad , Funcionalidad , User_Fun
-                where fun_name = '".$rol."' and
-                      Funcionalidad.fun_id = User_Fun.fun_id and
-                      User_Fun.user_id = Funcionalidad.user_id";
-    $result = $this->doQuery($toQuery);
-    return $result->fetch_array();
-  }
   public function listFuns(){
     $toQuery = "select fun_name from Funcionalidad";
     $result = $this->doQuery($toQuery);
@@ -287,6 +278,81 @@ class DBManager {
     $result = $this->doQuery($toQuery);
     $result = $result->fetch_assoc();
     return $result['fun_id'];
+  }
+  public function insertRelationUserPag($user,$pag){
+    if($this->existUserPag($user,$pag)){
+      return false;
+    }else{
+      $userid = $this->getIdUser($user);
+      $pagid  = $this->getIdPag($pag);
+      if($pagid && $userid){
+        $toQuery = "insert into User_Pag (user_id,pag_id) values ('".$userid."','".$pagid."')";
+        $this->doQuery($toQuery);
+      }else{
+        return false;
+      }
+    }
+    return true;
+  }
+  public function insertRelationUserRol($user,$rol){
+    if($this->existUserRol($user,$rol)){
+      return false;
+    }else{
+      $userid = $this->getIdUser($user);
+      $rolid  = $this->getIdRol($pag);
+      if($rolid && $userid){
+        $toQuery = "insert into User_Rol (user_id,rol_id) values ('".$userid."','".$rolid."')";
+        $this->doQuery($toQuery);
+      }else{
+        return false;
+      }
+    }
+    return true;
+  }
+  public function insertRelationUserFun($user,$fun){
+    if($this->existUserFun($user,$fun)){
+      return false;
+    }else{
+      $userid = $this->getIdUser($user);
+      $funid  = $this->getIdFun($fun);
+      if($funid && $userid){
+        $toQuery = "insert into User_Fun (user_id,fun_id) values ('".$userid."','".$funid."')";
+        $this->doQuery($toQuery);
+      }else{
+        return false;
+      }
+    }
+    return true;
+  }
+  public function insertRelationPagFun($pag,$fun){
+    if($this->existPagFun($pag,$fun)){
+      return false;
+    }else{
+      $pagid =  $this->getIdPag($user);
+      $funid  = $this->getIdFun($fun);
+      if($funid && $pagid){
+        $toQuery = "insert into Pag_Fun (pag_id,fun_id) values ('".$pagid."','".$funid."')";
+        $this->doQuery($toQuery);
+      }else{
+        return false;
+      }
+    }
+    return true;
+  }
+  public function insertRelationRolFun($rol,$fun){
+    if($this->existRolFun($rol,$fun)){
+      return false;
+    }else{
+      $rolid =  $this->getIdRol($rol);
+      $funid  = $this->getIdFun($fun);
+      if($funid && $rolid){
+        $toQuery = "insert into Rol_Fun (rol_id,fun_id) values ('".$rolid."','".$funid."')";
+        $this->doQuery($toQuery);
+      }else{
+        return false;
+      }
+    }
+    return true;
   }
 }
 ?>
