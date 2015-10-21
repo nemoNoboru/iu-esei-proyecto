@@ -1,15 +1,15 @@
 <?php
-//Funcion que nos detecta el idioma y retorna el idioma detectado.
+//Funcion que nos detecta el idioma y retorna el array con el idioma detectado.
 
 function CargaIdioma()
 {
 
 	//incluimos el array de idioma correspondiente con el indicado en la session
-	//Simplemente recivo el idioma elegido y mediante la siguiente funcion carga 
-	//el arrai correspondiente al idioma.
+	//Simplemente recibo el idioma elegido y mediante la siguiente funcion carga 
+	//el array correspondiente al idioma.
 	switch ($_SESSION['idioma'])
 	{
-	case 'espanhol':
+	case 'spanish':
 		include 'Spanish.php';
 		break;
 	case 'english':

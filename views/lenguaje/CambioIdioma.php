@@ -17,13 +17,6 @@ $salto = strrchr($_SERVER['HTTP_REFERER'],'/');
 // eliminamos el / del nombre de la pagina
 $salto = str_replace('/','',$salto);
 
-//en el caso de que la pagina de vuelta sea ProcesarLogin.php o ProcesarRegistro.php lo
-//enviaremos a Login.php o Registro.php
-if (!strpos($salto,'ProcesarLogin'))
-	$salto = 'ruta/Login.php';	//aqui la ruta que corresponda
-
-
-
 // invocamos la pagina desde donde se llamo a esta
 header("location: ".$salto." "); 
 
