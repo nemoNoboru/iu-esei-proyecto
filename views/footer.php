@@ -2,7 +2,7 @@
 	function renderFooter($nombre){
 		echo "<div id='footer'> ";
 		echo $nombre;
-		echo " <span class='salir'>Salir</span></div>";
+		echo " <span class='salir'><a href='../../GestionUsuarios/login.php'>Salir</a></span></div>";
 	}
 ?>
 </body>

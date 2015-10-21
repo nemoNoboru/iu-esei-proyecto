@@ -17,7 +17,8 @@
 		</table>
 	</div>
 
-		<button>Crear</button><button>Modificar</button>
+		<button onclick="location.href='CrearFuncionalidad.php'">Crear</button>
+		<button onclick="location.href='ModificarFuncionalidad.php'">Modificar</button>
 
 </div>
 

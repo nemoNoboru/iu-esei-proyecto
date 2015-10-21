@@ -39,7 +39,8 @@ Hasta aqui-->
     <tr><td>Username3</td><td>ID3</td><td>email3</td><td><button>X</button> </td></tr>
   </table>
 </div>
-<button>Crear</button><button>Modificar</button>
+<button onclick="location.href='CrearUsuario.php'">Crear</button>
+<button onclick="location.href='ModificarUsuario.php'">Modificar</button>
 </div>
 
 <?php include("../views/footer.php");
