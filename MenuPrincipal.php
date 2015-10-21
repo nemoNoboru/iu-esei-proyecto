@@ -9,7 +9,7 @@
 <div class="BotonMenu"><a href="GestionRoles/GestionRoles.php">ROLES</a></div>
 <div class="BotonMenu"><a href="GestionUsuarios/GestionUsuarios.php">USUARIOS</a></div>
 <div class="BotonMenu"><a href="GestionFuncionalidades/GestionFuncionalidades.php">FUNCIONALIDADES</a></div>
-<div class="BotonMenu"><a href="GestionPagina/GestionPaginas.php">PÁGINAS</a></div>
+<div class="BotonMenu"><a href="GestionPaginas/GestionPaginas.php">PÁGINAS</a></div>
 </div>
 
 </br></br></br></br>
