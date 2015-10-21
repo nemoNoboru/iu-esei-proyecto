@@ -387,25 +387,5 @@ class DBManager {
     }
     return true;
   }
-  public function listGestionRoles(){
-    $toQuery = "select rol_name,rol_desc from Rol";
-    $result = $this->doQuery($toQuery);
-    return $result->fetch_array();
-  }
-  public function listGestionUsers(){
-    $toQuery = "select user_name from Usuario";
-    $result = $this->doQuery($toQuery);
-    return $result->fetch_array();
-  }
-  public function listGestionPaginas(){
-    $toQuery = "select user_name from Usuario";
-    $result = $this->doQuery($toQuery);
-    return $result->fetch_array();
-  }
-  public function listGestionFuncionalidades(){
-    $toQuery = "select user_name from Usuario";
-    $result = $this->doQuery($toQuery);
-    return $result->fetch_array();
-  }
 }
 ?>
