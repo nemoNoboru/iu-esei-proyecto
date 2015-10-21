@@ -21,7 +21,6 @@ class DBManager {
       return true;
     }else{
       $this->db = new mysqli('localhost','AdminGSTR','AdminPass','GSTRDB');
-      echo "make new cursor to DDBB <br/>";
       if ($this->db->connect_errno) {
           echo "error connecting to BBDD";
           die("Failed to connect to MySQL: " . $this->db->connect_error);
