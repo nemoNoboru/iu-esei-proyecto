@@ -10,25 +10,14 @@
 		<h1>Crear Rol</h1>
 	    Nombre: <input type="text" name="nombre"><br><br>
 			Descripcion: <textarea name="desc"></textarea><br/>
-		<div class="tabla"> <!-- esta tabla va a ser creada dinamicamente en un futuro -->
-			<table>
-				<tr><th>Usuarios</th></tr>
-				<tr><td>Usuario1</td><td><input type="checkbox" name="Usuario1"/></td></tr>
-				<tr><td>Usuario2</td><td><input type="checkbox" name="Usuario2" checked="yes"/></td></tr>
-				<tr><td>Usuario3</td><td><input type="checkbox" name="Usuario3"/></td></tr>
-				<tr><td>usuario4</td><td><input type="checkbox" name="usuario4" checked="yes"/></td></tr>
-			</table>
-		</div>
+			<?php
+			$table_maker = new RenderTable;
+			$table_maker->tableBlankUsuario();
+			?>
 
-		<div class="tabla"> <!-- esta tabla va a ser creada dinamicamente en un futuro -->
-			<table>
-        <tr><th>Funcionalidades</th></tr>
-				<tr><td>Función 1</td><td><input type="checkbox" name="Funcionalidad1"/></td></tr>
-				<tr><td>Función 2</td><td><input type="checkbox" name="Funcionalidad2" checked="yes"/></td></tr>
-				<tr><td>Función 3</td><td><input type="checkbox" name="Funcionalidad3"/></td></tr>
-				<tr><td>Función 4</td><td><input type="checkbox" name="Funcionalidad4" checked="yes"/></td></tr>
-			</table>
-		</div>
+			<?php
+			$table_maker->tableBlankFuncionalidad();
+			?>
 
 	  <input type="submit" onclick="history.go(-1)" value="Atras">
 	  <form action="crearRol.php">
