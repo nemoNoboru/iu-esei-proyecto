@@ -9,6 +9,7 @@
   <body>
   <?php
   require_once "../views/renderTable.php";
+  require_once "../views/renderTableGestion.php";
   //Añadido array de Idioma, se debe hacer include Idioma en la Pagina que llame a header.
 	function Renderbanner($nombre){
 		echo '<div id="header"> <span class="cabecera">GSTR</span>'.$Idioma[$nombre].'</div>';
