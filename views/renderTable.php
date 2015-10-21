@@ -30,15 +30,15 @@
        $marked = false;
        if(is_array($relation)){
          foreach ($relation as $itemRelation) {
-           if($itemRelation==$allItem){
+           if(reset($itemRelation)==reset($allItem)){
              $marked = true;
            }
          }
        }
        if($marked){
-         $this->echoMarkedLine($allItem);
+         $this->echoMarkedLine(reset($allItem));
        }else{
-         $this->echoline($allItem);
+         $this->echoline(reset($allItem));
        }
      }
    }
@@ -46,7 +46,7 @@
      $this->echoInit("Usuario");
      $result = $this->man->listUsers();
      foreach ($result as $item) {
-       $this->echoline($item);
+       $this->echoline($item['user_name']);
      }
      $this->echoFin();
    }
@@ -54,7 +54,7 @@
      $this->echoInit("Rol");
      $result = $this->man->listRols();
      foreach ($result as $item) {
-       $this->echoline($item);
+       $this->echoline($item['rol_name']);
      }
      $this->echoFin();
    }
@@ -62,7 +62,7 @@
      $this->echoInit("Pagina");
      $result = $this->man->listPags();
      foreach ($result as $item) {
-       $this->echoline($item);
+       $this->echoline($item['pag_name']);
      }
      $this->echoFin();
    }
@@ -70,7 +70,7 @@
      $this->echoInit("Funcionalidad");
      $result = $this->man->listFuns();
      foreach ($result as $item) {
-       $this->echoline($item);
+       $this->echoline($item['fun_name']);
      }
      $this->echoFin();
    }

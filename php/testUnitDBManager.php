@@ -36,7 +36,7 @@
     $result = $man->listRolesByFun("userDummy1");
     $result = $man->listUsersByRol("rolDummy1");
     foreach ($result as $item) {
-      echo $item;
+      echo reset($item);
     }
   }
   $table->tableRolByUser("benis");

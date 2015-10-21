@@ -29,6 +29,14 @@ class DBManager {
       return true;
     }
   }
+  private function returnArray($result){
+    $arrayToReturn = array();
+    while($r = $result->fetch_assoc()){
+      array_push($arrayToReturn,$r);
+    }
+    return $arrayToReturn;
+  }
+
   public function tryLogin($user,$pass){
     $toQuery = "select * from Usuario where user_name='".$user."' and user_pass = '".$pass."'";
     $result = $this->doQuery($toQuery);
@@ -115,7 +123,7 @@ class DBManager {
                       Usuario.user_id = User_Rol.user_id and
                       User_Rol.rol_id = Rol.rol_id";
     $result = $this->doQuery($toQuery);
-    return $result->fetch_array();
+    return $this->returnArray($result);
   }
   public function listRolesByFun($fun){
     $toQuery = "select rol_name
@@ -124,7 +132,7 @@ class DBManager {
                       Funcionalidad.fun_id = Rol_Fun.fun_id and
                       Rol_Fun.rol_id = Rol.rol_id";
     $result = $this->doQuery($toQuery);
-    return $result->fetch_array();
+    return $this->returnArray($result);
   }
   public function listUsersByRol($rol){
     $toQuery = "select user_name
@@ -133,7 +141,7 @@ class DBManager {
                       Rol.rol_id = User_Rol.rol_id and
                       User_Rol.user_id = Usuario.user_id";
     $result = $this->doQuery($toQuery);
-    return $result->fetch_array();
+    return $this->returnArray($result);
   }
   public function listUsersByPag($pag){
     $toQuery = "select user_name
@@ -142,7 +150,7 @@ class DBManager {
                       Pagina.pag_id = Pag_Fun.pag_id and
                       Pag_Fun.user_id = Usuario.user_id";
     $result = $this->doQuery($toQuery);
-    return $result->fetch_array();
+    return $this->returnArray($result);
   }
   public function listUsersByFun($fun){
     $toQuery = "select user_name
@@ -151,7 +159,7 @@ class DBManager {
                       Funcionalidad.fun_id = User_Fun.fun_id and
                       User_Fun.user_id = Usuario.user_id";
     $result = $this->doQuery($toQuery);
-    return $result->fetch_array();
+    return $this->returnArray($result);
   }
   public function listPagsByUsers($user){
     $toQuery = "select pag_name
@@ -160,7 +168,7 @@ class DBManager {
                       Funcionalidad.fun_id = User_Pag.user_id and
                       User_Pag.pag_id = Pagina.pag_id";
     $result = $this->doQuery($toQuery);
-    return $result->fetch_array();
+    return $this->returnArray($result);
   }
   public function listPagsByFun($fun){
     $toQuery = "select pag_name
@@ -169,7 +177,7 @@ class DBManager {
                       Funcionalidad.fun_id = Pag_Fun.fun_id and
                       Pag_Fun.pag_id = Pagina.pag_id";
     $result = $this->doQuery($toQuery);
-    return $result->fetch_array();
+    return $this->returnArray($result);
   }
   public function listFunsByRol($rol){
     $toQuery = "select fun_name
@@ -178,7 +186,7 @@ class DBManager {
                       Rol.rol_id = User_Rol.rol_id and
                       User_Rol.user_id = Funcionalidad.user_id";
     $result = $this->doQuery($toQuery);
-    return $result->fetch_array();
+    return $this->returnArray($result);
   }
   public function listFunsByPag($pag){
     $toQuery = "select fun_name
@@ -187,27 +195,27 @@ class DBManager {
                       Pagina.pag_id = Pag_Fun.pag_id and
                       Pag_Fun.user_id = Funcionalidad.user_id";
     $result = $this->doQuery($toQuery);
-    return $result->fetch_array();
+    return $this->returnArray($result);
   }
   public function listFuns(){
     $toQuery = "select fun_name from Funcionalidad";
     $result = $this->doQuery($toQuery);
-    return $result->fetch_array();
+    return $this->returnArray($result);
   }
   public function listUsers(){
     $toQuery = "select user_name from Usuario";
     $result = $this->doQuery($toQuery);
-    return $result->fetch_array();
+    return $this->returnArray($result);
   }
   public function listPags(){
     $toQuery = "select pag_name from Pagina";
     $result = $this->doQuery($toQuery);
-    return $result->fetch_array();
+    return $this->returnArray($result);
   }
   public function listRols(){
     $toQuery = "select rol_name from Rol";
     $result = $this->doQuery($toQuery);
-    return $result->fetch_array();
+    return $this->returnArray($result);
   }
   public function existUserRol($user,$rol){
     $toQuery = "select * from Usuario, Rol, User_Rol
@@ -352,6 +360,26 @@ class DBManager {
       }
     }
     return true;
+  }
+  public function listGestionRoles(){
+    $toQuery = "select rol_name,rol_desc from Rol";
+    $result = $this->doQuery($toQuery);
+    return $result->fetch_array();
+  }
+  public function listGestionUsers(){
+    $toQuery = "select user_name from Usuario";
+    $result = $this->doQuery($toQuery);
+    return $result->fetch_array();
+  }
+  public function listGestionPaginas(){
+    $toQuery = "select user_name from Usuario";
+    $result = $this->doQuery($toQuery);
+    return $result->fetch_array();
+  }
+  public function listGestionFuncionalidades(){
+    $toQuery = "select user_name from Usuario";
+    $result = $this->doQuery($toQuery);
+    return $result->fetch_array();
   }
 }
 ?>
