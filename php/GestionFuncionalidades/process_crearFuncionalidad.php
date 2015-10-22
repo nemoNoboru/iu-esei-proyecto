@@ -3,9 +3,17 @@
  * Hecho por FVieira para interfaces de usuario ET1
  */
 
-require_once("DBManager.php");
+require_once("../DBManager.php");
 $man = DBManager::getInstance(); //crea instancia
 $man->connect(); //conectate a la bbdd
+
+if($man->insertarfun($_POST['nombre'],$_POST['desc'])){
+  echo "funcionalidad creada correctamente";
+  // redireccion a mensaje correcto aqui
+}else{
+  echo "Error creado la funcionalidad, ya existia una funcionalidad con ese nombre";
+  // redireccion a mensaje de error aqui
+}
 
 $paginas = $man->listPags();
 foreach ($paginas as $pag) {
@@ -27,12 +35,15 @@ foreach ($roles as $rol) {
     }
   }
 }
-if($man->insertarfun($_POST['nombre'],$_POST['desc'])){
-  echo "funcionalidad creada correctamente";
-  // redireccion a mensaje correcto aqui
-}else{
-  echo "Error creado la funcionalidad, ya existia una funcionalidad con ese nombre";
-  // redireccion a mensaje de error aqui
+$usuarios = $man->listUsers();
+foreach ($usuarios as $user) {
+  if(isset($_POST[$user['user_name']])){
+    if($man->insertRelationUserFun($user['user_name'],$_POST['nombre'])){
+      echo "relacion insertada correctamente";
+    }else{
+      echo "error insertando la relacion";
+    }
+  }
 }
 
 ?>

@@ -283,7 +283,7 @@ class DBManager {
     $toQuery = "select * from Rol, Funcionalidad, Rol_Fun
                 where Rol.rol_name = '".$rol."' and
                       Funcionalidad.fun_name = '".$fun."' and
-                      Funcionalidad.fun_id = Pag_Fun.pag_id and
+                      Funcionalidad.fun_id = Rol_Fun.fun_id and
                       Rol.rol_id = Rol_Fun.rol_id";
     $result = $this->doQuery($toQuery);
     return $result->num_rows != 0;
@@ -361,7 +361,7 @@ class DBManager {
     if($this->existPagFun($pag,$fun)){
       return false;
     }else{
-      $pagid =  $this->getIdPag($user);
+      $pagid =  $this->getIdPag($pag);
       $funid  = $this->getIdFun($fun);
       if($funid && $pagid){
         $toQuery = "insert into Pag_Fun (pag_id,fun_id) values ('".$pagid."','".$funid."')";

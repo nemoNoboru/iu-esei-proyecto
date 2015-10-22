@@ -3,9 +3,17 @@
  * Hecho por FVieira para interfaces de usuario ET1
  */
 
-require_once("DBManager.php");
+require_once("../DBManager.php");
 $man = DBManager::getInstance(); //crea instancia
 $man->connect(); //conectate a la bbdd
+
+if($man->insertarRol($_POST['nombre'],$_POST['desc'])){
+  echo "Pagina creada correctamente";
+  // redireccion a mensaje correcto aqui
+}else{
+  echo "Error creado el rol, ya existia un rol con ese nombre";
+  // redireccion a mensaje de error aqui
+}
 
 $usuarios = $man->listUsers();
 foreach ($usuarios as $user) {
@@ -27,14 +35,6 @@ foreach ($funcionalidades as $fun) {
       echo "error insertando la relacion";
     }
   }
-}
-
-if($man->insertarRol($_POST['nombre'],$_POST['desc'])){
-  echo "Pagina creada correctamente";
-  // redireccion a mensaje correcto aqui
-}else{
-  echo "Error creado el rol, ya existia un rol con ese nombre";
-  // redireccion a mensaje de error aqui
 }
 
 ?>
