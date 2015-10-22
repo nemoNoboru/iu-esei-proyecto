@@ -1,5 +1,6 @@
 <?php
 $Idioma = array(
+'Login' => 'Log In',
 'Iniciar sesion' => 'Log In',
 'Contraseña' => 'Password',
 'Menu Principal' => 'Main Index',
@@ -8,10 +9,12 @@ $Idioma = array(
 'Usuarios' => 'Users',
 'Funcionalidades' => 'Features',
 'Paginas' => 'Pages',
-'Gestion de roles' => 'Roles management',
-'Gestion de usuarios' => 'Users management',
-'Gestion de funcionalidades' => 'Features management',
-'Gestion de paginas' => 'Pages management',
+'Gestión de Roles' => 'Roles management',
+'Gestión de Usuarios' => 'Users management',
+'Gestion de Usuario' => 'Users management',
+'Gestión de Funcionalidades' => 'Features management',
+'Gestion de Páginas' => 'Pages management',
+'Gestión de Páginas' => 'Pages management',
 'Rol' => 'Rol',
 'Crear rol' => 'Create rol',
 'Nombre' => 'First name',
