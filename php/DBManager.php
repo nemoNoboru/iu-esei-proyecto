@@ -220,25 +220,25 @@ class DBManager {
 
 
 //ESTOY SIN HACER
-  public function listGestionRoles(){
-    $toQuery = "select rol_name,rol_desc from Rol";
+  public function listGestionFuns(){
+    $toQuery = "select fun_name, fun_desc from Funcionalidad";
     $result = $this->doQuery($toQuery);
-    return $result->fetch_array();
+    return $this->returnArray($result);
   }
   public function listGestionUsers(){
-    $toQuery = "select user_name from Usuario";
+    $toQuery = "select user_name, user_id, user_email from Usuario";
     $result = $this->doQuery($toQuery);
-    return $result->fetch_array();
+    return $this->returnArray($result);
   }
-  public function listGestionPaginas(){
-    $toQuery = "select user_name from Usuario";
+  public function listGestionPags(){
+    $toQuery = "select pag_name, pag_desc  from Pagina";
     $result = $this->doQuery($toQuery);
-    return $result->fetch_array();
+    return $this->returnArray($result);
   }
-  public function listGestionFuncionalidades(){
-    $toQuery = "select user_name from Usuario";
+  public function listGestionRols(){
+    $toQuery = "select rol_name,rol_desc from Rol";
     $result = $this->doQuery($toQuery);
-    return $result->fetch_array();
+    return $this->returnArray($result);
   }
 //HASTA AQUI
 
