@@ -9,7 +9,7 @@ if(!$man->tryLogin($_POST["username"],$_POST["pass"])){
   echo "está todo mal";
 }else{
   //caso positivo - Vamos al menu pricipal
-  header("location:../../MenuPrincipal.php");
+  header("location:../../Menu/MenuPrincipal.php");
 }
 
 ?>
