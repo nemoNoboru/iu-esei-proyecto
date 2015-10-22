@@ -6,6 +6,27 @@
 require_once("DBManager.php");
 $man = DBManager::getInstance(); //crea instancia
 $man->connect(); //conectate a la bbdd
+
+$paginas = $man->listPags();
+foreach ($paginas as $pag) {
+  if(isset($_POST[$pag['pag_name']])){
+    if($man->insertRelationPagFun($pag['pag_name'],$_POST['nombre'])){
+      echo "relacion insertada correctamente";
+    }else{
+      echo "error insertando la relacion";
+    }
+  }
+}
+$roles = $man->listRols();
+foreach ($roles as $rol) {
+  if(isset($_POST[$rol['rol_name']])){
+    if($man->insertRelationRolFun($rol['rol_name'],$_POST['nombre'])){
+      echo "relacion insertada correctamente";
+    }else{
+      echo "error insertando la relacion";
+    }
+  }
+}
 if($man->insertarfun($_POST['nombre'],$_POST['desc'])){
   echo "funcionalidad creada correctamente";
   // redireccion a mensaje correcto aqui
