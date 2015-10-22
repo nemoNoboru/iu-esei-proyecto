@@ -19,8 +19,7 @@
 			$table_maker->tableBlankFuncionalidad();
 			?>
 
-	  <input type="submit" onclick="history.go(-1)" value="Atras">
-	  <form action="crearRol.php">
+	  <input  onclick="history.go(-1)" value="Atras">
 		<input type="submit" value="Guardar" class="Guardar"/>
 
 	</form>

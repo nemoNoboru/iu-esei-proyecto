@@ -28,7 +28,7 @@
 		$table_maker->tableBlankUsuario();
 		?>
 
-	  <input type="submit" onclick="history.go(-1)" value="Atras">
+	  <input onclick="history.go(-1)" value="Atras">
 		<input type="submit" value="Guardar" class="continuar"/>
 
 	</form>
