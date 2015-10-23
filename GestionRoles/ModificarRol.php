@@ -39,5 +39,5 @@
     </form>
     </div>
     <?php include ("../views/footer.php");
-    RenderFooter("Admin");
+    RenderFooter();
     ?>

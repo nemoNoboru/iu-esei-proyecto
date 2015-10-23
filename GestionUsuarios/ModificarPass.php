@@ -28,5 +28,5 @@
 
 
 <?php include("../views/footer.php");
-  renderFooter("Admin"); //esto tiene que ser cambiado por un get de username en php
+  renderFooter(); //esto tiene que ser cambiado por un get de username en php
 ?>

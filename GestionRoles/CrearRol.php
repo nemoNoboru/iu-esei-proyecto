@@ -26,5 +26,5 @@
 </div>
 
 <?php include("../views/footer.php");
-	renderFooter("Admin"); //aqui va a ir el nombre de usuario de la sesion php
+	renderFooter(); //aqui va a ir el nombre de usuario de la sesion php
 ?>

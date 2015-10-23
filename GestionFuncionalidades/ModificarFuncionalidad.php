@@ -59,5 +59,5 @@
 
 </div>
 <?php include("../views/footer.php");
-	renderFooter("Admin");
+	renderFooter();
 ?>

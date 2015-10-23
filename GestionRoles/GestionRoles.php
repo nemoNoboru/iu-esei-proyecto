@@ -17,5 +17,5 @@
 	<button onclick="location.href='ModificarRol.php'">Modificar</button>
 </div>
 <?php include ("../views/footer.php");
-        RenderFooter("Admin");
+        RenderFooter();
 ?>
