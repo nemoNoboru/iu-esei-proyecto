@@ -5,7 +5,7 @@
 	<div class='T1'>Autentificación</div>
 	<form action="../php/GestionUsuarios/ProcesarLogin.php" method="post">
 	ID: <input type="text" name="username"><br>
-	Contraseña: <input type="text" name="pass"><br>
+	Contraseña: <input type="password" name="pass"><br>
 	<input type="submit" name="login" value="Login">
 	</form>
 

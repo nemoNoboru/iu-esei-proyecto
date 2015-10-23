@@ -220,25 +220,25 @@ class DBManager {
 
 
 //ESTOY SIN HACER
-  public function listGestionRoles(){
-    $toQuery = "select rol_name,rol_desc from Rol";
+  public function listGestionFuns(){
+    $toQuery = "select fun_name, fun_desc from Funcionalidad";
     $result = $this->doQuery($toQuery);
-    return $result->fetch_array();
+    return $this->returnArray($result);
   }
   public function listGestionUsers(){
-    $toQuery = "select user_name from Usuario";
+    $toQuery = "select user_name, user_id, user_email from Usuario";
     $result = $this->doQuery($toQuery);
-    return $result->fetch_array();
+    return $this->returnArray($result);
   }
-  public function listGestionPaginas(){
-    $toQuery = "select user_name from Usuario";
+  public function listGestionPags(){
+    $toQuery = "select pag_name, pag_desc  from Pagina";
     $result = $this->doQuery($toQuery);
-    return $result->fetch_array();
+    return $this->returnArray($result);
   }
-  public function listGestionFuncionalidades(){
-    $toQuery = "select user_name from Usuario";
+  public function listGestionRols(){
+    $toQuery = "select rol_name,rol_desc from Rol";
     $result = $this->doQuery($toQuery);
-    return $result->fetch_array();
+    return $this->returnArray($result);
   }
 //HASTA AQUI
 
@@ -283,7 +283,7 @@ class DBManager {
     $toQuery = "select * from Rol, Funcionalidad, Rol_Fun
                 where Rol.rol_name = '".$rol."' and
                       Funcionalidad.fun_name = '".$fun."' and
-                      Funcionalidad.fun_id = Pag_Fun.pag_id and
+                      Funcionalidad.fun_id = Rol_Fun.fun_id and
                       Rol.rol_id = Rol_Fun.rol_id";
     $result = $this->doQuery($toQuery);
     return $result->num_rows != 0;
@@ -361,7 +361,7 @@ class DBManager {
     if($this->existPagFun($pag,$fun)){
       return false;
     }else{
-      $pagid =  $this->getIdPag($user);
+      $pagid =  $this->getIdPag($pag);
       $funid  = $this->getIdFun($fun);
       if($funid && $pagid){
         $toQuery = "insert into Pag_Fun (pag_id,fun_id) values ('".$pagid."','".$funid."')";

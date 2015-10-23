@@ -6,9 +6,9 @@ require_once("../php/DBManager.php");
 
 
 class RenderTableGestion {
-  public function RenderTableGestion(){
-    $man = DBManager::getInstance(); //crea instancia
-    $man->connect(); //conectate a la bbdd
+  public function renderTableGestion(){
+    $this->man = DBManager::getInstance(); //crea instancia
+    $this->man->connect(); //conectate a la bbdd
   }
 //Privates para uso interno
   private function echoInit($arrayNames){
@@ -28,22 +28,45 @@ class RenderTableGestion {
   private function echoline($tupla){
     echo "<tr>";
     foreach($tupla as $campo){
-    echo "<td>".$campo."</td>";
+      echo "<td>".$campo."</td>";
     }
+    echo "<td><button>X</button></td>";
     echo "</tr>";
   }
+
 //Publics para paginas de Gestion
   public function tableRol(){
-    $this->echoInit($arrayNames=array("Nombre","Descripcion","Eliminar"));
-    //$result = $this->man->listUsers();
-    //foreach ($result as $item) {
-    //  $this->echoline($item);
-    //}
+    $this->echoInit($arrayNames=array("Rol","Descripcion","Eliminar"));
+    $result = $this->man->listGestionRols();
+    foreach ($result as $tupla) {
+      $this->echoline($tupla);
+    }
     $this->echoFin();
   }
-
-
-
+  public function tableFuncionalidad(){
+    $this->echoInit($arrayNames=array("Funcionalidad","Descripcion","Eliminar"));
+    $result = $this->man->listGestionFuns();
+    foreach ($result as $tupla) {
+      $this->echoline($tupla);
+    }
+    $this->echoFin();
+  }
+  public function tableUsuario(){
+    $this->echoInit($arrayNames=array("Usuario","ID","Email","Eliminar"));
+    $result = $this->man->listGestionUsers();
+    foreach ($result as $tupla) {
+      $this->echoline($tupla);
+    }
+    $this->echoFin();
+  }
+  public function tablePagina(){
+    $this->echoInit($arrayNames=array("Página","Descripcion","Eliminar"));
+    $result = $this->man->listGestionPags();
+    foreach ($result as $tupla) {
+      $this->echoline($tupla);
+    }
+    $this->echoFin();
+  }
 
 }
 

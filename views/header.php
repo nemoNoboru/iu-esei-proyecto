@@ -13,7 +13,7 @@
   //Añadido array de Idioma, se debe hacer include Idioma en la Pagina que llame a header.
 	function Renderbanner($nombre){
 		  include "lenguaje/English.php";
-
+      session_start();
 		echo '<div id="header"> <span class="cabecera"> GSTR </span>'.($Idioma[$nombre]).'</div>';
 	}
   ?>
