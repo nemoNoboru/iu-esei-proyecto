@@ -52,7 +52,7 @@
 			</table>
 		</div>
 
-		<input type="submit" onclick="history.go(-1)" value="Atras">
+		<button onclick="history.go(-1)">Atrás</button>
 		<input type="submit" value="Guardar" class="continuar"/>
 
 	</form>

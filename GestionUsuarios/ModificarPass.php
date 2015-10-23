@@ -17,7 +17,7 @@
     <h1>Modificar contraseña de usuario </h1>
     Contraseña: <input type="text" name="pass1"><br/>
     Repetir: <input type="text" name="pass2"><br/>
-    <input type="submit" value="Atrás" onclick="history.go(-1)">
+    <button onclick="history.go(-1)">Atrás</button>
     <input type="submit" value="Guardar" class="continuar">
 
   </form>

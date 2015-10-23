@@ -34,8 +34,8 @@
       				<tr><td>Función 4</td><td><input type="checkbox" name="Funcionalidad4" checked="yes"/></td></tr>
       			</table>
   		  </div>
-  	  <input type="submit" onclick="history.go(-1)" value="Atras">
-  		<input type="submit" value="Guardar" class="Guardar"/>
+        <button onclick="history.go(-1)">Atrás</button>
+  		  <input type="submit" value="Guardar" class="Guardar"/>
     </form>
     </div>
     <?php include ("../views/footer.php");
