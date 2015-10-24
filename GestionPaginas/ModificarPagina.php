@@ -17,7 +17,7 @@
 					<tr><td>URL 4</td><td><input type="checkbox" name="opcion1" value="check1">rol1</td><td><input type="checkbox" name="opcion1" value="check1">rol2</td><td><input type="checkbox" name="opcion1" value="check1">rol3</td></tr>
 				</table>
 			</div>
-			<input type="submit" onclick="history.go(-1)" value="Atras">
+			<button onclick="history.go(-1)">Atrás</button>
 			<input type="submit" value="continuar" class="continuar"/>
 	</form>
 </div>
