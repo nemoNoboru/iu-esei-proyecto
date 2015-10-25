@@ -1,14 +1,15 @@
 <?php
 $Idioma = array(
+'nick' => 'nickname',
 'Login' => 'Log In',
 'Iniciar sesion' => 'Log In',
 'Contraseña' => 'Password',
 'Menu Principal' => 'Main Index',
 'Menu' => 'Index',
-'Roles' => 'Roles',
-'Usuarios' => 'Users',
-'Funcionalidades' => 'Features',
-'Paginas' => 'Pages',
+'Roles' => 'Rol',
+'Usuario' => 'User',
+'Funcionalidad' => 'Feature',
+'Pagina' => 'Page',
 'Gestión de Roles' => 'Roles management',
 'Gestión de Usuarios' => 'Users management',
 'Gestion de Usuario' => 'Users management',
@@ -17,7 +18,7 @@ $Idioma = array(
 'Gestión de Páginas' => 'Pages management',
 'Rol' => 'Rol',
 'Crear rol' => 'Create rol',
-'Nombre' => 'First name',
+'Nombre' => 'Nickname',
 'Descripcion' => 'Description',
 'Eliminar' => 'Delete',
 'Crear' => 'Create',
@@ -39,8 +40,9 @@ $Idioma = array(
 'Ha ocurrido un error' => 'An error has ocurred',
 '¿Esta usted seguro/a?' => 'Are you sure?',
 'Accion a confirmar' => 'Action to confirm',
+'Crear usuario' => 'Create user',
+'Repetir contraseña' => 'Repeat pass',
+'permitir' => 'Grant',
 
-
- 
 )
 ?>
