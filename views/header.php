@@ -36,20 +36,20 @@
 			include '../views/lenguaje/English.php';
 			break;
 		}
-    echo "<nav class='navbar navbar-inverse'>";
-    echo "<div class='container-fluid'>";
+    echo "<nav class='navbar navbar-default'>";
+    echo "<div class='container'>";
     echo "<span class='navbar-brand'> GSTR </span>";
     echo "<p class='navbar-text'>".$Idioma[$nombre]."</p>";
-    echo "<ul class='nav navbar-nav'>";
-    echo '<li><a href="../php/CambioIdioma.php?leng=en"><img src="../views/img/ico_en.png"></a>';
-    echo '<li><a href="../php/CambioIdioma.php?leng=sp"><img src="../views/img/ico_es.png"></a>';
-    echo '<li><a href="../php/CambioIdioma.php?leng=br"><img src="../views/img/icono_br.png"></a>';
+    echo "<ul class='nav navbar-nav navbar-right'>";
+    echo '<li><a href="../php/CambioIdioma.php?leng=en">EN</a></li>';
+    echo '<li><a href="../php/CambioIdioma.php?leng=sp">ES</a></li>';
+    echo '<li><a href="../php/CambioIdioma.php?leng=br">BR</a></li>';
     echo '</ul>';
     echo "</div>";
     echo "</nav>";
 		//echo '<div id="header"> <span class="cabecera"> GSTR </span>'.($Idioma[$nombre]).'</div>';
 
 		//Prueba temporal para comprobar que funciona bien.
-		echo 'Sesion: '.$_SESSION["LE"];
+		//echo 'Sesion: '.$_SESSION["LE"];
 	}
   ?>
