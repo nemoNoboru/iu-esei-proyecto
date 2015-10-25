@@ -1,9 +1,26 @@
 <?php
   function RenderLateral($no){
-    $items = array("<a href='../GestionUsuarios/GestionUsuarios.php'>Gestion de Usuarios</a>",
-                    "<a href='../GestionRoles/GestionRoles.php'>Gestion de Roles</a>",
-                    "<a href='../GestionPaginas/GestionPaginas.php'>Gestion de Paginas</a>",
-                    "<a href='../GestionFuncionalidades/GestionFuncionalidades.php'>Gestion de Funcionalidades</a>");
+	  
+	switch ($_SESSION["LE"])
+		{
+		case 'sp':
+			include '../views/lenguaje/Spanish.php';
+			break;
+		case 'en':
+			include '../views/lenguaje/English.php';
+			break;
+		case 'br':
+			include '../views/lenguaje/Brasilian.php';
+			break;
+		DEFAULT:
+			include '../views/lenguaje/English.php';
+			break;
+		}
+
+    $items = array("<a href='../GestionUsuarios/GestionUsuarios.php'>".$Idioma['Gestión de Usuarios']."</a>",
+                    "<a href='../GestionRoles/GestionRoles.php'>".$Idioma['Gestión de Roles']."</a>",
+                    "<a href='../GestionPaginas/GestionPaginas.php'>".$Idioma['Gestión de Páginas']."</a>",
+                    "<a href='../GestionFuncionalidades/GestionFuncionalidades.php'>".$Idioma['Gestión de Funcionalidades']."</a>");
     echo "<div id='lateral'>";
     echo "<ul id='lista'>";
     echo "<li><span id='marcado'>";
