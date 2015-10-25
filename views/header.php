@@ -24,7 +24,7 @@
 	  switch ($_SESSION["LE"])
 		{
 		case 'sp':
-			include '../views/lenguaje/Spanish.php';
+			include '../views/lenguaje/spanish.php';
 			break;
 		case 'en':
 			include '../views/lenguaje/English.php';
@@ -42,8 +42,8 @@
     echo "<p class='navbar-text'>".$Idioma[$nombre]."</p>";
     echo "<ul class='nav navbar-nav'>";
     echo '<li><a href="../php/CambioIdioma.php?leng=en"><img src="../views/img/ico_en.png"></a>';
-    echo '<li><a href="../php/CambioIdioma.php?leng=en"><img src="../views/img/ico_es.png"></a>';
-    echo '<li><a href="../php/CambioIdioma.php?leng=en"><img src="../views/img/icono_br.png"></a>';
+    echo '<li><a href="../php/CambioIdioma.php?leng=sp"><img src="../views/img/ico_es.png"></a>';
+    echo '<li><a href="../php/CambioIdioma.php?leng=br"><img src="../views/img/icono_br.png"></a>';
     echo '</ul>';
     echo "</div>";
     echo "</nav>";
