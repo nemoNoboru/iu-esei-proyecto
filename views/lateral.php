@@ -4,7 +4,7 @@
 	switch ($_SESSION["LE"])
 		{
 		case 'sp':
-			include '../views/lenguaje/Spanish.php';
+			include '../views/lenguaje/spanish.php';
 			break;
 		case 'en':
 			include '../views/lenguaje/English.php';
