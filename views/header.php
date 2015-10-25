@@ -14,21 +14,20 @@
 	<a href="../php/CambioIdioma.php?leng=sp"><img src='../views/img/ico_es.png'></a> |
 	<a href="../php/CambioIdioma.php?leng=br"><img src='../views/img/icono_br.png'></a> |
   </p>
-  <?php
 
+  <?php
   require_once "../views/renderTable.php";
   require_once "../views/renderTableGestion.php";
   
   //Añadido array de Idioma, se debe hacer include Idioma en la Pagina que llame a header.
 	function Renderbanner($nombre){
 		//Cargo la sesion apra tener acceso a los datos.
-     session_start();
-		
+		@session_start();
 		//Comprobamos el valor de sesion y segun su valor cargo el array con el idioma deseado.
 	  switch ($_SESSION["LE"])
 		{
 		case 'sp':
-			include '../views/lenguaje/Spanish.php';
+			include '../views/lenguaje/spanish.php';
 			break;
 		case 'en':
 			include '../views/lenguaje/English.php';

@@ -5,5 +5,5 @@ session_start();
 	$_SESSION["LE"]='sp';
 	
 	//Redirijo a la pagina principal.
-	header('location:./Menu/MenuPrincipal.php');
+	header('location:./GestionUsuarios/Login.php');
 ?>

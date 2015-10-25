@@ -1,7 +1,7 @@
 <?php
 $Idioma = array(
 'Iniciar sesion' => 'Iniciar sesion',
-'Login' => 'Log In',
+'Login' => 'Logearse',
 'Contraseña' => 'Contraseña',
 'Menu Principal' => 'Menu Principal',
 'Menu' => 'Menu',
