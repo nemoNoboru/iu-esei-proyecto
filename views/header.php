@@ -1,14 +1,55 @@
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Login GSTR</title>
-
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GSTR</title>
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/gstr.css" rel="stylesheet">
   </head>
   <body>
   <?php
+
+  require_once "../views/renderTable.php";
+  require_once "../views/renderTableGestion.php";
+
+  //Añadido array de Idioma, se debe hacer include Idioma en la Pagina que llame a header.
 	function Renderbanner($nombre){
-		echo '<div id="header"> <span class="cabecera">GSTR</span>'.$nombre.'</div>';
+		//Cargo la sesion apra tener acceso a los datos.
+     session_start();
+
+		//Comprobamos el valor de sesion y segun su valor cargo el array con el idioma deseado.
+	  switch ($_SESSION["LE"])
+		{
+		case 'sp':
+			include '../views/lenguaje/spanish.php';
+			break;
+		case 'en':
+			include '../views/lenguaje/English.php';
+			break;
+		case 'br':
+			include '../views/lenguaje/Brasilian.php';
+			break;
+		DEFAULT:
+			include '../views/lenguaje/English.php';
+			break;
+		}
+    echo "<nav class='navbar navbar-default'>";
+    echo "<div class='container'>";
+    echo "<span class='navbar-brand'> GSTR </span>";
+    echo "<p class='navbar-text'>".$Idioma[$nombre]."</p>";
+    echo "<ul class='nav navbar-nav navbar-right'>";
+    echo '<li><a href="../php/CambioIdioma.php?leng=en">EN</a></li>';
+    echo '<li><a href="../php/CambioIdioma.php?leng=sp">ES</a></li>';
+    echo '<li><a href="../php/CambioIdioma.php?leng=br">BR</a></li>';
+    echo '</ul>';
+    echo "</div>";
+    echo "</nav>";
+		//echo '<div id="header"> <span class="cabecera"> GSTR </span>'.($Idioma[$nombre]).'</div>';
+
+		//Prueba temporal para comprobar que funciona bien.
+		//echo 'Sesion: '.$_SESSION["LE"];
 	}
   ?>
