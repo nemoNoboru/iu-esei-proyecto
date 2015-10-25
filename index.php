@@ -3,7 +3,7 @@
 session_start();
 
 	$_SESSION["LE"]='sp';
-	
+
 	//Redirijo a la pagina principal.
-	header('location:./GestionUsuarios/Login.php');
+	header('location:./GestionUsuarios/login.php');
 ?>
