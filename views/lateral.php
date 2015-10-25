@@ -1,6 +1,6 @@
 <?php
   function RenderLateral($no){
-	  
+
 	switch ($_SESSION["LE"])
 		{
 		case 'sp':
@@ -21,12 +21,12 @@
                     "<a href='../GestionRoles/GestionRoles.php'>".$Idioma['Gestión de Roles']."</a>",
                     "<a href='../GestionPaginas/GestionPaginas.php'>".$Idioma['Gestión de Páginas']."</a>",
                     "<a href='../GestionFuncionalidades/GestionFuncionalidades.php'>".$Idioma['Gestión de Funcionalidades']."</a>");
-    echo "<div id='lateral'>";
-    echo "<ul id='lista'>";
-    echo "<li><span id='marcado'>";
+    echo "<div class=' lateral col-md-3 col-sm-12'>";
+    echo "<ul class='nav nav-pills nav-stacked'>";
+    echo "<li class= 'active'>";
     echo $items[$no];
     unset($items[$no]);
-    echo "</span></li>";
+    echo "</li>";
     foreach ($items as $item) {
       echo "<li>".$item."</li>";
     }
