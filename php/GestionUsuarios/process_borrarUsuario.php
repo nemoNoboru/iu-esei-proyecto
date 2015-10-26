@@ -1,6 +1,6 @@
 <?php
 //Geteamos la id a borrar
-$borrar = $_GET["id"];
+$delete_id = $_GET["id"];
 
 //Conexion con base de datos
 
