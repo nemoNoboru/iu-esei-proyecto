@@ -1,21 +1,6 @@
 <?php
   function RenderLateral($no){
-
-	switch ($_SESSION["LE"])
-		{
-		case 'sp':
-			include '../views/lenguaje/spanish.php';
-			break;
-		case 'en':
-			include '../views/lenguaje/English.php';
-			break;
-		case 'br':
-			include '../views/lenguaje/Brasilian.php';
-			break;
-		DEFAULT:
-			include '../views/lenguaje/English.php';
-			break;
-		}
+    $Idioma = getIdioma();
 
     $items = array("<a href='../GestionUsuarios/GestionUsuarios.php'>".$Idioma['Gestión de Usuarios']."</a>",
                     "<a href='../GestionRoles/GestionRoles.php'>".$Idioma['Gestión de Roles']."</a>",

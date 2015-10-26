@@ -3,6 +3,8 @@
  * Creada por FVieira para el proyecto de interfaces de usuario
  */
  require_once("../php/DBManager.php");
+ require_once("header.php");
+ $Idioma = getIdioma();
 
  class RenderTable {
    public function renderTable(){
@@ -11,8 +13,9 @@
    }
 
    private function echoInit($nameTable){
+     global $Idioma;
      echo  '<table class="table table-striped">';
-     echo  '<thead><tr><th>'.$nameTable.'</th><th class="text-right">Permitir</th></tr></thead>';
+     echo  '<thead><tr><th>'.$Idioma[$nameTable].'</th><th class="text-right">'.$Idioma['permitir'].'</th></tr></thead>';
      echo  '<tbody>';
    }
    private function echoFin(){

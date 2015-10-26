@@ -7,7 +7,7 @@
 		}else{
 			echo "<span class='username'>anon</span>";
 		}
-		echo "<a href='../../GestionUsuarios/login.php'><span  class='text-right'> Salir</span></a>";
+		echo "<a href='../GestionUsuarios/login.php'><span  class='text-right'> Salir</span></a>";
 		echo "</footer>";
 	}
 ?>

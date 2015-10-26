@@ -19,23 +19,8 @@
 	function Renderbanner($nombre){
 		//Cargo la sesion apra tener acceso a los datos.
      session_start();
-
+     $Idioma = getIdioma();
 		//Comprobamos el valor de sesion y segun su valor cargo el array con el idioma deseado.
-	  switch ($_SESSION["LE"])
-		{
-		case 'sp':
-			include '../views/lenguaje/spanish.php';
-			break;
-		case 'en':
-			include '../views/lenguaje/English.php';
-			break;
-		case 'br':
-			include '../views/lenguaje/Brasilian.php';
-			break;
-		DEFAULT:
-			include '../views/lenguaje/English.php';
-			break;
-		}
     echo "<nav class='navbar navbar-default'>";
     echo "<div class='container'>";
     echo "<span class='navbar-brand'> GSTR </span>";
@@ -52,4 +37,24 @@
 		//Prueba temporal para comprobar que funciona bien.
 		//echo 'Sesion: '.$_SESSION["LE"];
 	}
+  function getIdioma(){
+  //$Idioma = 0;
+  if(!isset($_SESSION['LE'])) {$_SESSION['LE']="sp";}
+  switch ($_SESSION["LE"])
+  {
+  case 'sp':
+    require '../views/lenguaje/spanish.php';
+    break;
+  case 'en':
+    require '../views/lenguaje/English.php';
+    break;
+  case 'br':
+    require '../views/lenguaje/Brasilian.php';
+    break;
+  DEFAULT:
+    require '../views/lenguaje/English.php';
+    break;
+  }
+  return $Idioma;
+  }
   ?>

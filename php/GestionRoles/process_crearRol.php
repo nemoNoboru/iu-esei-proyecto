@@ -38,3 +38,4 @@ foreach ($funcionalidades as $fun) {
 }
 
 ?>
+<button onclick="location.href='../../GestionRoles/GestionRoles.php'">OK</button>

@@ -219,9 +219,9 @@ class DBManager {
   }
 
 
-//ESTOY SIN HACER
+//RENDERTABLEGESTION
   public function listGestionFuns(){
-    $toQuery = "select fun_name, fun_desc from Funcionalidad";
+    $toQuery = "select fun_name, fun_desc, fun_id from Funcionalidad";
     $result = $this->doQuery($toQuery);
     return $this->returnArray($result);
   }
@@ -231,14 +231,80 @@ class DBManager {
     return $this->returnArray($result);
   }
   public function listGestionPags(){
-    $toQuery = "select pag_name, pag_desc  from Pagina";
+    $toQuery = "select pag_name, pag_desc, pag_id  from Pagina";
     $result = $this->doQuery($toQuery);
     return $this->returnArray($result);
   }
   public function listGestionRols(){
-    $toQuery = "select rol_name,rol_desc from Rol";
+    $toQuery = "select rol_name,rol_desc, rol_id from Rol";
     $result = $this->doQuery($toQuery);
     return $this->returnArray($result);
+  }
+//HASTA AQUI
+
+//MANAGEMENT DE BORRADOS
+
+  public function borrarFuncionalidad($delete_id){
+    //Borramos de Funcionalidad
+    $toQuery = "delete from Funcionalidad where fun_id='".$delete_id."'";
+    $this->doQuery($toQuery);
+    //Borramos de Pag_Fun
+    $toQuery = "delete from Pag_Fun where fun_id='".$delete_id."'";
+    $this->doQuery($toQuery);
+    //Borramos de User_Fun
+    $toQuery = "delete from User_Fun where fun_id='".$delete_id."'";
+    $this->doQuery($toQuery);
+    //Borramos de Rol_Fun
+    $toQuery = "delete from Rol_Fun where fun_id='".$delete_id."'";
+    $this->doQuery($toQuery);
+    //Done
+    return(true);
+  }
+
+  public function borrarUsuario($delete_id){
+    //Borramos de Usuario
+    $toQuery = "delete from Usuario where user_id='".$delete_id."'";
+    $this->doQuery($toQuery);
+    //Borramos de User_Fun
+    $toQuery = "delete from User_Fun where user_id='".$delete_id."'";
+    $this->doQuery($toQuery);
+    //Borramos de User_Rol
+    $toQuery = "delete from User_Rol where user_id='".$delete_id."'";
+    $this->doQuery($toQuery);
+    //Borramos de User_Pag
+    $toQuery = "delete from User_Pag where user_id='".$delete_id."'";
+    $this->doQuery($toQuery);
+    //Done
+    return(true);
+  }
+
+  public function borrarPagina($delete_id){
+    //Borramos de Pagina
+    $toQuery = "delete from Pagina where pag_id='".$delete_id."'";
+    $this->doQuery($toQuery);
+    //Borramos de Pag_Fun
+    $toQuery = "delete from Pag_Fun where pag_id='".$delete_id."'";
+    $this->doQuery($toQuery);
+    //Borramos de User_Pag
+    $toQuery = "delete from User_Pag where pag_id='".$delete_id."'";
+    $this->doQuery($toQuery);
+    //Done
+    return(true);
+  }
+
+
+  public function borrarRol($delete_id){
+    //Borramos de Rol
+    $toQuery = "delete from Rol where rol_id='".$delete_id."'";
+    $this->doQuery($toQuery);
+    //Borramos de Rol_Fun
+    $toQuery = "delete from Rol_Fun where rol_id='".$delete_id."'";
+    $this->doQuery($toQuery);
+    //Borramos de User_Rol
+    $toQuery = "delete from User_Rol where rol_id='".$delete_id."'";
+    $this->doQuery($toQuery);
+    //Done
+    return(true);
   }
 //HASTA AQUI
 

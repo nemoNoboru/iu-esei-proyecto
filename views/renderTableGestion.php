@@ -30,7 +30,7 @@ class RenderTableGestion {
     foreach($tupla as $campo){
       echo "<td>".$campo."</td>";
     }
-    echo "<td><button>X</button></td>";
+    echo "<td><input type='submit' value='X' class='borrar'></td>";
     echo "</tr>";
   }
 
@@ -39,7 +39,12 @@ class RenderTableGestion {
     $this->echoInit($arrayNames=array("Rol","Descripcion","Eliminar"));
     $result = $this->man->listGestionRols();
     foreach ($result as $tupla) {
-      $this->echoline($tupla);
+      $GET_id=array_pop($tupla);
+      foreach($tupla as $campo){
+        echo "<td>".$campo."</td>";
+      }
+      echo "<td><button onclick='location.href=\"../php/GestionRoles/process_borrarRol.php?id=$GET_id&confirm=0\"'>X</button></td>";
+      echo "</tr>";
     }
     $this->echoFin();
   }
@@ -47,7 +52,12 @@ class RenderTableGestion {
     $this->echoInit($arrayNames=array("Funcionalidad","Descripcion","Eliminar"));
     $result = $this->man->listGestionFuns();
     foreach ($result as $tupla) {
-      $this->echoline($tupla);
+      $GET_id=array_pop($tupla);
+      foreach($tupla as $campo){
+        echo "<td>".$campo."</td>";
+      }
+      echo "<td><button onclick='location.href=\"../php/GestionFuncionalidades/process_borrarFuncionalidad.php?id=$GET_id&confirm=0\"'>X</button></td>";
+      echo "</tr>";
     }
     $this->echoFin();
   }
@@ -55,7 +65,12 @@ class RenderTableGestion {
     $this->echoInit($arrayNames=array("Usuario","ID","Email","Eliminar"));
     $result = $this->man->listGestionUsers();
     foreach ($result as $tupla) {
-      $this->echoline($tupla);
+      $GET_id=$tupla["user_id"];//Pop aqui no funciona porque ID debe mostrarse
+      foreach($tupla as $campo){
+        echo "<td>".$campo."</td>";
+      }
+      echo "<td><button onclick='location.href=\"../php/GestionUsuarios/process_borrarUsuario.php?id=$GET_id&confirm=0\"'>X</button></td>";
+      echo "</tr>";
     }
     $this->echoFin();
   }
@@ -63,15 +78,16 @@ class RenderTableGestion {
     $this->echoInit($arrayNames=array("Página","Descripcion","Eliminar"));
     $result = $this->man->listGestionPags();
     foreach ($result as $tupla) {
-      $this->echoline($tupla);
+      $GET_id=array_pop($tupla);
+      foreach($tupla as $campo){
+        echo "<td>".$campo."</td>";
+      }
+      echo "<td><button onclick='location.href=\"../php/GestionPaginas/process_borrarPagina.php?id=$GET_id&confirm=0\"'>X</button></td>";
+      echo "</tr>";
     }
     $this->echoFin();
   }
 
 }
-
-
-
-
 
 ?>
