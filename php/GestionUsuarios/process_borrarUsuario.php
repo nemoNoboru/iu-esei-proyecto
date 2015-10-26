@@ -25,5 +25,3 @@ if($confirm==1){
 }
 
 ?>
-
-<button onclick="location.href='../../GestionUsuarios/GestionUsuarios.php'">OK</button>
