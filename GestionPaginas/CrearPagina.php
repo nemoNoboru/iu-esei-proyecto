@@ -2,32 +2,37 @@
      Creada por FVieira para interfaces de Usuario ET1 -->
 <?php include("../views/header.php");
 	RenderBanner("Gestion de Páginas");
+	$Idioma = getIdioma();
 ?>
 
-<?php include("../views/lateral.php");
-	RenderLateral(2); //gestion paginas esta el 2 en el array de lateral
-?>
-
-<div id="contenido">
-	<form action="../php/GestionPaginas/process_crearPagina.php" method="post">
-
-		<h1>Crear pagina</h1>
-		Nombre: <input type="text" name="nombre"><br/>
-		Descripcion: <textarea name="desc"></textarea><br/>
-
-		<?php
-		$table_maker = new RenderTable;
-		$table_maker->tableBlankFuncionalidad();
+<div class="container">
+	<div class="row">
+		<?php include("../views/lateral.php");
+			RenderLateral(2);
 		?>
+		<div class="col-md-9 col-sm-12">
+			<form action="../php/GestionPaginas/process_crearPagina.php" method="post">
 
-		<?php
-		$table_maker->tableBlankUsuario();
-		?>
+				<h1><?php echo $Idioma['Crear página']; ?></h1>
+				<div class="form-group">
+				<?php echo $Idioma['Nombre'];?>: <input type="text" class="form-control" name="nombre"><br/>
+				<?php echo $Idioma['Descripcion']; ?>: <input class="form-control" type="text" name="desc"><br/>
 
-	  <button onclick="history.go(-1)">Atrás</button>
-		<input type="submit" value="continuar" class="continuar"/>
+				<?php
+				$table_maker = new RenderTable;
+				$table_maker->tableBlankFuncionalidad();
+				?>
 
-	</form>
+				<?php
+				$table_maker->tableBlankUsuario();
+				?>
+
+			  <button class="btn btn-default" onclick="history.go(-1)">Atrás</button>
+				<input class="btn btn-default" type="submit" value="continuar" class="continuar"/>
+			</div>
+			</form>
+		</div>
+	</div>
 </div>
 
 <?php include("../views/footer.php");

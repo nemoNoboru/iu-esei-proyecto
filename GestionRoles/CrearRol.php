@@ -1,28 +1,35 @@
 <?php include("../views/header.php");
 	RenderBanner("Gestión de Roles");
+	$Idioma = getIdioma();
 ?>
 
-<?php include("../views/lateral.php");
-	RenderLateral(1);
-?>
-   <div id="contenido">
-	<form action="../php/GestionRoles/process_crearRol.php" method="post">
-		<h1>Crear Rol</h1>
-	    Nombre: <input type="text" name="nombre"><br><br>
-			Descripcion: <textarea name="desc"></textarea><br/>
-			<?php
-			$table_maker = new RenderTable;
-			$table_maker->tableBlankUsuario();
-			?>
+<div class="container">
+	<div class="row">
+		<?php include("../views/lateral.php");
+			RenderLateral(1);
+		?>
+		<div class="col-md-9 col-sm-12">
+			<form action="../php/GestionRoles/process_crearRol.php" method="post">
+				<h1><?php echo $Idioma['Crear rol']; ?></h1>
+				<div class="form-group">
+				<?php echo $Idioma['Nombre'];?>: <input type="text" class="form-control" name="nombre"><br/>
+				<?php echo $Idioma['Descripcion']; ?>: <input class="form-control" type="text" name="desc"><br/>
 
-			<?php
-			$table_maker->tableBlankFuncionalidad();
-			?>
+					<?php
+					$table_maker = new RenderTable;
+					$table_maker->tableBlankUsuario();
+					?>
 
-	  <button onclick="history.go(-1)">Atrás</button>
-		<input type="submit" value="Guardar" class="Guardar"/>
+					<?php
+					$table_maker->tableBlankFuncionalidad();
+					?>
 
-	</form>
+			  <button class="btn btn-default" onclick="history.go(-1)">Atrás</button>
+				<input class="btn btn-default" type="submit" value="Guardar" class="Guardar"/>
+			</div>
+			</form>
+		</div>
+	</div>
 </div>
 
 <?php include("../views/footer.php");

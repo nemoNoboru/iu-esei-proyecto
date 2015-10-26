@@ -43,6 +43,7 @@ $Idioma = array(
 'Crear usuario' => 'Crear usuario',
 'Repetir contraseña' => 'Repetir contraseña',
 'permitir' => 'Permitir',
+'Crear página' => 'Crear página',
 
 
 )

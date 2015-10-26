@@ -18,8 +18,8 @@ $Idioma = array(
 'Gestión de Páginas' => 'Hue HUe HUE HUE',
 'Rol' => 'Hue HUe HUE HUE',
 'Crear rol' => 'Hue HUe HUE HUE',
-'Nombre' => 'Hue HUe HUE HUE',
-'Descripcion' => 'Hue HUe HUE HUE',
+'Nombre' => 'Hue HUe SONOTEEMO',
+'Descripcion' => 'Hue HUe CONTAMETODOPAA',
 'Eliminar' => 'Hue HUe HUE HUE',
 'Crear' => 'Hue HUe HUE HUE',
 'Modificar' => 'Hue HUe HUE HUE',
@@ -40,6 +40,8 @@ $Idioma = array(
 'Ha ocurrido un error' => 'Hue HUe HUE HUE?????',
 '¿Esta usted seguro/a?' => '¿Hue HUe HUE HUE?',
 'Accion a confirmar' => 'Hue HUe HUE HUE',
+'Crear usuario' => 'Allahu EKBER',
+'Crear página' => 'Vose crea paginas every were',
 
 
  
