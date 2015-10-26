@@ -49,3 +49,4 @@ if($_POST['pass1']==$_POST['pass2']){
 }
 
 ?>
+<button onclick="location.href='../../GestionUsuarios/GestionUsuarios.php'">OK</button>

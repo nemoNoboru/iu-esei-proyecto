@@ -3,6 +3,8 @@
  * Creada por FVieira para el proyecto de interfaces de usuario
  */
  require_once("../php/DBManager.php");
+ require_once("header.php");
+ $Idioma = getIdioma();
 
  class RenderTable {
    public function renderTable(){
@@ -11,16 +13,17 @@
    }
 
    private function echoInit($nameTable){
-     echo '<div class="tabla">';
-     echo   '<table>';
-     echo '<tr><th>'.$nameTable.'</th></tr>';
+     global $Idioma;
+     echo  '<table class="table table-striped">';
+     echo  '<thead><tr><th>'.$Idioma[$nameTable].'</th><th class="text-right">'.$Idioma['permitir'].'</th></tr></thead>';
+     echo  '<tbody>';
    }
    private function echoFin(){
+     echo '</tbody>';
      echo '</table>';
-     echo '</div>';
    }
    private function echoline($name){
-     echo "<tr><td>".$name."</td><td><input type='checkbox' name='".$name."'/></td></tr>";
+     echo "<tr><td>".$name."</td><td class='text-right' ><input type='checkbox' name='".$name."'/></td></tr>";
    }
    private function echoMarkedLine($name){
      echo "<tr><td>".$name."</td><td><input type='checkbox' checked name='".$name."'/></td></tr>";

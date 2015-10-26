@@ -47,3 +47,4 @@ foreach ($usuarios as $user) {
 }
 
 ?>
+<button onclick="location.href='../../GestionFuncionalidades/GestionFuncionalidades.php'">OK</button>
