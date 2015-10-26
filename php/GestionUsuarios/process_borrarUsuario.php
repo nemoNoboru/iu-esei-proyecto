@@ -9,7 +9,7 @@ $man = DBManager::getInstance(); //crea instancia
 $man->connect(); //conectate a la bbdd
 
 //Borramos
-if($man->borrarUsuario($delete_id)){
+if($man->borrarUsuario($borrar)){
   echo "Borrado Correctamente";
 }
 else{

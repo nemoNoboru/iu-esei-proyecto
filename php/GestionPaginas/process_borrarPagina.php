@@ -9,7 +9,7 @@ $man = DBManager::getInstance(); //crea instancia
 $man->connect(); //conectate a la bbdd
 
 //Borramos
-if($man->borrarPagina($delete_id)){
+if($man->borrarPagina($borrar)){
   echo "Borrado Correctamente";
 }
 else{
@@ -17,4 +17,4 @@ else{
 }
 //Boton de volver
 ?>
-<button onclick="location.href='../../GestionPagina/GestionPaginas.php'">OK</button>
+<button onclick="location.href='../../GestionPaginas/GestionPaginas.php'">OK</button>
