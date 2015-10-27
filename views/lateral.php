@@ -8,12 +8,16 @@
                     "<a href='../GestionFuncionalidades/GestionFuncionalidades.php'>".$Idioma['Gestión de Funcionalidades']."</a>");
     echo "<div class=' lateral col-md-3 col-sm-12'>";
     echo "<ul class='nav nav-pills nav-stacked'>";
-    echo "<li class= 'active'>";
-    echo $items[$no];
-    unset($items[$no]);
-    echo "</li>";
+    //echo "<li class= 'active'>";
+    //echo $items[$no];
+    //unset($items[$no]);
+    //echo "</li>";
     foreach ($items as $item) {
-      echo "<li>".$item."</li>";
+      if($item == $items[$no]){
+        echo "<li class='active'>".$item."</li>";
+      }else{
+        echo "<li>".$item."</li>";
+      }
     }
     echo "</ul>";
     echo "</div>";

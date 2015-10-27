@@ -3,7 +3,7 @@
  * Creada por FVieira para el proyecto de interfaces de usuario
  */
  require_once("../php/DBManager.php");
- require_once("header.php");
+ require_once("getIdioma.php");
  $Idioma = getIdioma();
 
  class RenderTable {
