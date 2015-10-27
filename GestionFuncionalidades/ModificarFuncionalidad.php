@@ -16,23 +16,12 @@
 			require_once("../php/DBManager.php");
 			$man = DBManager::getInstance();
 			$man->connect();
+
+			//LLAMADA A RENDERCOMBOBOX AQUI
+
 			$datos = $man->getDatosFuncion($_GET["id"]);
-			echo 'Nombre Funcionalidad:<input type=text value=' .$datos["1"]. 'name="nombre"><br>';
-			echo 'Descripcion:<textarea rows="5" cols="30" name="comentarios"></textarea><br>';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+			echo 'Nombre Funcionalidad:<input type=text value="' .$datos["fun_name"].'"'. ' name="nombre" ><br>';
+			echo 'Descripcion:<textarea rows="5" cols="30" name="comentarios">' .$datos["fun_desc"].''. '</textarea><br>';
 
 
 		}
