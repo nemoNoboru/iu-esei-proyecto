@@ -1,27 +1,24 @@
 <?php
-//Geteamos la id a borrar
-$borrar = $_GET["id"];
-$confirm = $_GET["confirm"];
-//Conexion con base de datos
+$borrar = $_GET["id"];				//Leemos la id del usuario que hay que borrar
+$confirm = $_GET["confirm"];		//Leemos la variable confirm, la cual indica si hay que pedir confirmacion o borrar el usuario
 
-require_once("../DBManager.php");
-$man = DBManager::getInstance(); //crea instancia
-$man->connect(); //conectate a la bbdd
+require_once("../DBManager.php");	//Se incluye la clase que gestiona la DB
+$man = DBManager::getInstance(); 	//Se creaa un objeto de la calse DBManager, si ya hay alguno creado solo se devuelve el que ya hay.
+$man->connect(); 					//Se conecta con la BD
 
-if($confirm==1){
-  //Borramos
-  if($man->borrarFuncionalidad($borrar)){
-    echo "Borrado Correctamente<br>";
-    echo "<button onclick='location.href=\"../../GestionUsuarios/GestionUsuarios.php\"'>OK</button>";
+if($confirm==1){						//Si el usuario ya ha confirmado el borrado
+  if($man->borrarUsuario($borrar)){			//Si se borra el usuario con exito
+    echo "Borrado Correctamente<br>";			//Mensaje de exito
+    echo "<button onclick='location.href=\"../../GestionUsuarios/GestionUsuarios.php\"'>OK</button>";	//Boton de OK que te devuelve a la gestion de usuarios
   }
-  else{
-    echo "todo mal";
-    echo "<button onclick='location.href=\"../../GestionUsuarios/GestionUsuarios.php\"'>OK</button>";
+  else{										//Si no
+    echo "todo mal";							//Mensaje de error
+    echo "<button onclick='location.href=\"../../GestionUsuarios/GestionUsuarios.php\"'>OK</button>";	//Boton de OK que te devuelve a la gestion de usuarios
   }
-}else{//Pide confirmación
-  echo "¿Seguro que desea borrar?<br>";
-  echo "<button onclick='location.href=\"../../GestionUsuarios/GestionUsuarios.php\"'>Cancelar</button>";
-  echo "<button onclick='location.href=\"../../php/GestionFuncionalidades/process_borrarUsuario.php?id=$borrar&confirm=1\"'>OK</button>";
+}else{									//Si no
+  echo "¿Seguro que desea borrar?<br>";		//Se pide confirmacion
+  echo "<button onclick='location.href=\"../../GestionUsuarios/GestionUsuarios.php\"'>Cancelar</button>"; //Boton para cancelar el borrado
+  echo "<button onclick='location.href=\"../../php/GestionFuncionalidades/process_borrarUsuario.php?id=$borrar&confirm=1\"'>OK</button>"; //Boton para confirmar el borrado
 }
 
 ?>
