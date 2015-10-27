@@ -308,6 +308,32 @@ class DBManager {
   }
 //HASTA AQUI
 
+//MANAGEMENT PARA MODIFICAR(gettean valores para la pestaña de modificar)
+  public function getDatosFuncion($busca_id){
+    $toQuery = "select fun_name, fun_desc from Funcionalidad where fun_id = $busca_id";
+    $result = $this->doQuery($toQuery);
+    return $result->fetch_assoc();
+  }
+
+  public function getDatosRol($busca_id){
+    $toQuery = "select rol_name, rol_desc from Rol where rol_id = $busca_id";
+    $result = $this->doQuery($toQuery);
+    return $result->fetch_assoc();
+  }
+
+  public function getDatosUsuario($busca_id){
+    $toQuery = "select user_name, user_desc from Usuario where user_id = $busca_id";
+    $result = $this->doQuery($toQuery);
+    return $result->fetch_assoc();
+  }
+
+  public function getDatosPagina($busca_id){
+    $toQuery = "select pag_name, pag_desc from Pagina where pag_id = $busca_id";
+    $result = $this->doQuery($toQuery);
+    return $result->fetch_assoc();
+  }
+//HASTA AQUI
+
 
   public function existUserRol($user,$rol){
     $toQuery = "select * from Usuario, Rol, User_Rol
