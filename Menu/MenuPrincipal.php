@@ -1,6 +1,6 @@
-<?php include("../views/header.php");
-  RenderBanner("Menu Principal");
-  $Idioma = getIdioma();
+<?php include("../views/header.php"); 	//Incluye el header
+  RenderBanner("Menu Principal"); 		//Muestra el header con la funcion definida en header.php
+  $Idioma = getIdioma(); 				//Guarda en $Idioma el array asociativo que almacena el idioma. getIdioma() esta definido en header.php
 ?>
 <!-- DISCLAIMER: ESTE MENU PRINCIPAL ES PALERISIMO Y SOLO SIRVE PARA TESTEAR ENLACES -->
 
@@ -16,6 +16,6 @@
   </div>
 </div>
 
-<?php include("../views/footer.php");
-  renderFooter();
+<?php include("../views/footer.php"); 	//Incluye el footer
+  renderFooter(); 						//Muestra el footer con la funcion definida en footer.php
 ?>
