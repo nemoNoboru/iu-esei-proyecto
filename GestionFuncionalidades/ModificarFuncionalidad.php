@@ -8,6 +8,43 @@
 
 <div id="contenido">
 
+	<?php
+		if(!isset($_GET["id"])){
+			header('Location: ModificarFuncionalidad.php?id=1');
+		}
+		else{
+			require_once("../php/DBManager.php");
+			$man = DBManager::getInstance();
+			$man->connect();
+			$datos = $man->getDatosFuncion($_GET["id"]);
+			echo 'Nombre Funcionalidad:<input type=text value=' .$datos["1"]. 'name="nombre"><br>';
+			echo 'Descripcion:<textarea rows="5" cols="30" name="comentarios"></textarea><br>';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		}
+
+	?>
+
+
+
+
+
+
+<!--
 	<form method=post action="../php/GestionFuncinalidades/process_ModificarFunc.php" method="post">
 		<h1>Modificar Funcionalidad</h1>
 		<div>
@@ -22,7 +59,7 @@
 		Descripcion:<textarea rows="5" cols="30" name="comentarios"></textarea><br>
 		</div>
 
-		<div class="tabla"> <!-- esta tabla va a ser creada dinamicamente en un futuro -->
+		<div class="tabla">
 			<table>
 				<tr><th>Pagina</th></tr>
 				<tr><td>Pagina1</td><td><input type="checkbox" name="pagina1"/></td></tr>
@@ -32,7 +69,7 @@
 			</table>
 		</div>
 
-		<div class="tabla"> <!-- esta tabla va a ser creada dinamicamente en un futuro -->
+		<div class="tabla">
 			<table>
 				<tr><th>Roles</th></tr>
 				<tr><td>Roles1</td><td><input type="checkbox" name="Roles1"/></td></tr>
@@ -42,7 +79,7 @@
 			</table>
 		</div>
 
-		<div class="tabla"> <!-- esta tabla va a ser creada dinamicamente en un futuro -->
+		<div class="tabla">
 			<table>
 				<tr><th>Usuario</th></tr>
 				<tr><td>Usuario1</td><td><input type="checkbox" name="Usuario1"/></td></tr>
@@ -56,6 +93,9 @@
 		<input type="submit" value="Guardar" class="continuar"/>
 
 	</form>
+-->
+
+<button onclick="history.go(-1)">Atrás</button>
 
 </div>
 <?php include("../views/footer.php");

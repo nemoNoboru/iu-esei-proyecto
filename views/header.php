@@ -23,7 +23,7 @@
 		//Comprobamos el valor de sesion y segun su valor cargo el array con el idioma deseado.
     echo "<nav class='navbar navbar-default'>";
     echo "<div class='container'>";
-    echo "<span class='navbar-brand'> GSTR </span>";
+    echo "<span class='navbar-brand'><a href='../Menu/MenuPrincipal.php'> GSTR </a></span>";
     echo "<p class='navbar-text'>".$Idioma[$nombre]."</p>";
     echo "<ul class='nav navbar-nav navbar-right'>";
     echo '<li><a href="../php/CambioIdioma.php?leng=en">EN</a></li>';
@@ -32,7 +32,7 @@
     echo '</ul>';
     echo "</div>";
     echo "</nav>";
-		//echo '<div id="header"> <span class="cabecera"> GSTR </span>'.($Idioma[$nombre]).'</div>';
+		//echo '<div id="header"><span class="cabecera"> GSTR </a></span>'.($Idioma[$nombre]).'</div>';
 
 		//Prueba temporal para comprobar que funciona bien.
 		//echo 'Sesion: '.$_SESSION["LE"];

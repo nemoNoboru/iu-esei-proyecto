@@ -308,7 +308,27 @@ class DBManager {
   }
 //HASTA AQUI
 
+//MANAGEMENT PARA MODIFICAR(gettean valores para la pestaña de modificar)
 
+  public function getDatosFuncion($busca_id){
+    $toQuery = "select fun_name, fun_desc from Funcionalidad where fun_id = $busca_id";
+    $result = $this->doQuery($toQuery);
+    return $this->returnArray($result);
+  }
+
+  public function getDatosRol($busca_id){
+
+  }
+
+  public function getDatosUsuario($busca_id){
+
+  }
+
+  public function getDatosPagina($busca_id){
+
+  }
+
+//HASTA AQUI
   public function existUserRol($user,$rol){
     $toQuery = "select * from Usuario, Rol, User_Rol
                 where Usuario.user_name = '".$user."' and
