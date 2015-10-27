@@ -1,19 +1,21 @@
 <!-- Vista crear funcionalidad (formato modelo)
      Creada por FVieira para interfaces de Usuario ET1 -->
 <?php include("../views/header.php");
-	RenderBanner("Gestion de Funcionalidades");
+	RenderBanner("Gestión de Funcionalidades");
+	$Idioma = getIdioma();
 ?>
 
+<div class="container">
+	<div class="row">
 <?php include("../views/lateral.php");
 	RenderLateral(3); //gestion paginas esta el 2 en el array de lateral
 ?>
-
-<div id="contenido">
+	<div class="col-md-9 col-sm-12">
 	<form action="../php/GestionFuncionalidades/process_crearFuncionalidad.php" method="post">
 
-		<h1>Crear funcionalidad</h1>
-		Nombre: <input type="text" name="nombre"><br/>
-		Descripcion: <textarea name="desc"></textarea><br/>
+		<h1>	<?php echo $Idioma['Crear funcionalidad'];?></h1>
+			<?php echo $Idioma['Nombre'];?>: <input type="text" class="form-control" name="nombre"><br/>
+			<?php echo $Idioma['Descripcion'];?>: <textarea class="form-control" name="desc"></textarea><br/>
 
 		<?php
 		$table_maker = new RenderTable;
@@ -32,6 +34,7 @@
 		<input type="submit" value="Guardar" class="continuar"/>
 
 	</form>
+</div>
 </div>
 
 <?php include("../views/footer.php");

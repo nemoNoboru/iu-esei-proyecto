@@ -9,14 +9,14 @@
 			RenderLateral(0);					//Muestra el menu lateral con la funcion definida en lateral.php
 		?>
 		<div class="col-md-9 col-sm-12">
-		
+
 			<!--Formulario de creacion de usuario, los datos se envian a "../php/GestionUsuarios/process_crearUsuario.php"-->
-			
+
 			<form action="../php/GestionUsuarios/process_crearUsuario.php" method="post">
 				<div class="form-group">
 					<h1><?php echo $Idioma['Crear usuario']; ?></h1>
 					<?php echo $Idioma['Nombre'];?>: <input type="text" class="form-control" name="nombre"><br/>
-					<?php echo $Idioma['Descripcion']; ?>: <input class="form-control" type="text" name="desc"><br/>
+					<?php echo $Idioma['Descripcion']; ?>: <textarea class="form-control" name="desc"></textarea><br/>
 					<?php echo $Idioma['Correo electronico']; ?>: <input class="form-control" type="text" name="email"><br/>
 					<?php echo $Idioma['Contraseña']; ?>: <input type="password" class="form-control" name="pass1"><br/>
     		<?php echo $Idioma['Repetir contraseña']; ?>: <input type="password" class="form-control" name="pass2"><br/>

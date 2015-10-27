@@ -5,6 +5,7 @@
 require_once("../php/DBManager.php");
 
 
+
 class RenderTableGestion {
   public function renderTableGestion(){
     $this->man = DBManager::getInstance(); //crea instancia
@@ -12,18 +13,24 @@ class RenderTableGestion {
   }
 //Privates para uso interno
   private function echoInit($arrayNames){
-    echo '<div class="tabla">';
-    echo   '<table>';
+    require_once("getIdioma.php");
+    $Idioma = getIdioma();
+    //echo '<div class="tabla">';
+    echo   '<table class="table table-striped">';
       //Construyendo la linea
+    echo '<thead>';
     echo '<tr>';
     foreach($arrayNames as $header){
-      echo '<th>'.$header.'</th>';
+      echo '<th>'.$Idioma[$header].'</th>';
     }
     echo '</tr>';
+    echo '</thead>';
+    echo '</tbody>';
   }
   private function echoFin(){
+    echo '</tbody>';
     echo '</table>';
-    echo '</div>';
+    //echo '</div>';
   }
   private function echoline($tupla){
     echo "<tr>";
@@ -75,7 +82,7 @@ class RenderTableGestion {
     $this->echoFin();
   }
   public function tablePagina(){
-    $this->echoInit($arrayNames=array("Página","Descripcion","Eliminar"));
+    $this->echoInit($arrayNames=array("Pagina","Descripcion","Eliminar"));
     $result = $this->man->listGestionPags();
     foreach ($result as $tupla) {
       $GET_id=array_pop($tupla);
