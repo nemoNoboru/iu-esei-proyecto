@@ -13,7 +13,7 @@
 				<h1><?php echo $Idioma['Crear rol']; ?></h1>
 				<div class="form-group">
 				<?php echo $Idioma['Nombre'];?>: <input type="text" class="form-control" name="nombre"><br/>
-				<?php echo $Idioma['Descripcion']; ?>: <input class="form-control" type="text" name="desc"><br/>
+				<?php echo $Idioma['Descripcion']; ?>: <textarea class="form-control" name="desc"></textarea><br/>
 
 					<?php
 					$table_maker = new RenderTable;
