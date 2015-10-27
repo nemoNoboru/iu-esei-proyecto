@@ -11,6 +11,7 @@
 ?>
 
 	<div class="col-md-9 col-sm-12">
+		<h1><?php echo $Idioma['Gestión de Roles']; ?></h1>
 	<?php
 		$table_maker = new RenderTableGestion;
 		$table_maker->tableRol();

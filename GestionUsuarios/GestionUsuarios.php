@@ -11,6 +11,7 @@
     ?>
     <!-- Cuerpo -->
     <div class="col-md-9 col-sm-12">
+      <h1><?php echo $Idioma['Gestión de Usuarios']; ?></h1>
       <?php											//Aqui no se incluye la clase RenderTableGestion porque ya se incluye en el header
         $table_maker = new RenderTableGestion;		//Se crea un Objeto que va a crear las tablas de gestion
         $table_maker->tableUsuario();				//Se muestra la tabla de gestion de usuarios
