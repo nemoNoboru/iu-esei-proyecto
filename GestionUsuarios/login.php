@@ -5,7 +5,7 @@
   <div id='loginbox' class="container">
 		<div class="row">
 			<div class="col-md-4 col-md-offset-4">
-				<div class='lead'><?php echo $len['Iniciar sesion']; ?></div> //Muestra el titulo del formulario
+				<div class='lead'><?php echo $len['Iniciar sesion']; ?></div> <!--Muestra el titulo del formulario-->
 						<!--Formulario de login, los datos se envian a "../php/GestionUsuarios/ProcesarLogin.php"-->
 						<form action="../php/GestionUsuarios/ProcesarLogin.php" method="post">
 							<div class="form-group">
