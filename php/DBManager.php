@@ -504,5 +504,54 @@ class DBManager {
     }
     return true;
   }
+
+
+  //BORRADO DE RELACIONES (ESTOS CAMBIOS DEBEN PROPAGARSE)
+  public function deleteRelationUserFun($user,$fun){
+    if(!$this->existUserFun($user,$fun)){
+      return false;
+    }else{
+      $userid = $this->getIdUser($user);
+      $funid  = $this->getIdFun($fun);
+      if($funid && $userid){
+        $toQuery = "delete from User_Fun where user_id='".$userid."' and fun_id='".$funid."'";
+        $this->doQuery($toQuery);
+      }else{
+        return false;
+      }
+    }
+    return true;
+  }
+  public function deleteRelationRolFun($rol,$fun){
+    if(!$this->existRolFun($rol,$fun)){
+      return false;
+    }else{
+      $rolid =  $this->getIdRol($rol);
+      $funid  = $this->getIdFun($fun);
+      if($funid && $rolid){
+        $toQuery = "delete from Rol_Fun where rol_id='".$rolid."' and fun_id='".$funid."'";
+        $this->doQuery($toQuery);
+      }else{
+        return false;
+      }
+    }
+    return true;
+  }
+  public function deleteRelationPagFun($pag,$fun){
+    if(!$this->existPagFun($pag,$fun)){
+      return false;
+    }else{
+      $pagid =  $this->getIdPag($pag);
+      $funid  = $this->getIdFun($fun);
+      if($funid && $pagid){
+        $toQuery = "delete from Pag_Fun where pag_id='".$pagid."' and fun_id='".$funid."'";
+        $this->doQuery($toQuery);
+      }else{
+        return false;
+      }
+    }
+    return true;
+  }
+
 }
 ?>
