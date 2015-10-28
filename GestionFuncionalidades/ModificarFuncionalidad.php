@@ -9,13 +9,15 @@
 <div id="contenido">
 
 	<?php
-		if(!isset($_GET["id"])){
-			header('Location: ModificarFuncionalidad.php?id=1');
+		require_once("../php/DBManager.php");
+		$man = DBManager::getInstance();
+		$man->connect();
+		$redirect = $man->getMinIDFun();
+		if(!isset($_GET["id"])){ //cambiar por funcion que devuelva la primera id ocupada
+
+			header('Location: ModificarFuncionalidad.php?id=' .$redirect["fun_id"].'');
 		}
 		else{
-			require_once("../php/DBManager.php");
-			$man = DBManager::getInstance();
-			$man->connect();
 
 			//LLAMADA A RENDERCOMBOBOX AQUI
 

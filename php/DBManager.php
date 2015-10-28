@@ -334,6 +334,31 @@ class DBManager {
   }
 //HASTA AQUI
 
+//Gettear Minimas IDs
+
+  public function getMinIDFun(){
+    $toQuery = "select fun_id from Funcionalidad";
+    $result = $this->doQuery($toQuery);
+    return $result->fetch_assoc();
+  }
+  public function getMinIDRol(){
+    $toQuery = "select rol_id from Rol";
+    $result = $this->doQuery($toQuery);
+    return $result->fetch_assoc();
+  }
+  public function getMinIDPag(){
+    $toQuery = "select pag_id from Pagina";
+    $result = $this->doQuery($toQuery);
+    return $result->fetch_assoc();
+  }
+  public function getMinIDUser(){
+    $toQuery = "select user_id from Usuario";
+    $result = $this->doQuery($toQuery);
+    return $result->fetch_assoc();
+  }
+
+//HASTA AQUI
+
 
   public function existUserRol($user,$rol){
     $toQuery = "select * from Usuario, Rol, User_Rol
