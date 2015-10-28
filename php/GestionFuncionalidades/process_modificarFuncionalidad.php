@@ -4,6 +4,8 @@ require_once("../DBManager.php");
 $man = DBManager::getInstance(); //crea instancia
 $man->connect(); //conectate a la bbdd
 
+$man->ModificarFuncionalidad($_POST['nombre'],$_POST['desc']);
+
 $paginas = $man->listPags();
 foreach ($paginas as $pag) {
   if(isset($_POST[$pag['pag_name']])){

@@ -552,6 +552,28 @@ class DBManager {
     }
     return true;
   }
+//HASTA AQUI, PERO NO TODOS ESTAN HECHOS
 
+//Modificado de DESCRIPCIONES y otros textos
+
+  public function ModificarFuncionalidad($name,$desc){
+    $toQuery = "update Funcionalidad set fun_desc='".$desc."' where fun_name='".$name."'";
+    if($this->doQuery($toQuery)){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
+
+
+
+
+
+
+
+
+//HASTA AQUI pero tampoco están todos hechos
 }
 ?>
