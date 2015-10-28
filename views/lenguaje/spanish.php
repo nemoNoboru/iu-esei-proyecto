@@ -1,7 +1,5 @@
 <?php
 $Idioma = array(
-'Email' => 'Email',
-'ID' => 'ID',
 'nick' => 'apodo',
 'Iniciar sesion' => 'Iniciar sesion',
 'Login' => 'Log In',
@@ -46,6 +44,7 @@ $Idioma = array(
 'Repetir contraseña' => 'Repetir contraseña',
 'permitir' => 'Permitir',
 'Crear página' => 'Crear página',
+'Seguro' => '¿Seguro que quiere crear el usuario?',
 
 
 )

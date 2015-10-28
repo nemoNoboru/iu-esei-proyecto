@@ -1,8 +1,6 @@
 <?php
 $Idioma = array(
 'nick' => 'nickname',
-'Email' => 'Email',
-'ID' => 'ID',
 'Login' => 'Log In',
 'Iniciar sesion' => 'Log In',
 'Contraseña' => 'Password',
