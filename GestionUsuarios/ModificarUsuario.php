@@ -1,5 +1,7 @@
 <?php include("../views/header.php");
 	RenderBanner("Gestión de Usuarios");
+	include("../views/renderCombobox.php");
+	$mk_combo = new renderCombobox;
 ?>
 
 <?php include("../views/lateral.php");
@@ -13,12 +15,7 @@
 
 
     Seleccionar Funcionalidad
-		<select name="SelectUser">
-		   <option value="ID1" selected="selected">ID1</option>
-		   <option value="ID2">ID2</option>
-		   <option value="ID3">ID3</option>
-		   <option value="ID4">ID4</option>
-		</select><br>
+		<?php $mk_combo->comboboxBlankUsuario(); ?><br>
 		Nombre: <input type="text" name="nombre"><br/>
 		Apellidos: <input type="text" name="apellidos"><br/>
 		email: <input type="text" name="email"><br/>
