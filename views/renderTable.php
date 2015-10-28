@@ -26,7 +26,7 @@
      echo "<tr><td>".$name."</td><td class='text-right' ><input type='checkbox' name='".$name."'/></td></tr>";
    }
    private function echoMarkedLine($name){
-     echo "<tr><td>".$name."</td><td><input type='checkbox' checked name='".$name."'/></td></tr>";
+     echo "<tr><td>".$name."</td><td class='text-right' ><input type='checkbox' checked name='".$name."'/></td></tr>";
    }
    private function complexTable($all,$relation){
      foreach ($all as $allItem) {
@@ -62,7 +62,7 @@
      $this->echoFin();
    }
    public function tableBlankPagina(){
-     $this->echoInit("Pagina");
+     $this->echoInit("Página");
      $result = $this->man->listPags();
      foreach ($result as $item) {
        $this->echoline($item['pag_name']);
@@ -92,49 +92,49 @@
      $this->echoFin();
    }
    public function tableUserByPag($pag){
-     $relation = $this->man->listUsersByPag($pag);
+     $relations = $this->man->listUsersByPag($pag);
      $all = $this->man->listUsers();
-     $this->echoInit("User");
+     $this->echoInit("Usuario");
      $this->complexTable($all,$relations);
      $this->echoFin();
    }
    public function tableUserByRol($rol){
-     $relation = $this->man->listUsersByRol($rol);
+     $relations = $this->man->listUsersByRol($rol);
      $all = $this->man->listUsers();
-     $this->echoInit("User");
+     $this->echoInit("Usuario");
      $this->complexTable($all,$relations);
      $this->echoFin();
    }
    public function tableUserByFun($fun){
-     $relation = $this->man->listUsersByFun($fun);
+     $relations = $this->man->listUsersByFun($fun);
      $all = $this->man->listUsers();
-     $this->echoInit("User");
+     $this->echoInit("Usuario");
      $this->complexTable($all,$relations);
      $this->echoFin();
    }
    public function tablePagByUser($user){
-     $relation = $this->man->listPagsByUsers($user);
+     $relations = $this->man->listPagsByUsers($user);
      $all = $this->man->listPags();
-     $this->echoInit("Paginas");
+     $this->echoInit("Páginas");
      $this->complexTable($all,$relations);
      $this->echoFin();
    }
    public function tablePagByFun($fun){
-     $relation = $this->man->listPagsByFun($fun);
+     $relations = $this->man->listPagsByFun($fun);
      $all = $this->man->listPags();
-     $this->echoInit("Paginas");
+     $this->echoInit("Páginas");
      $this->complexTable($all,$relations);
      $this->echoFin();
    }
    public function tableFunByRol($rol){
-    $relation = $this->man->listFunsByRol($rol);
+    $relations = $this->man->listFunsByRol($rol);
     $all = $this->man->listFuns();
     $this->echoInit("Funcionalidad");
     $this->complexTable($all,$relations);
     $this->echoFin();
    }
    public function tableFunByPags($pag){
-    $relation = $this->man->listFunsByPag($pag);
+    $relations = $this->man->listFunsByPag($pag);
     $all = $this->man->listFuns();
     $this->echoInit("Funcionalidad");
     $this->complexTable($all,$relations);

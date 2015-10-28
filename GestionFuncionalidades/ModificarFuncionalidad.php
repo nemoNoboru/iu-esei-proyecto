@@ -19,15 +19,33 @@
 		}
 		else{
 
-			//LLAMADA A RENDERCOMBOBOX AQUI
+			echo '<div class="col-md-9 col-sm-12">';
+			echo '<form action="../php/GestionFuncionalidades/process_modificarFuncionalidad.php?="'.$_GET["id"].' method="post">';
+
+			require_once("../views/renderTable.php");
+
+			$table_maker = new RenderTable;
+
+			//---------------------LLAMADA A RENDERCOMBOBOX AQUI---------------------
 
 			$datos = $man->getDatosFuncion($_GET["id"]);
 			echo 'Nombre Funcionalidad:<input type=text value="' .$datos["fun_name"].'"'. ' name="nombre" ><br>';
 			echo 'Descripcion:<textarea rows="5" cols="30" name="comentarios">' .$datos["fun_desc"].''. '</textarea><br>';
 
+			$table_maker->tablePagByFun($datos["fun_name"]);
 
+			$table_maker->tableRolByFun($datos["fun_name"]);
+
+			$table_maker->tableUserByFun($datos["fun_name"]);
+
+			echo '<button onclick="history.go(-1)">Atrás</button>';
+			echo '<input type="submit" value="Guardar" class="continuar"/>';
+
+
+
+			echo '</form>';
+			echo '</div>';
 		}
-
 	?>
 
 
