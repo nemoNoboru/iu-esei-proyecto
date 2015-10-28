@@ -10,7 +10,7 @@ $man->connect(); //conectate a la bbdd
 
 if($confirm==1){
   //Borramos
-  if($man->borrarFuncionalidad($borrar)){
+  if($man->borrarRol($borrar)){
     echo "Borrado Correctamente<br>";
     echo "<button onclick='location.href=\"../../GestionRoles/GestionRoles.php\"'>OK</button>";
   }
