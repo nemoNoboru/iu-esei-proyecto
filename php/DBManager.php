@@ -155,7 +155,7 @@ class DBManager {
   public function listUsersByFun($fun){
     $toQuery = "select user_name
                 from Usuario , Funcionalidad , User_Fun
-                where fun_name = '".$rol."' and
+                where fun_name = '".$fun."' and
                       Funcionalidad.fun_id = User_Fun.fun_id and
                       User_Fun.user_id = Usuario.user_id";
     $result = $this->doQuery($toQuery);
