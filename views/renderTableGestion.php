@@ -7,11 +7,14 @@ require_once("../php/DBManager.php");
 
 
 class RenderTableGestion {
+
   public function renderTableGestion(){
     $this->man = DBManager::getInstance(); //crea instancia
     $this->man->connect(); //conectate a la bbdd
   }
 //Privates para uso interno
+
+  //Muestra la fila cabecera de la tabla
   private function echoInit($arrayNames){
     require_once("getIdioma.php");
     $Idioma = getIdioma();
@@ -27,11 +30,15 @@ class RenderTableGestion {
     echo '</thead>';
     echo '</tbody>';
   }
+  
+  //Finaliza la tabla
   private function echoFin(){
     echo '</tbody>';
     echo '</table>';
     //echo '</div>';
   }
+  
+  //Muestra una fila de la tabla
   private function echoline($tupla){
     echo "<tr>";
     foreach($tupla as $campo){
@@ -41,7 +48,7 @@ class RenderTableGestion {
     echo "</tr>";
   }
 
-//Publics para paginas de Gestion
+//Forma y muestra las tablas que se muestan en las paginas de gestion
   public function tableRol(){
     $this->echoInit($arrayNames=array("Rol","Descripcion","Eliminar"));
     $result = $this->man->listGestionRols();
