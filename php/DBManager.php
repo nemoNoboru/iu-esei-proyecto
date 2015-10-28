@@ -470,7 +470,7 @@ class DBManager {
     return $result['user_id'];
   }
   
-  /Devuelve el ID de una pagina
+  //Devuelve el ID de una pagina
   public function getIdPag($pag){
     $toQuery = "select pag_id from Pagina where pag_name = '".$pag."'";
     $result = $this->doQuery($toQuery);
