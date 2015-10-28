@@ -44,6 +44,7 @@ $Idioma = array(
 'Repetir contraseña' => 'Repetir contraseña',
 'permitir' => 'Permitir',
 'Crear página' => 'Crear página',
+'Seguro' => '¿Seguro que quiere crear el usuario?',
 
 
 )

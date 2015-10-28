@@ -42,6 +42,7 @@ $Idioma = array(
 'Accion a confirmar' => 'Hue HUe HUE HUE',
 'Crear usuario' => 'Allahu EKBER',
 'Crear página' => 'Vose crea paginas every were',
+'Pagina' => 'HUEHUEHUEHUEUE NOLO PILLO'
 
 
  
