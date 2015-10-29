@@ -29,7 +29,7 @@
 			//---------------------LLAMADA A RENDERCOMBOBOX AQUI---------------------
 
 			$datos = $man->getDatosFuncion($_GET["id"]);
-			echo 'Nombre Funcionalidad:<input type=text value="' .$datos["fun_name"].'"'. ' name="nombre" readonly><br>';
+			echo 'Nombre Funcionalidad:<input class="form-control" type=text value="' .$datos["fun_name"].'"'. ' name="nombre" readonly><br>';
 			echo 'Descripcion:<textarea rows="5" cols="30" name="desc">' .$datos["fun_desc"].''. '</textarea><br>';
 
 			$table_maker->tablePagByFun($datos["fun_name"]);

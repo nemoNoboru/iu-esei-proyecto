@@ -84,7 +84,7 @@
 
    //Muestra una tabla con todas las paginas y sus checkboxes desmarcados
    public function tableBlankPagina(){
-     $this->echoInit("Página");
+     $this->echoInit("Pagina");
      $result = $this->man->listPags();
      foreach ($result as $item) {
        $this->echoline($item['pag_name']);
@@ -163,7 +163,7 @@
   public function tablePagByUser($user){
     $relations = $this->man->listPagsByUsers($user);
     $all = $this->man->listPags();
-    $this->echoInit("Páginas");
+    $this->echoInit("Paginas");
     $this->complexTable($all,$relations);
     $this->echoFin();
   }
@@ -192,7 +192,7 @@
   public function tablePagByFun($fun){
     $relations = $this->man->listPagsByFun($fun);
     $all = $this->man->listPags();
-    $this->echoInit("Páginas");
+    $this->echoInit("Pagina");
     $this->complexTable($all,$relations);
     $this->echoFin();
   }
