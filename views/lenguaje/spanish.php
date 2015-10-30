@@ -1,5 +1,7 @@
 <?php
 $Idioma = array(
+'ID' => 'ID',
+'Email' => 'Correo Electronico',
 'nick' => 'apodo',
 'Iniciar sesion' => 'Iniciar sesion',
 'Login' => 'Log In',

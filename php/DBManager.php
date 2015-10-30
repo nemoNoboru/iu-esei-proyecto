@@ -8,6 +8,7 @@ class DBManager {
 
   protected function DBManager(){}
 
+  //Constructor singleton
   public static function getInstance(){
     if(isset(DBManager::$man)){
       return DBManager::$man;
@@ -16,7 +17,9 @@ class DBManager {
       return DBManager::$man;
     }
   }
-  public function connect(){ // se conecta a la base de datos
+  
+  //Conecta con la base de datos
+  public function connect(){
     if(isset($this->db)){
       return true;
     }else{
@@ -29,6 +32,8 @@ class DBManager {
       return true;
     }
   }
+  
+  //Convierte el resultado de una query a un array
   private function returnArray($result){
     $arrayToReturn = array();
     while($r = $result->fetch_assoc()){
@@ -37,6 +42,7 @@ class DBManager {
     return $arrayToReturn;
   }
 
+  //Comprueba los datos introducidos en el login
   public function tryLogin($user,$pass){
     $toQuery = "select * from Usuario where user_name='".$user."' and user_pass = '".$pass."'";
     $result = $this->doQuery($toQuery);
@@ -45,13 +51,17 @@ class DBManager {
     }
     return true;
   }
-  private function doQuery($query){ // funcion para manejar errores en queries
+  
+  //Consultar la base de datos. Se muestra informacion de error en caso de que haya alguno.
+  private function doQuery($query){
     $result = $this->db->query($query);
     if(!$result){
-      die("Error en la query: ".$this->db->error); // perdona a este pecador, dios de la programacion
+      die("Error en la query: ".$this->db->error);
     }
     return $result;
   }
+  
+  //Comprueba si existe una funcionalidad
   public function existeFun($name){
     $toQuery = "select * from Funcionalidad where fun_name = '".$name."'";
     $result = $this->doQuery($toQuery);
@@ -60,6 +70,8 @@ class DBManager {
     }
     return true;
   }
+  
+  //Comprueba si existe una pagina
   public function existePag($name){
     $toQuery = "select * from Pagina where pag_name = '".$name."'";
     $result = $this->doQuery($toQuery);
@@ -68,6 +80,8 @@ class DBManager {
     }
     return true;
   }
+  
+  //Comprueba si existe un rol
   public function existeRol($name){
     $toQuery = "select * from Rol where rol_name = '".$name."'";
     $result = $this->doQuery($toQuery);
@@ -76,6 +90,8 @@ class DBManager {
     }
     return true;
   }
+  
+  //Comprueba si existe un usuario
   public function existeUser($name){
     $toQuery = "select * from Usuario where user_name = '".$name."'";
     $result = $this->doQuery($toQuery);
@@ -84,6 +100,8 @@ class DBManager {
     }
     return true;
   }
+  
+  //Inserta una funcionalidad en la DB
   public function insertarFun($name,$desc){
     if(!$this->existeFun($name)){
       $toQuery = "insert into Funcionalidad (fun_name,fun_desc) values ('".$name."','".$desc."');";
@@ -92,6 +110,8 @@ class DBManager {
     }
     return false;
   }
+  
+  //Inserta una pagina en la DB
   public function insertarPag($name,$desc){
     if(!$this->existePag($name)){
       $toQuery = "insert into Pagina (pag_name,pag_desc) values ('".$name."','".$desc."');";
@@ -100,6 +120,8 @@ class DBManager {
     }
     return false;
   }
+  
+  //Inserta un rol en la DB
   public function insertarRol($name,$desc){
     if(!$this->existeRol($name)){
       $toQuery = "insert into Rol (rol_name,rol_desc) values ('".$name."','".$desc."');";
@@ -108,6 +130,8 @@ class DBManager {
     }
     return false;
   }
+  
+  //Inserta un usuario en la DB
   public function insertarUser($name,$pass,$desc,$email){
     if(!$this->existeUser($name)){
       $toQuery = "insert into Usuario (user_name,user_pass,user_desc,user_email) values ('".$name."','".$pass."','".$desc."','".$email."');";
@@ -116,6 +140,8 @@ class DBManager {
     }
     return false;
   }
+  
+  //Devuelve un array con los nombres de los roles a los que pertenece un usuario
   public function listRolesByUser($user){
     $toQuery = "select rol_name
                 from Usuario , Rol , User_Rol
@@ -125,6 +151,8 @@ class DBManager {
     $result = $this->doQuery($toQuery);
     return $this->returnArray($result);
   }
+  
+  //Devuelve un array con los nombres de los roles que realizan cierta funcionalidad
   public function listRolesByFun($fun){
     $toQuery = "select rol_name
                 from Funcionalidad , Rol , Rol_Fun
@@ -134,6 +162,8 @@ class DBManager {
     $result = $this->doQuery($toQuery);
     return $this->returnArray($result);
   }
+  
+  //Devuelve un array con los nombres de los usuarios que pertenecen a cierto rol
   public function listUsersByRol($rol){
     $toQuery = "select user_name
                 from Usuario , Rol , User_Rol
@@ -143,6 +173,8 @@ class DBManager {
     $result = $this->doQuery($toQuery);
     return $this->returnArray($result);
   }
+  
+  //Devuelve un array con los nombres de los usuarios que tienen acceso a cierta pagina
   public function listUsersByPag($pag){
     $toQuery = "select user_name
                 from Usuario , Pagina , Pag_Fun
@@ -152,6 +184,8 @@ class DBManager {
     $result = $this->doQuery($toQuery);
     return $this->returnArray($result);
   }
+  
+  //Devuelve un array con los nombres de los usuarios que realizan cierta funcionalidad
   public function listUsersByFun($fun){
     $toQuery = "select user_name
                 from Usuario , Funcionalidad , User_Fun
@@ -161,6 +195,8 @@ class DBManager {
     $result = $this->doQuery($toQuery);
     return $this->returnArray($result);
   }
+  
+  //Devuelve un array con los nombres de las paginas a las que puede acceder cierto usuario
   public function listPagsByUsers($user){
     $toQuery = "select pag_name
                 from Usuario , Pagina , User_Pag
@@ -170,6 +206,8 @@ class DBManager {
     $result = $this->doQuery($toQuery);
     return $this->returnArray($result);
   }
+  
+  //Devuelve un array con los nombres de las paginas que pertenecen a una funcionalidad
   public function listPagsByFun($fun){
     $toQuery = "select pag_name
                 from Pagina , Funcionalidad , Pag_Fun
@@ -179,6 +217,8 @@ class DBManager {
     $result = $this->doQuery($toQuery);
     return $this->returnArray($result);
   }
+  
+  //Devuelve un array con los nombres de las funciones que realiza cierto rol
   public function listFunsByRol($rol){
     $toQuery = "select fun_name
                 from Funcionalidad , Rol , Rol_Fun
@@ -188,6 +228,8 @@ class DBManager {
     $result = $this->doQuery($toQuery);
     return $this->returnArray($result);
   }
+  
+  //Devuelve un array con los nombres de las funcionalidades que tienen acceso a cierta pagina
   public function listFunsByPag($pag){
     $toQuery = "select fun_name
                 from Funcionalidad , Pagina , Pag_Fun
@@ -197,21 +239,29 @@ class DBManager {
     $result = $this->doQuery($toQuery);
     return $this->returnArray($result);
   }
+  
+  //Devuelve un array con los nombres de todas las funcionalidades
   public function listFuns(){
     $toQuery = "select fun_name from Funcionalidad";
     $result = $this->doQuery($toQuery);
     return $this->returnArray($result);
   }
+  
+  //Devuelve un array con los nombres de todos los usuarios
   public function listUsers(){
     $toQuery = "select user_name from Usuario";
     $result = $this->doQuery($toQuery);
     return $this->returnArray($result);
   }
+  
+  //Devuelve un array con los nombres de todas las paginas
   public function listPags(){
     $toQuery = "select pag_name from Pagina";
     $result = $this->doQuery($toQuery);
     return $this->returnArray($result);
   }
+  
+  //Devuelve un array con los nombres de todos los roles
   public function listRols(){
     $toQuery = "select rol_name from Rol";
     $result = $this->doQuery($toQuery);
@@ -219,7 +269,8 @@ class DBManager {
   }
 
 
-//RENDERTABLEGESTION
+//Funciones que devuelven los datos que van a ser mostrados en las paginas de gestion
+//Estas funciones las usa la clase RenderTableGestion
   public function listGestionFuns(){
     $toQuery = "select fun_name, fun_desc, fun_id from Funcionalidad";
     $result = $this->doQuery($toQuery);
@@ -242,8 +293,7 @@ class DBManager {
   }
 //HASTA AQUI
 
-//MANAGEMENT DE BORRADOS
-
+//Borrados
   public function borrarFuncionalidad($delete_id){
     //Borramos de Funcionalidad
     $toQuery = "delete from Funcionalidad where fun_id='".$delete_id."'";
@@ -308,7 +358,7 @@ class DBManager {
   }
 //HASTA AQUI
 
-//MANAGEMENT PARA MODIFICAR(gettean valores para la pestaña de modificar)
+//Funciones que devuelven los datos que hay que mostrar en los formularios de las vistas de modificaciones
   public function getDatosFuncion($busca_id){
     $toQuery = "select fun_name, fun_desc from Funcionalidad where fun_id = $busca_id";
     $result = $this->doQuery($toQuery);
@@ -334,8 +384,7 @@ class DBManager {
   }
 //HASTA AQUI
 
-//Gettear Minimas IDs
-
+//Funciones que devuelven una id aleatoria de rol, usuario, funcionalidad o pagina
   public function getMinIDFun(){
     $toQuery = "select fun_id from Funcionalidad";
     $result = $this->doQuery($toQuery);
@@ -356,10 +405,9 @@ class DBManager {
     $result = $this->doQuery($toQuery);
     return $result->fetch_assoc();
   }
-
 //HASTA AQUI
 
-
+  //Devuelve verdadero si un usuario y un rol estan relacionados
   public function existUserRol($user,$rol){
     $toQuery = "select * from Usuario, Rol, User_Rol
                 where Usuario.user_name = '".$user."' and
@@ -369,6 +417,8 @@ class DBManager {
     $result = $this->doQuery($toQuery);
     return $result->num_rows != 0;
   }
+  
+  //Devuelve verdadero si un usuario y una pagina estan relacionados
   public function existUserPag($user,$pag){
     $toQuery = "select * from Usuario, Pagina, User_Pag
                 where Usuario.user_name = '".$user."' and
@@ -378,6 +428,8 @@ class DBManager {
     $result = $this->doQuery($toQuery);
     return $result->num_rows != 0;
   }
+  
+  //Devuelve verdadero si un usuario y una funcionalidad estan relacionados
   public function existUserFun($user,$fun){
     $toQuery = "select * from Usuario, Funcionalidad, User_Fun
                 where Usuario.user_name = '".$user."' and
@@ -387,6 +439,8 @@ class DBManager {
     $result = $this->doQuery($toQuery);
     return $result->num_rows != 0;
   }
+  
+  //Devuelve verdadero si una pagina y una funcionalidad estan relacionados
   public function existPagFun($pag,$fun){
     $toQuery = "select * from Pagina, Funcionalidad, Pag_Fun
                 where Pagina.pag_name = '".$pag."' and
@@ -396,6 +450,8 @@ class DBManager {
     $result = $this->doQuery($toQuery);
     return $result->num_rows != 0;
   }
+  
+  //Devuelve verdadero si un rol y una funcionalidad estan relacionados
   public function existRolFun($rol,$fun){
     $toQuery = "select * from Rol, Funcionalidad, Rol_Fun
                 where Rol.rol_name = '".$rol."' and
@@ -405,30 +461,40 @@ class DBManager {
     $result = $this->doQuery($toQuery);
     return $result->num_rows != 0;
   }
+  
+  //Devuelve el ID de un usuario
   public function getIdUser($user){
     $toQuery = "select user_id from Usuario where user_name = '".$user."'";
     $result = $this->doQuery($toQuery);
     $result = $result->fetch_assoc();
     return $result['user_id'];
   }
+  
+  //Devuelve el ID de una pagina
   public function getIdPag($pag){
     $toQuery = "select pag_id from Pagina where pag_name = '".$pag."'";
     $result = $this->doQuery($toQuery);
     $result = $result->fetch_assoc();
     return $result['pag_id'];
   }
+  
+  //Devuelve el ID de un rol
   public function getIdRol($rol){
     $toQuery = "select rol_id from Rol where rol_name = '".$rol."'";
     $result = $this->doQuery($toQuery);
     $result = $result->fetch_assoc();
     return $result['rol_id'];
   }
+  
+  //Devuelve el ID de una funcionalidad
   public function getIdFun($fun){
     $toQuery = "select fun_id from Funcionalidad where fun_name = '".$fun."'";
     $result = $this->doQuery($toQuery);
     $result = $result->fetch_assoc();
     return $result['fun_id'];
   }
+  
+//Insercion de relaciones
   public function insertRelationUserPag($user,$pag){
     if($this->existUserPag($user,$pag)){
       return false;
@@ -504,7 +570,7 @@ class DBManager {
     }
     return true;
   }
-
+  //HASTA AQUI
 
   //BORRADO DE RELACIONES (ESTOS CAMBIOS DEBEN PROPAGARSE)
   public function deleteRelationUserFun($user,$fun){
