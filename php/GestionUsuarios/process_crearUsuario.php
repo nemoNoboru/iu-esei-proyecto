@@ -38,6 +38,8 @@ if($_POST['pass1']==$_POST['pass2']){
       }
     }
     echo "Usuario creado correctamente";
+	$pagina_anterior=$_SERVER['HTTP_REFERER'];
+	header('location: '.'../../views/correcto.php?ID=UC');
     // redireccion a mensaje correcto aqui
   }else{
     echo "Error creando el usuario, ya existia un usuario con ese nombre";
@@ -47,6 +49,8 @@ if($_POST['pass1']==$_POST['pass2']){
   }
 }else {
   echo "Las contraseñas no coiciden";
+  $pagina_anterior=$_SERVER['HTTP_REFERER'];
+	header('location: '.'../../views/error.php?ID=2');
   //redireccion a mensaje de error aqui
 }
 
