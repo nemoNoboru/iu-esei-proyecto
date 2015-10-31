@@ -4,7 +4,7 @@
 ?>
   <div id='loginbox' class="container">
 		<div class="row">
-			<div class="col-md-4 col-md-offset-4">
+			<div class="col-md-4 col-md-offset-4 box  ">
 				<div class='lead'><?php echo $Idioma['Iniciar sesion']; ?></div> 	<!--Muestra el titulo del formulario-->
 				
 						<!--Formulario de login, los datos se envian a "../php/GestionUsuarios/ProcesarLogin.php"-->

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>GSTR</title>
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/gstr.css" rel="stylesheet">
+    <link href="../css/gstr.css" rel="stylesheet">
   </head>
   <body>
   <?php
