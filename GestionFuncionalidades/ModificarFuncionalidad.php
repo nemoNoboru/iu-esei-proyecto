@@ -32,6 +32,7 @@
 			echo 'Nombre Funcionalidad:<input type=text value="' .$datos["fun_name"].'"'. ' name="nombre" readonly><br>';
 			echo 'Descripcion:<textarea rows="5" cols="30" name="desc">' .$datos["fun_desc"].''. '</textarea><br>';
 
+			//Esta primera tabla no funca bien
 			$table_maker->tablePagByFun($datos["fun_name"]);
 
 			$table_maker->tableRolByFun($datos["fun_name"]);
