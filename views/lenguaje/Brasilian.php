@@ -1,13 +1,13 @@
 <?php
 $Idioma = array(
 //Esto te toca a ti Felipe, yo esque con HUE me lo entiendo todo pillalo
-'Iniciar sesion' => 'Hue HUe HUE HUE',
+'Iniciar sesion' => 'Empezar a Festa de Hue HUe HUE HUE',
 'Login' => 'Hue HUe HUE HUE',
 'Contraseña' => 'Hue HUe HUE HUE',
-'Menu Principal' => 'Hue HUe HUE HUE',
+'Menu Principal' => 'Disfrute do Hue HUe HUE HUE',
 'Menu' => 'Hue HUe HUE HUE',
 'Roles' => 'Hue HUe HUE HUE',
-'Usuarios' => 'Hue HUe HUE HUE',
+'Usuarios' => 'os memes Hue HUe HUE HUE',
 'Funcionalidades' => 'Hue HUe HUE HUE',
 'Paginas' => 'Hue HUe HUE HUE',
 'Gestión de Roles' => 'Hue HUe HUE HUE',
@@ -42,9 +42,13 @@ $Idioma = array(
 'Accion a confirmar' => 'Hue HUe HUE HUE',
 'Crear usuario' => 'Allahu EKBER',
 'Crear página' => 'Vose crea paginas every were',
-'Pagina' => 'HUEHUEHUEHUEUE NOLO PILLO'
-
-
- 
+'Pagina' => 'HUEHUEHUEHUEUE NOLO PILLO',
+'Funcionalidad' => 'Trololo',
+//Lista de errores:
+'1' => 'xa temos ise usuario pana',
+'2' => 'As contraseñas non som moito bem',
+//Valido:
+'Exito' => 'Operacion exitosa ta tudu ben',
+'UC' => 'Usuario Creado con huehueheuheue', 
 )
 ?>

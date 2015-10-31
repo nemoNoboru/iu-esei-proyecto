@@ -46,6 +46,14 @@ $Idioma = array(
 'Repetir contraseña' => 'Repeat pass',
 'permitir' => 'Grant',
 'Crear página' => 'Create page',
+'Seguro' => 'Sure?',
+'Validar' => 'Check it',
+//Lista de errores:
+'1' => 'Already exist this user',
+'2' => 'Passwords are not equals',
+//Valido:
+'Exito' => 'Sucesfull operation',
+'UC' => 'Create user',
 
 )
 ?>
