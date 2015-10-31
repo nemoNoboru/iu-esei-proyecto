@@ -8,9 +8,9 @@
 			<div class="col-md-4 col-md-offset-4">
 				<div class='lead'><?php echo $len['Ha ocurrido un error']." : "; ?></div>
 				<div class='lead'><?php echo $len[$error]; ?></div>
-					<button><a href="<?=$_SERVER["HTTP_REFERER"]?>"><?php echo $len['Atras']; ?></a>
-				</div></button>
+				<button onclick="history.go(-1)"><?php echo $len['Atras']; ?></button>
 			</div>
 		</div>
+	</div>
 </body>
 </html>
