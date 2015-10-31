@@ -1,48 +1,52 @@
-<?php include ("../views/header.php");
-    RenderBanner("Gestión de Roles");
+<?php include("../views/header.php");
+	RenderBanner("Gestión de Roles");
+?>
+
+<?php include("../views/lateral.php");
+	RenderLateral(1);
 ?>
 
 <div id="contenido" class="container">
 	<div class="row">
-		<?php include("../views/lateral.php");
-			RenderLateral(1);
-		?>
-		<div class="col-md-9 col-sm-12">
-	    <form action="../php/GestionRoles/process_ModificarRol.php" method="post" id="formulario">
-		<div class="form-group">
-            <h1>Modificar Rol</h1>
-            Seleccionar Rol: <SELECT NAME="Lista"><OPTION>Rol 1 <OPTION>Rol 2 <OPTION>Rol 3 </SELECT><br><br>
-            Nombre: <INPUT TYPE="text" NAME="nombre" SIZE=19 MAXLENGTH=19><br><br>
-            Descripción:   <TEXTAREA COLS="20" ROWS="1" NAME="desc"></TEXTAREA> <br><br>
-        </form>
+	<?php
+		require_once("../php/DBManager.php");
+		$man = DBManager::getInstance();
+		$man->connect();
+		$redirect = $man->getMinIDRol();
+		if(!isset($_GET["id"])){ //cambiar por funcion que devuelva la primera id ocupada
 
-        <div class="tabla">
-    			<table>
-    				<tr><th>Usuarios</th></tr>
-    				<tr><td>Usuario1</td><td><input type="checkbox" name="Usuario1"/></td></tr>
-    				<tr><td>Usuario2</td><td><input type="checkbox" name="Usuario2" checked="yes"/></td></tr>
-    				<tr><td>Usuario3</td><td><input type="checkbox" name="Usuario3"/></td></tr>
-    				<tr><td>usuario4</td><td><input type="checkbox" name="usuario4" checked="yes"/></td></tr>
-    			</table>
-  		  </div>
+			header('Location: ModificarRol.php?id=' .$redirect["rol_id"].'');
+		}
+		else{
 
-  		    <div class="tabla"> <!-- esta tabla va a ser creada dinamicamente en un futuro -->
-      			<table>
-              <tr><th>Funcionalidades</th></tr>
-      				<tr><td>Función 1</td><td><input type="checkbox" name="Funcionalidad1"/></td></tr>
-      				<tr><td>Función 2</td><td><input type="checkbox" name="Funcionalidad2" checked="yes"/></td></tr>
-      				<tr><td>Función 3</td><td><input type="checkbox" name="Funcionalidad3"/></td></tr>
-      				<tr><td>Función 4</td><td><input type="checkbox" name="Funcionalidad4" checked="yes"/></td></tr>
-      			</table>
-  		  </div>
+			echo '<div class="col-md-9 col-sm-12">';
+			echo '<form action="../php/GestionRoles/process_modificarRol.php?="'.$_GET["id"].' method="post" '.'id="formulario">';
 
-		  <button class="btn btn-default" onclick="history.go(-1)"><?php echo $Idioma['Atras']; ?></button>
-			<input type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"  value="<?php echo $Idioma['Guardar']; ?>" class="continuar"/>
-			</div>
-			</form>
-		</div>
-	</div>
-	
+			require_once("../views/renderTable.php");
+			require_once("../views/renderCombobox.php");
+			$table_maker = new RenderTable;
+			$combo_maker = new renderCombobox;
+
+			$combo_maker->comboboxBlankRol(); //ComboBox de Selección
+
+			$datos = $man->getDatosRol($_GET["id"]);
+			echo 'Nombre Rol:<input class="form-control" type=text value="' .$datos["rol_name"].'"'. ' name="nombre" readonly><br>';
+			echo 'Descripcion:<textarea rows="5" cols="30" name="desc">' .$datos["rol_desc"].''. '</textarea><br>';
+
+
+			$table_maker->tableUserByRol($datos["rol_name"]);
+
+			$table_maker->tableFunByRol($datos["rol_name"]);
+
+			echo '<button class="btn btn-default" onclick="history.go(-1)">' .$Idioma['Atras'].' </button>';
+			echo '<input type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"  value="' .$Idioma['Guardar'].'" class="continuar"/>';
+
+			echo '</form>';
+			echo '</div>';
+		}
+	?>
+</div>
+
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
