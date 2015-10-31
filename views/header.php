@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>GSTR</title>
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/gstr.css" rel="stylesheet">
+    <link href="../css/gstr.css" rel="stylesheet">
   </head>
   <body>
   <?php
@@ -23,38 +23,23 @@
 		//Comprobamos el valor de sesion y segun su valor cargo el array con el idioma deseado.
     echo "<nav class='navbar navbar-default'>";
     echo "<div class='container'>";
-    echo "<span class='navbar-brand'> GSTR </span>";
+    echo "<span class='navbar-brand'><a href='../Menu/MenuPrincipal.php'> GSTR </a></span>";
+    echo '<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">';
+    echo 'Idioma';
+    echo '</button>';
     echo "<p class='navbar-text'>".$Idioma[$nombre]."</p>";
+    echo '<div id="navbar" class="navbar-collapse collapse">';
     echo "<ul class='nav navbar-nav navbar-right'>";
     echo '<li><a href="../php/CambioIdioma.php?leng=en">EN</a></li>';
     echo '<li><a href="../php/CambioIdioma.php?leng=sp">ES</a></li>';
     echo '<li><a href="../php/CambioIdioma.php?leng=br">BR</a></li>';
     echo '</ul>';
+    echo '</div>';
     echo "</div>";
     echo "</nav>";
-		//echo '<div id="header"> <span class="cabecera"> GSTR </span>'.($Idioma[$nombre]).'</div>';
+		//echo '<div id="header"><span class="cabecera"> GSTR </a></span>'.($Idioma[$nombre]).'</div>';
 
 		//Prueba temporal para comprobar que funciona bien.
 		//echo 'Sesion: '.$_SESSION["LE"];
 	}
-  function getIdioma(){
-  //$Idioma = 0;
-  if(!isset($_SESSION['LE'])) {$_SESSION['LE']="sp";}
-  switch ($_SESSION["LE"])
-  {
-  case 'sp':
-    require '../views/lenguaje/spanish.php';
-    break;
-  case 'en':
-    require '../views/lenguaje/English.php';
-    break;
-  case 'br':
-    require '../views/lenguaje/Brasilian.php';
-    break;
-  DEFAULT:
-    require '../views/lenguaje/English.php';
-    break;
-  }
-  return $Idioma;
-  }
   ?>

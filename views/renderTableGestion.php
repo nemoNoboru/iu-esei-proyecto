@@ -5,26 +5,40 @@
 require_once("../php/DBManager.php");
 
 
+
 class RenderTableGestion {
+
   public function renderTableGestion(){
     $this->man = DBManager::getInstance(); //crea instancia
     $this->man->connect(); //conectate a la bbdd
   }
 //Privates para uso interno
+
+  //Muestra la fila cabecera de la tabla
   private function echoInit($arrayNames){
-    echo '<div class="tabla">';
-    echo   '<table>';
+    require_once("getIdioma.php");
+    $Idioma = getIdioma();
+    //echo '<div class="tabla">';
+    echo   '<table class="table table-striped">';
       //Construyendo la linea
+    echo '<thead>';
     echo '<tr>';
     foreach($arrayNames as $header){
-      echo '<th>'.$header.'</th>';
+      echo '<th>'.$Idioma[$header].'</th>';
     }
     echo '</tr>';
+    echo '</thead>';
+    echo '</tbody>';
   }
+  
+  //Finaliza la tabla
   private function echoFin(){
+    echo '</tbody>';
     echo '</table>';
-    echo '</div>';
+    //echo '</div>';
   }
+  
+  //Muestra una fila de la tabla
   private function echoline($tupla){
     echo "<tr>";
     foreach($tupla as $campo){
@@ -34,7 +48,7 @@ class RenderTableGestion {
     echo "</tr>";
   }
 
-//Publics para paginas de Gestion
+//Forma y muestra las tablas que se muestan en las paginas de gestion
   public function tableRol(){
     $this->echoInit($arrayNames=array("Rol","Descripcion","Eliminar"));
     $result = $this->man->listGestionRols();
@@ -75,7 +89,7 @@ class RenderTableGestion {
     $this->echoFin();
   }
   public function tablePagina(){
-    $this->echoInit($arrayNames=array("Página","Descripcion","Eliminar"));
+    $this->echoInit($arrayNames=array("Pagina","Descripcion","Eliminar"));
     $result = $this->man->listGestionPags();
     foreach ($result as $tupla) {
       $GET_id=array_pop($tupla);

@@ -38,4 +38,4 @@ foreach ($usuarios as $user) {
 
 
 ?>
-<button onclick="location.href='../../GestionPagina/GestionPaginas.php'">OK</button>
+<button onclick="location.href='../../GestionPaginas/GestionPaginas.php'">OK</button>
