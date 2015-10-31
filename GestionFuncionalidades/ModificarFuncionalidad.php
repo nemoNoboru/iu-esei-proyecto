@@ -6,8 +6,8 @@
 	RenderLateral(3);
 ?>
 
-<div id="contenido">
-
+<div id="contenido" class="container">
+	<div class="row">
 	<?php
 		require_once("../php/DBManager.php");
 		$man = DBManager::getInstance();
@@ -20,7 +20,7 @@
 		else{
 
 			echo '<div class="col-md-9 col-sm-12">';
-			echo '<form action="../php/GestionFuncionalidades/process_modificarFuncionalidad.php?="'.$_GET["id"].' method="post">';
+			echo '<form action="../php/GestionFuncionalidades/process_modificarFuncionalidad.php?="'.$_GET["id"].' method="post" '.'id="formulario">';
 
 			require_once("../views/renderTable.php");
 
@@ -38,16 +38,14 @@
 
 			$table_maker->tableUserByFun($datos["fun_name"]);
 
-			echo '<button onclick="history.go(-1)">Atrás</button>';
-			echo '<input type="submit" value="Guardar" class="continuar"/>';
-
-
-
+			echo '<button class="btn btn-default" onclick="history.go(-1)">' .$Idioma['Atras'].' </button>';
+			echo '<input type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"  value="' .$Idioma['Guardar'].'" class="continuar"/>';
+				
 			echo '</form>';
 			echo '</div>';
 		}
 	?>
-
+</div>
 
 
 
@@ -104,7 +102,23 @@
 	</form>
 -->
 
-<button onclick="history.go(-1)">Atrás</button>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><?php echo $Idioma['Validar']; ?></h4>
+      </div>
+      <div class="modal-body">
+        <?php echo $Idioma['Seguro']; ?>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">NO</button>
+        <button type="button" onclick="document.getElementById('formulario').submit();" class="btn btn-primary">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 </div>
 <?php include("../views/footer.php");

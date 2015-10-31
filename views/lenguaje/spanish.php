@@ -15,6 +15,7 @@ $Idioma = array(
 'Gestión de Roles' => 'Gestion de roles',
 'Gestión de Usuarios' => 'Gestion de usuarios',
 'Gestión de Usuario' => 'Gestion de usuarios',
+'Gestion de Funcionalidades' => 'Gestion de funcionalidades',
 'Gestión de Funcionalidades' => 'Gestion de funcionalidades',
 'Gestion de Páginas' => 'Gestion de paginas',
 'Gestión de Páginas' => 'Gestion de paginas',
@@ -46,8 +47,13 @@ $Idioma = array(
 'Repetir contraseña' => 'Repetir contraseña',
 'permitir' => 'Permitir',
 'Crear página' => 'Crear página',
-'Seguro' => '¿Seguro que quiere crear el usuario?',
-
-
+'Seguro' => '¿Seguro que quiere continuar?',
+'Validar' => 'Validar',
+//Lista de errores:
+'1' => 'Ya existe ese usuario',
+'2' => 'Las contraseñas no son iguales',
+//Valido:
+'Exito' => 'Operacion exitosa',
+'UC' => 'Usuario Creado',
 )
 ?>
