@@ -23,16 +23,16 @@ class renderCombobox {
 	}
 
 	private function echolineRol($name,$id){
-		echo '<option><a href="ModificarRol.php?id='.$id.'"'.$name.'</option>';
+		echo '<option value="ModificarRol.php?id='.$id.'">'.$name.'</option>';
 	}
 	private function echolineFun($name,$id){
-		echo '<option><a href="ModificarFuncionalidad.php?id="'.$id.'"">'.$name.'</a></option>';
+		echo '<option value="ModificarFuncionalidad.php?id='.$id.'">'.$name.'</option>';
 	}
 	private function echolinePagina($name,$id){
-		echo '<option><a href="ModificarPagina.php?id='.$id.'"'.$name.'</option>';
+		echo '<option value="ModificarPagina.php?id='.$id.'">'.$name.'</option>';
 	}
 	private function echolineUsuario($name,$id){
-		echo '<option value="ModificarUsuario.php?id='.$id.'">'.$name.'</a></option>';
+		echo '<option value="ModificarUsuario.php?id='.$id.'">'.$name.'</option>';
 	}
 
    public function comboboxBlankRol(){
@@ -57,7 +57,7 @@ class renderCombobox {
 		$this->echoInit("Página");
 		$result = $this->man->listPags();
 		foreach ($result as $item) {
-			$id = $this->man->getIdPagina($item['pag_name']);
+			$id = $this->man->getIdPag($item['pag_name']);
 			$this->echolinePagina($item['pag_name'],$id);
 		}
 		$this->echoFin();
