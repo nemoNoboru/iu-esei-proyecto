@@ -1,67 +1,55 @@
 <?php include("../views/header.php");
-	RenderBanner("Gestión de Usuarios");
-	include("../views/renderCombobox.php");
-	$mk_combo = new renderCombobox;
-	$Idioma = getIdioma();
+	RenderBanner("Gestión de Roles");
+?>
+
+<?php include("../views/lateral.php");
+	RenderLateral(0);
 ?>
 
 <div id="contenido" class="container">
 	<div class="row">
-		<?php include("../views/lateral.php");
-			RenderLateral(0);
-		?>
-		<div class="col-md-9 col-sm-12">
-			<form action="../php/GestionUsuarios/process_crearUsuario.php" method="post" id="formulario">
-				<div class="form-group">
+	<?php
+		require_once("../php/DBManager.php");
+		$man = DBManager::getInstance();
+		$man->connect();
+		$redirect = $man->getMinIDUser();
+		if(!isset($_GET["id"])){ //cambiar por funcion que devuelva la primera id ocupada
 
-		<h1>Modificar Usuario</h1>
+			header('Location: ModificarUsuario.php?id=' .$redirect["user_id"].'');
+		}
+		else{
 
+			echo '<div class="col-md-9 col-sm-12">';
+			echo '<form action="../php/GestionUsuarios/process_modificarUsuario.php?="'.$_GET["id"].' method="post" '.'id="formulario">';
 
-    Seleccionar Funcionalidad
-		<?php $mk_combo->comboboxBlankUsuario(); ?><br>
-		Nombre: <input type="text" name="nombre"><br/>
-		Apellidos: <input type="text" name="apellidos"><br/>
-		email: <input type="text" name="email"><br/>
-		Contraseña: <input type="password" name="pass1"><br/>
-    Repetir Contraseña: <input type="password" name="pass2"><br/>
+			require_once("../views/renderTable.php");
+			require_once("../views/renderCombobox.php");
+			$table_maker = new RenderTable;
+			$combo_maker = new renderCombobox;
 
-		<div class="tabla"> <!-- esta tabla va a ser creada dinamicamente en un futuro -->
-			<table>
-				<tr><th>Roles</th></tr>
-				<tr><td>Roles1</td><td><input type="checkbox" name="Roles1"/></td></tr>
-				<tr><td>Roles2</td><td><input type="checkbox" name="Roles2"/></td></tr>
-				<tr><td>Roles3</td><td><input type="checkbox" name="Roles3"/></td></tr>
-				<tr><td>Roles4</td><td><input type="checkbox" name="Roles4"/></td></tr>
-			</table>
-		</div>
+			$combo_maker->comboboxBlankUsuario(); //ComboBox de Selección
 
-		<div class="tabla"> <!-- esta tabla va a ser creada dinamicamente en un futuro -->
-			<table>
-				<tr><th>Paginas</th></tr>
-				<tr><td>Pagina1</td><td><input type="checkbox" name="pagina1"/></td></tr>
-				<tr><td>Pagina2</td><td><input type="checkbox" name="pagina2"/></td></tr>
-				<tr><td>Pagina3</td><td><input type="checkbox" name="pagina3"/></td></tr>
-				<tr><td>Pagina4</td><td><input type="checkbox" name="pagina4"/></td></tr>
-			</table>
-		</div>
+			$datos = $man->getDatosUsuario($_GET["id"]);
+			echo 'Nombre Usuario:<input class="form-control" type=text value="' .$datos["user_name"].'"name="nombre" readonly><br>';
+			echo 'Descripcion:<textarea rows="5" cols="30" name="desc">' .$datos["user_desc"].''. '</textarea><br>';
+			echo 'Email:<input class="form-control" type=text value="'.$datos["user_email"].'"name="email"<br>';
+			echo 'Contraseña:<button>Cambiar</button>'; //Esto tiene que hacer cosas
 
+			$table_maker->tableRolByUser($datos["user_name"]);
 
-    <div class="tabla"> <!-- esta tabla va a ser creada dinamicamente en un futuro -->
-			<table>
-				<tr><th>Funcionalidades</th></tr>
-				<tr><td>Funcion1</td><td><input type="checkbox" name="funcion1"/></td></tr>
-				<tr><td>Funcion2</td><td><input type="checkbox" name="funcion2"/></td></tr>
-				<tr><td>Funcion3</td><td><input type="checkbox" name="funcion3"/></td></tr>
-				<tr><td>Funcion4</td><td><input type="checkbox" name="funcion4"/></td></tr>
-			</table>
-		</div>
+			$table_maker->tablePagByUser($datos["user_name"]);
 
-	   <button class="btn btn-default" onclick="history.go(-1)"><?php echo $Idioma['Atras']; ?></button>
-			<input type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"  value="<?php echo $Idioma['Guardar']; ?>" class="continuar"/>
-			</div>
-			</form>
-		</div>
-	</div>
+			$table_maker->tableFunByUser($datos["user_name"]);
+
+			echo '<button class="btn btn-default" onclick="history.go(-1)">' .$Idioma['Atras'].' </button>';
+			echo '<input type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"  value="' .$Idioma['Guardar'].'" class="continuar"/>';
+
+			echo '</form>';
+			echo '</div>';
+		}
+	?>
+</div>
+
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

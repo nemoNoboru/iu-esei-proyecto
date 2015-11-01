@@ -18,7 +18,7 @@ if($confirm==1){						//Si el usuario ya ha confirmado el borrado
 }else{									//Si no
   echo "¿Seguro que desea borrar?<br>";		//Se pide confirmacion
   echo "<button onclick='location.href=\"../../GestionUsuarios/GestionUsuarios.php\"'>Cancelar</button>"; //Boton para cancelar el borrado
-  echo "<button onclick='location.href=\"../../php/GestionFuncionalidades/process_borrarUsuario.php?id=$borrar&confirm=1\"'>OK</button>"; //Boton para confirmar el borrado
+  echo "<button onclick='location.href=\"../../php/GestionUsuarios/process_borrarUsuario.php?id=$borrar&confirm=1\"'>OK</button>"; //Boton para confirmar el borrado
 }
 
 ?>
