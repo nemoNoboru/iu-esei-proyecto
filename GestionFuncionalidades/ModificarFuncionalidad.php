@@ -40,7 +40,7 @@
 
 			echo '<button class="btn btn-default" onclick="history.go(-1)">' .$Idioma['Atras'].' </button>';
 			echo '<input type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"  value="' .$Idioma['Guardar'].'" class="continuar"/>';
-				
+
 			echo '</form>';
 			echo '</div>';
 		}
@@ -119,7 +119,7 @@
     </div>
   </div>
 </div>
-
+<div class="footer logo2"></div>
 </div>
 <?php include("../views/footer.php");
 	renderFooter();

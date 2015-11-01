@@ -18,7 +18,7 @@
 		<button onclick="location.href='ModificarPagina.php'"><?php echo $Idioma['Modificar']; ?></button>
 </div>
 </div>
-
+<div class="footer logo4"></div>
 
 <?php include("../views/footer.php");
 	renderFooter();

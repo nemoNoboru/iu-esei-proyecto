@@ -72,3 +72,35 @@ h1 {
 table, tr  {
     border-color:white;
 }
+.logo1 {
+  background-image: url("../media/logo1.svg");
+  background-repeat: no-repeat;
+  width:50px;
+  height: 50px;
+}
+.logo2 {
+  background-image: url("../media/logo2.svg");
+  background-repeat: no-repeat;
+  width:50px;
+  height: 50px;
+}.logo3 {
+  background-image: url("../media/logo3.svg");
+  background-repeat: no-repeat;
+  width:50px;
+  height: 50px;
+}.logo4 {
+  background-image: url("../media/logo4.svg");
+  background-repeat: no-repeat;
+  width:50px;
+  height: 50px;
+}
+.footer{
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+}
+.lateral > li.active > a {
+  background-color: #009688 !important ;
+  border-radius: 0px;
+}
+

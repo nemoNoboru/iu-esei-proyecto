@@ -48,6 +48,7 @@
 	</div>
 </div>
 </div>
+<div class="footer logo1"></div>
 
 <?php include("../views/footer.php");
 	renderFooter(); //aqui va a ir el nombre de usuario de la sesion php

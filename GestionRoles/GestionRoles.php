@@ -21,6 +21,7 @@
 	<button onclick="location.href='ModificarRol.php'"><?php echo $Idioma['Modificar']; ?></button>
 </div>
 </div>
+<div class="footer logo1"></div>
 <?php include ("../views/footer.php");
         RenderFooter();
 ?>

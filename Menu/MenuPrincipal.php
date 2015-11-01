@@ -8,15 +8,31 @@
 <div class="container"> <!-- Este div llega hasta footer, representa toda la interfaz principal -->
   <div class="row">
     <div class="col-md-6 text-center">
-      <div class="BotonMenu"><a href="../GestionRoles/GestionRoles.php"><?php echo $Idioma['Gestión de Roles']; ?></a></div></div>
+      <div class="BotonMenu">
+        <div class="logo1"></div>
+        <a href="../GestionRoles/GestionRoles.php"><?php echo $Idioma['Gestión de Roles']; ?></a>
+      </div>
+    </div>
     <div class="col-md-6 text-center">
-      <div class="BotonMenu"><a href="../GestionUsuarios/GestionUsuarios.php"><?php echo $Idioma['Gestión de Usuarios']; ?></a></div></div>
+      <div class="BotonMenu">
+        <div class="logo3"></div>
+        <a href="../GestionUsuarios/GestionUsuarios.php"><?php echo $Idioma['Gestión de Usuarios']; ?></a>
+      </div>
+    </div>
   </div>
   <div class="row">
     <div class="col-md-6 text-center">
-      <div class="BotonMenu"><a href="../GestionFuncionalidades/GestionFuncionalidades.php"><?php echo $Idioma['Gestión de Funcionalidades']; ?></a></div></div>
+      <div class="BotonMenu">
+        <div class="logo2"></div>
+        <a href="../GestionFuncionalidades/GestionFuncionalidades.php"><?php echo $Idioma['Gestión de Funcionalidades']; ?></a>
+      </div>
+    </div>
     <div class="col-md-6 text-center">
-      <div class="BotonMenu"><a href="../GestionPaginas/GestionPaginas.php"><?php echo $Idioma['Gestión de Páginas']; ?></a></div></div>
+      <div class="BotonMenu">
+        <div class="logo4"></div>
+        <a href="../GestionPaginas/GestionPaginas.php"><?php echo $Idioma['Gestión de Páginas']; ?></a>
+      </div>
+    </div>
   </div>
 </div>
 
