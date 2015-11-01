@@ -6,7 +6,7 @@
 class DBManager {
   private static $man = null;
 
-  protected function DBManager(){}
+  protected function DBManager(){} // protegido el contructor para que no se puedan construir instancias desde fuera de la clase
 
   //Constructor singleton
   public static function getInstance(){
