@@ -15,8 +15,8 @@
 			$table_maker = new RenderTableGestion;
 			$table_maker->tableFuncionalidad();
 		?>
-		<button onclick="location.href='CrearFuncionalidad.php'"><?php echo $Idioma['Crear']; ?></button>
-		<button onclick="location.href='ModificarFuncionalidad.php'"><?php echo $Idioma['Modificar']; ?></button>
+		<button class="btn btn-default" onclick="location.href='CrearFuncionalidad.php'"><?php echo $Idioma['Crear']; ?></button>
+		<button class="btn btn-default" onclick="location.href='ModificarFuncionalidad.php'"><?php echo $Idioma['Modificar']; ?></button>
 	</div>
 </div>
 <div class="footer logo2"></div>

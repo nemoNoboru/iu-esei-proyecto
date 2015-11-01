@@ -47,7 +47,6 @@
     </div>
 	</div>
 </div>
-</div>
 <div class="footer logo1"></div>
 
 <?php include("../views/footer.php");

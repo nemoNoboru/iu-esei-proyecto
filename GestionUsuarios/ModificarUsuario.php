@@ -1,13 +1,13 @@
 <?php include("../views/header.php");
 	RenderBanner("Gestión de Roles");
 ?>
+<div id="contenido" class="container">
+	<div class="row">
 
 <?php include("../views/lateral.php");
 	RenderLateral(0);
 ?>
 
-<div id="contenido" class="container">
-	<div class="row">
 	<?php
 		require_once("../php/DBManager.php");
 		$man = DBManager::getInstance();
@@ -30,10 +30,10 @@
 			$combo_maker->comboboxBlankUsuario(); //ComboBox de Selección
 
 			$datos = $man->getDatosUsuario($_GET["id"]);
-			echo 'Nombre Usuario:<input class="form-control" type=text value="' .$datos["user_name"].'"name="nombre" readonly><br>';
-			echo 'Descripcion:<textarea rows="5" cols="30" name="desc">' .$datos["user_desc"].''. '</textarea><br>';
+			echo '<br/>Nombre Usuario:<input class="form-control" type=text value="' .$datos["user_name"].'"name="nombre" readonly><br>';
+			echo 'Descripcion:<br/><textarea  rows="5" cols="30" name="desc">' .$datos["user_desc"].''. '</textarea><br>';
 			echo 'Email:<input class="form-control" type=text value="'.$datos["user_email"].'"name="email"<br>';
-			echo 'Contraseña:<button>Cambiar</button>'; //Esto tiene que hacer cosas
+			echo '<br/>Contraseña: <button class="btn btn-default">Cambiar</button>'; //Esto tiene que hacer cosas
 
 			$table_maker->tableRolByUser($datos["user_name"]);
 

@@ -14,8 +14,8 @@
 		$table_maker = new RenderTableGestion;
 		$table_maker->tablePagina();
 	?>
-		<button onclick="location.href='CrearPagina.php'"><?php echo $Idioma['Crear']; ?></button>
-		<button onclick="location.href='ModificarPagina.php'"><?php echo $Idioma['Modificar']; ?></button>
+		<button class='btn btn-default' onclick="location.href='CrearPagina.php'"><?php echo $Idioma['Crear']; ?></button>
+		<button class='btn btn-default' onclick="location.href='ModificarPagina.php'"><?php echo $Idioma['Modificar']; ?></button>
 </div>
 </div>
 <div class="footer logo4"></div>

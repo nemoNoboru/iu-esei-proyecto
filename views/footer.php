@@ -1,5 +1,7 @@
 <?php
+	//include("getIdioma.php");
 	function renderFooter(){
+		$Idioma = getIdioma();
 		echo "<footer>";
 		echo "<p class='text-muted'>";
 		if(isset($_SESSION['name'])){
@@ -7,7 +9,7 @@
 		}else{
 			echo "<span class='username'>anon</span>";
 		}
-		echo "<a href='../GestionUsuarios/login.php'><span  class='text-right'> Salir</span></a>";
+		echo "<a href='../GestionUsuarios/login.php'><span  class='text-right'> ".$Idioma['salir']."</span></a>";
 		echo "</footer>";
 	}
 ?>

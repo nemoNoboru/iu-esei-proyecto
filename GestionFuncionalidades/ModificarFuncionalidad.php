@@ -2,12 +2,12 @@
 	RenderBanner("Gestión de Funcionalidades");
 ?>
 
+<div id="contenido" class="container">
+	<div class="row">
 <?php include("../views/lateral.php");
 	RenderLateral(3);
 ?>
 
-<div id="contenido" class="container">
-	<div class="row">
 	<?php
 		require_once("../php/DBManager.php");
 		$man = DBManager::getInstance();
@@ -30,8 +30,8 @@
 			$combo_maker->comboboxBlankFuncionalidad(); //ComboBox de Selección
 
 			$datos = $man->getDatosFuncion($_GET["id"]);
-			echo 'Nombre Funcionalidad:<input class="form-control" type=text value="' .$datos["fun_name"].'"'. ' name="nombre" readonly><br>';
-			echo 'Descripcion:<textarea rows="5" cols="30" name="desc">' .$datos["fun_desc"].''. '</textarea><br>';
+			echo '<br/>Nombre Funcionalidad:<input class="form-control" type=text value="' .$datos["fun_name"].'"'. ' name="nombre" readonly><br>';
+			echo 'Descripcion:<br/><textarea rows="5" cols="30" name="desc">' .$datos["fun_desc"].''. '</textarea><br>';
 
 
 			$table_maker->tablePagByFun($datos["fun_name"]);

@@ -2,12 +2,12 @@
 	RenderBanner("Gestión de Roles");
 ?>
 
+<div id="contenido" class="container">
+	<div class="row">
 <?php include("../views/lateral.php");
 	RenderLateral(1);
 ?>
 
-<div id="contenido" class="container">
-	<div class="row">
 	<?php
 		require_once("../php/DBManager.php");
 		$man = DBManager::getInstance();
@@ -30,8 +30,8 @@
 			$combo_maker->comboboxBlankRol(); //ComboBox de Selección
 
 			$datos = $man->getDatosRol($_GET["id"]);
-			echo 'Nombre Rol:<input class="form-control" type=text value="' .$datos["rol_name"].'"'. ' name="nombre" readonly><br>';
-			echo 'Descripcion:<textarea rows="5" cols="30" name="desc">' .$datos["rol_desc"].''. '</textarea><br>';
+			echo '<br/>Nombre Rol:<input class="form-control" type=text value="' .$datos["rol_name"].'"'. ' name="nombre" readonly><br>';
+			echo 'Descripcion:<br/><textarea rows="5" cols="30" name="desc">' .$datos["rol_desc"].''. '</textarea><br>';
 
 			$table_maker->tableUserByRol($datos["rol_name"]);
 

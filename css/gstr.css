@@ -34,13 +34,20 @@ form input[type=submit] {
     box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.15);
 }
 
-form input[type=text] , form input[type=password] , textarea {
+form input[type=text] , form input[type=password] {
     border-radius: 0px;
     border:0px;
     border-bottom:3px #009688 solid;
     box-shadow:0px;
+    margin-top:5px;
+    margin-bottom:5px;
 }
-
+textarea {
+  border-radius: 0px;
+  border: 3px #009688 solid;
+  margin-top:5px;
+  margin-bottom:5px;
+}
 .BotonMenu {
     font-size: 23px;
     padding:15%;
@@ -103,4 +110,6 @@ table, tr  {
   background-color: #009688 !important ;
   border-radius: 0px;
 }
-
+footer {
+  float:right;
+}

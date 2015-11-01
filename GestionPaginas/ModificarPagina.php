@@ -1,13 +1,13 @@
 <?php include("../views/header.php");
 	RenderBanner("Gestión de Páginas");
 ?>
+<div id="contenido" class="container">
+	<div class="row">
 
 <?php include("../views/lateral.php");
 	RenderLateral(2);
 ?>
 
-<div id="contenido" class="container">
-	<div class="row">
 	<?php
 		require_once("../php/DBManager.php");
 		$man = DBManager::getInstance();
@@ -30,8 +30,8 @@
 			$combo_maker->comboboxBlankPagina(); //ComboBox de Selección
 
 			$datos = $man->getDatosPagina($_GET["id"]);
-			echo 'Nombre Página:<input class="form-control" type=text value="' .$datos["pag_name"].'"'. ' name="nombre" readonly><br>';
-			echo 'Descripcion:<textarea rows="5" cols="30" name="desc">' .$datos["pag_desc"].''. '</textarea><br>';
+			echo '<br/>Nombre Página:<input class="form-control" type=text value="' .$datos["pag_name"].'"'. ' name="nombre" readonly><br>';
+			echo 'Descripcion:<br/><textarea rows="5" cols="30" name="desc">' .$datos["pag_desc"].''. '</textarea><br>';
 
 
 			$table_maker->tableFunByPag($datos["pag_name"]);

@@ -17,8 +17,8 @@
         $table_maker->tableUsuario();				//Se muestra la tabla de gestion de usuarios
       ?>
 
-      <button onclick="location.href='CrearUsuario.php'"><?php echo $Idioma['Crear']; ?></button> 			<!--Boton para crear un usuario-->
-      <button onclick="location.href='ModificarUsuario.php'"><?php echo $Idioma['Modificar']; ?></button>	<!--Boton para modificar un usuario-->
+      <button class='btn btn-default' onclick="location.href='CrearUsuario.php'"><?php echo $Idioma['Crear']; ?></button> 			<!--Boton para crear un usuario-->
+      <button class='btn btn-default' onclick="location.href='ModificarUsuario.php'"><?php echo $Idioma['Modificar']; ?></button>	<!--Boton para modificar un usuario-->
     </div>
   </div>
 <div class="footer logo3"></div>

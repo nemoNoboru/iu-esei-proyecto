@@ -1,5 +1,6 @@
 <?php
 $Idioma = array(
+'salir' => 'Exit',
 'ID' => 'ID',
 'Email' => 'Email',
 'nick' => 'nickname',
