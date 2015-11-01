@@ -698,11 +698,41 @@ class DBManager {
     }
   }
 
+  private function checkRolPath($user,$pag) { //prueba si un usuario puede acceder a una pagina mediante su rol
+    $toQuery ='select Pagina.pag_name from Usuario,User_Rol,Rol_Fun,Pag_Fun,Pagina
+    where Usuario.user_name = "'.$user.'" and
+          Usuario.user_id = User_Rol.user_id and
+          User_Rol.rol_id = Rol_Fun.rol_id and
+          Rol_Fun.fun_id = Pag_Fun.fun_id and
+          Pag_Fun.pag_id = Pagina.pag_id and
+          Pagina.pag_name = "'.$pag.'"';
+    $result = $this->doQuery($toQuery);
+    return $result->num_rows != 0;
+  }
 
+  private function checkFunPath($user,$pag){
+    $toQuery = ' select Pagina.pag_name from Usuario,User_Fun,Pag_Fun,Pagina
+    where Usuario.user_name = "'.$user.'" and
+          Usuario.user_id = User_Fun.user_id and
+          User_Fun.fun_id = Pag_Fun.fun_id and
+          Pag_Fun.pag_id = Pagina.pag_id and
+          Pagina.pag_name = "'.$fun.'"';
+    $result = $this->doQuery($toQuery);
+    return $result->num_rows != 0;
+  }
 
+  private function checkPagPath($user,$pag){
+    $toQuery = 'select Pagina.pag_name from Usuario,User_Pag,Pagina
+    where Usuario.user_name = "Redulog" and
+          Usuario.user_id = User_Pag.user_id and
+          User_Pag.pag_id = Pagina.pag_id and
+          Pagina.pag_name = "Dummy3"';
+    $result = $this->doQuery($toQuery);
+    return $result->num_rows != 0;
+  }
 
-
-
-//HASTA AQUI pero tampoco están todos hechos
+  public function canUserInPag($user,$pag) {
+    return checkRolPath($user,$pag) || checkPagPath($user,$pag) || checkFunPath($user,$pag);
+  }
 }
 ?>
