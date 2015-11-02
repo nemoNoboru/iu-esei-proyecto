@@ -723,16 +723,16 @@ class DBManager {
 
   private function checkPagPath($user,$pag){
     $toQuery = 'select Pagina.pag_name from Usuario,User_Pag,Pagina
-    where Usuario.user_name = "Redulog" and
+    where Usuario.user_name = "'.$user.'" and
           Usuario.user_id = User_Pag.user_id and
           User_Pag.pag_id = Pagina.pag_id and
-          Pagina.pag_name = "Dummy3"';
+          Pagina.pag_name = "'.$pag.'"';
     $result = $this->doQuery($toQuery);
     return $result->num_rows != 0;
   }
 
   public function canUserInPag($user,$pag) {
-    return checkRolPath($user,$pag) || checkPagPath($user,$pag) || checkFunPath($user,$pag);
+    return $this->checkRolPath($user,$pag) || $this->checkPagPath($user,$pag) || $this->checkFunPath($user,$pag);
   }
 }
 ?>

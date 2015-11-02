@@ -53,6 +53,7 @@ $Idioma = array(
 //Lista de errores:
 '1' => 'Ya existe ese usuario',
 '2' => 'Las contraseñas no son iguales',
+'3' => 'No tiene permisos para acceder a esta pagina',
 //Valido:
 'Exito' => 'Operacion exitosa',
 'UC' => 'Usuario Creado',

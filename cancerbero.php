@@ -7,10 +7,10 @@
  class Cancerbero {
 
    public function Cancerbero($Pagename){
-     if($this->man = DBManager::getInstance() == false ){
+     if(!$this->man = DBManager::getInstance()){
        die("No se puede crear un DBManager");
      }else{
-       if($this->man->connect() == false){
+       if(!$this->man->connect()){
          die("No se puede conectar a la bd");
        }
      }
@@ -19,6 +19,15 @@
 
    public function canAccess($usuario){
      return $this->man->canUserInPag($usuario,$this->page);
+   }
+
+   public function handleAuto(){
+     if(!isset($_SESSION['name'])){
+       return false;
+     }
+     if(!$this->canAccess($_SESSION['name'])){
+       header('location:../views/error.php?ID=3');
+     }
    }
 
  }

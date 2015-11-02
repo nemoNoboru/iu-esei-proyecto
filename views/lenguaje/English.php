@@ -52,6 +52,7 @@ $Idioma = array(
 //Lista de errores:
 '1' => 'Already exist this user',
 '2' => 'Passwords are not equals',
+'3' => 'You don\'t have permisions to view this page',
 //Valido:
 'Exito' => 'Sucesfull operation',
 'UC' => 'Create user',
