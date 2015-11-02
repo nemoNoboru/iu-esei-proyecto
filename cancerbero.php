@@ -27,6 +27,7 @@
      }
      if(!$this->canAccess($_SESSION['name'])){
        header('location:../views/error.php?ID=3');
+       exit();
      }
    }
 
