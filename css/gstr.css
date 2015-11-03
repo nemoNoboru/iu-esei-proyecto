@@ -3,6 +3,11 @@ html , body {
   #background-color: #e5e5e5;
 }
 
+.error {
+  border-color: #E53935 !important;
+  background-color: #FFEBEE !important;
+}
+
 .navbar-default {
     background-color: #009688;
     margin:0px;
