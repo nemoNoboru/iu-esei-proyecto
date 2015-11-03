@@ -1,32 +1,37 @@
-<!-- header -->
 <?php include("../views/header.php");
-  RenderBanner("Gestión de Usuarios");
+	RenderBanner("Gestión de Usuarios");
 ?>
-<!-- Barra Lateral -->
+
+<div id="contenido" class="container">
+	<div class="row">
 
 <?php include("../views/lateral.php");
-  renderLateral(0);
+	RenderLateral(0);
 ?>
-<!-- Cuerpo -->
 
-<div id="Contenido">
+	<?php
+		require_once("../php/DBManager.php");
+		$man = DBManager::getInstance();
+		$man->connect();
 
-  <!-- Formulario de contraseñas -->
-<div>
-  <form action="../php/GestionUsuarios/process_modificarPass.php" method="post">
-    <h1>Modificar contraseña de usuario </h1>
-    Contraseña: <input type="text" name="pass1"><br/>
-    Repetir: <input type="text" name="pass2"><br/>
-    <button onclick="history.go(-1)">Atrás</button>
-    <input type="submit" value="Guardar" class="continuar">
 
-  </form>
+		echo '<div class="col-md-9 col-sm-12">';
+		echo '<form action="../php/GestionUsuarios/process_modificarPass.php?id='.$_GET["id"].'" method="post" id="formulario">';
+
+		echo '<br/>Introducir Contraseña:<input class="form-control" type=password name="pass1"><br>';
+		echo '<br/>Repetir Contraseña:<input class="form-control" type=password name="pass2"><br>';
+
+		echo '<button class="btn btn-default" onclick="history.go(-1)">' .$Idioma['Atras'].' </button>';
+		echo '<input type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"  value="' .$Idioma['Guardar'].'" class="continuar"/>';
+
+		echo '</form>';
+		echo '</div>';
+
+	?>
 </div>
-<div class="footer logo3"></div>
-</div>
 
-
+<?php include("../views/popup.php");?>
 
 <?php include("../views/footer.php");
-  renderFooter(); //esto tiene que ser cambiado por un get de username en php
+	renderFooter();
 ?>

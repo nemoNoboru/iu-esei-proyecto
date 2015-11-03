@@ -697,6 +697,17 @@ class DBManager {
       return false;
     }
   }
+  public function ModificarPass($pass,$id){
+    $toQuery = "update Usuario set user_pass='".$pass."' where user_id='".$id."'";
+    if($this->doQuery($toQuery)){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
+  //HASTA AQUI
 
   private function checkRolPath($user,$pag) { //prueba si un usuario puede acceder a una pagina mediante su rol
     $toQuery ='select Pagina.pag_name from Usuario,User_Rol,Rol_Fun,Pag_Fun,Pagina
