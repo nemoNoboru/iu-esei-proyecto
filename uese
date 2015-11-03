@@ -1,5 +1,1 @@
--Los botones de ATRAS en crear hacen submit por alguna razon
--Los botones de atras en modificar no funcan porque se hace una redireccion en la misma pagina
--Los cuadros del menu principal deben suponer un hipervínculo en su totalidad
--El trozo de código que gestiona popups debería ir en un archivo a parte para evitar excesivo copypaste
 -Las checkboxes de los Modificar no funcionan si el campo NOMBRE de la entidad está formado por maś de una palabra
