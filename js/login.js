@@ -1,7 +1,12 @@
 var body = document.getElementsByTagName("body")[0];
 
 body.addEventListener("load", main());
-
+addEventListener("keydown", function(event){
+  if(event.keyCode == 13 ){
+    submit();
+    event.preventDefault();
+  }
+});
 var minimo = 2;
 var maximo = 64;
 
@@ -11,7 +16,7 @@ function main() {
 };
 
 function submit(){
-  if(checkValidity($("[name='username']")) && checkValidity($("[name='pass']"))){
+  if(checkValidity($("[name='username']")) && checkPass($("[name='pass']"))){
     $("#loginform").submit();
   }
 }
@@ -56,11 +61,13 @@ function tooLong(e){
 }
 
 function checkPass(e){
-  var pass1 = $("[name='pass']");
-  var hash = CryptoJS.SHA1(e.val());
-  pass1.val(hash);
-  pass1.addClass("crypted");
-  pass1.attr("readonly",true);
+  if(checkValidity(e)){
+    var pass1 = $("[name='pass']");
+    var hash = CryptoJS.SHA1(e.val());
+    pass1.val(hash);
+    pass1.addClass("crypted");
+    pass1.attr("readonly",true);
+  }
 }
 
 function putError(e){
