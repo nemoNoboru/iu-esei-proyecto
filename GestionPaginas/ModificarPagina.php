@@ -48,7 +48,7 @@
 </div>
 
 <?php include("../views/popup.php");?>
-
+<div class="footer logo4"></div>
 <?php include("../views/footer.php");
 	renderFooter();
 ?>

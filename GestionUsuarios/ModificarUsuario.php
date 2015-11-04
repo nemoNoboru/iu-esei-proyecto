@@ -52,7 +52,7 @@
 </div>
 
 <?php include("../views/popup.php");?>
-
+<div class="footer logo3"></div>
 <?php include("../views/footer.php");
 	renderFooter();
 ?>

@@ -33,6 +33,8 @@
 			</form>
 		</div>
 	</div>
+
+
 <?php include("../views/popup.php"); ?>
 <div class="footer logo4"></div>
 
