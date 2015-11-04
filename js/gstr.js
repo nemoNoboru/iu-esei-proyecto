@@ -3,7 +3,7 @@ var body = document.getElementsByTagName("body")[0];
 body.addEventListener("load", main());
 
 var minimo = 2;
-var maximo = 32;
+var maximo = 64;
 
 function main() {
     $("#formulario :input").each(function(){
@@ -13,12 +13,34 @@ function main() {
     $("[name='pass2']").blur(function(){ checkPass($(this)); });
 };
 
+function doSubmit(){
+    if(checkALL()){
+      $("#formulario").submit();
+    }
+}
+
+function checkALL(){
+  var correction = true;
+  $("#formulario :input[type='text']").each( function(){
+    if(!checkValidity($(this))){ //que pasa con los emails o las contrase~nas?
+      correction = false;
+    }
+  });
+  $("#formulario :input[type='password']").each( function(){
+    if(!checkValidity($(this))){ //que pasa con los emails o las contrase~nas?
+      correction = false;
+    }
+  });
+  return correction;
+}
+
 function checkValidity(e){
   clean(e);
-  if(vacio(e) && tooShort(e) && tooLong(e)){
+  if(!vacio(e) && !tooShort(e) && !tooLong(e)){
     clean(e);
+    return true;
   }
-
+  return false;
 }
 
 function checkEmail(e){
@@ -35,9 +57,9 @@ function vacio(e) {
   if(data == ''){
     putError(e);
     sayError(e,"cannot be empty");
-    return false;
+    return true;
   }
-  return true;
+  return false;
 }
 
 function tooShort(e){
@@ -45,9 +67,9 @@ function tooShort(e){
   if(data.length < minimo && data != '' ){
     putError(e);
     sayError(e,"minumum 2 chars");
-    return false;
+    return true;
   }
-  return true;
+  return false;
 }
 
 function tooLong(e){
@@ -55,19 +77,26 @@ function tooLong(e){
   if(data.length > maximo ){
     putError(e);
     sayError(e,"maximum 32 chars");
-    return false;
-  }
-  return true;
-}
-
-function checkPass(e){
-  if( $("[name='pass1']").val() != $("[name='pass2']").val() ){
-    putError(e,"pass don't march");
-    sayError(e,"pass don't match");
-    sayError($("[name='pass1']"));
     return true;
   }
   return false;
+}
+
+function checkPass(e){
+  var pass1 = $("[name='pass1']");
+  var pass2 = $("[name='pass2']");
+  if( pass1.val() != pass2.val() ){
+    putError(e);
+    sayError(e,"pass don't match");
+    //sayError($("[name='pass1']"),"pass don't match");
+  }
+  var hash = CryptoJS.SHA1(e.val());
+  pass1.val(hash);
+  pass2.val(hash);
+  pass1.addClass("crypted");
+  pass1.attr("readonly",true);
+  pass2.attr("readonly",true);
+  pass2.addClass("crypted");
 }
 
 function putError(e){

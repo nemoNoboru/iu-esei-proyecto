@@ -10,6 +10,9 @@
 				<div class='lead'><?php echo $len[$checked]; ?></div>
 					<button><a href="../Menu/MenuPrincipal.php"><?php echo $len['Atras']; ?></a>
 				</div></button>
+					<a class="btn btn-default" href="../../Menu/MenuPrincipal.php"><?php echo $len['Menu Principal']; ?></a>
+				</div>
+
 			</div>
 		</div>
 </body>
