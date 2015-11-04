@@ -10,7 +10,7 @@
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-default" data-dismiss="modal">NO</button>
-      <button type="button" onclick="document.getElementById('formulario').submit();" class="btn btn-primary">OK</button>
+      <button type="button" onclick="doSubmit()" data-dismiss="modal" class="btn btn-primary">OK</button>
     </div>
   </div>
 </div>

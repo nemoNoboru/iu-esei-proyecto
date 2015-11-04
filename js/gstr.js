@@ -13,12 +13,34 @@ function main() {
     $("[name='pass2']").blur(function(){ checkPass($(this)); });
 };
 
+function doSubmit(){
+    if(checkALL()){
+      $("#formulario").submit();
+    }
+}
+
+function checkALL(){
+  var correction = true;
+  $("#formulario :input[type='text']").each( function(){
+    if(!checkValidity($(this))){ //que pasa con los emails o las contrase~nas?
+      correction = false;
+    }
+  });
+  $("#formulario :input[type='password']").each( function(){
+    if(!checkValidity($(this))){ //que pasa con los emails o las contrase~nas?
+      correction = false;
+    }
+  });
+  return correction;
+}
+
 function checkValidity(e){
   clean(e);
-  if(vacio(e) && tooShort(e) && tooLong(e)){
+  if(!vacio(e) && !tooShort(e) && !tooLong(e)){
     clean(e);
+    return true;
   }
-
+  return false;
 }
 
 function checkEmail(e){
@@ -35,9 +57,9 @@ function vacio(e) {
   if(data == ''){
     putError(e);
     sayError(e,"cannot be empty");
-    return false;
+    return true;
   }
-  return true;
+  return false;
 }
 
 function tooShort(e){
@@ -45,9 +67,9 @@ function tooShort(e){
   if(data.length < minimo && data != '' ){
     putError(e);
     sayError(e,"minumum 2 chars");
-    return false;
+    return true;
   }
-  return true;
+  return false;
 }
 
 function tooLong(e){
@@ -55,16 +77,16 @@ function tooLong(e){
   if(data.length > maximo ){
     putError(e);
     sayError(e,"maximum 32 chars");
-    return false;
+    return true;
   }
-  return true;
+  return false;
 }
 
 function checkPass(e){
   if( $("[name='pass1']").val() != $("[name='pass2']").val() ){
-    putError(e,"pass don't march");
+    putError(e);
     sayError(e,"pass don't match");
-    sayError($("[name='pass1']"));
+    //sayError($("[name='pass1']"),"pass don't match");
     return true;
   }
   return false;
