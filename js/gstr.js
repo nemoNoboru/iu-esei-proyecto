@@ -59,6 +59,8 @@ function vacio(e) {
     sayError(e,"cannot be empty");
     return true;
   }
+  data = data.replace(/ /g,"_");
+  e.val(data);
   return false;
 }
 
