@@ -13,9 +13,20 @@ function main() {
     $("[name='pass2']").blur(function(){ checkPass($(this)); });
 };
 
+function doSubmit(){
+    if(checkALL()){
+      $("#formulario").submit();
+    }
+}
+
 function checkALL(){
   var correction = true;
-  $("#formulario :input").each( function(){
+  $("#formulario :input[type='text']").each( function(){
+    if(!checkValidity($(this))){ //que pasa con los emails o las contrase~nas?
+      correction = false;
+    }
+  });
+  $("#formulario :input[type='password']").each( function(){
     if(!checkValidity($(this))){ //que pasa con los emails o las contrase~nas?
       correction = false;
     }
@@ -25,7 +36,7 @@ function checkALL(){
 
 function checkValidity(e){
   clean(e);
-  if(vacio(e) && tooShort(e) && tooLong(e)){
+  if(!vacio(e) && !tooShort(e) && !tooLong(e)){
     clean(e);
     return true;
   }
@@ -46,9 +57,9 @@ function vacio(e) {
   if(data == ''){
     putError(e);
     sayError(e,"cannot be empty");
-    return false;
+    return true;
   }
-  return true;
+  return false;
 }
 
 function tooShort(e){
@@ -56,9 +67,9 @@ function tooShort(e){
   if(data.length < minimo && data != '' ){
     putError(e);
     sayError(e,"minumum 2 chars");
-    return false;
+    return true;
   }
-  return true;
+  return false;
 }
 
 function tooLong(e){
@@ -66,9 +77,9 @@ function tooLong(e){
   if(data.length > maximo ){
     putError(e);
     sayError(e,"maximum 32 chars");
-    return false;
+    return true;
   }
-  return true;
+  return false;
 }
 
 function checkPass(e){
