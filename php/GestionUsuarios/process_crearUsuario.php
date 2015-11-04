@@ -11,9 +11,13 @@ if($_POST['pass1']==$_POST['pass2']){
     foreach ($roles as $rol) {
       if(isset($_POST[$rol['rol_name']])){
         if($man->insertRelationUserRol($_POST['nombre'],$rol['rol_name'])){
-          echo "relacion insertada correctamente";
+			$pagina_anterior=$_SERVER['HTTP_REFERER'];
+			header('location: '.'../../views/correcto.php?ID=c1');
+          //echo "relacion insertada correctamente";
         }else{
-          echo "error insertando la relacion";
+			$pagina_anterior=$_SERVER['HTTP_REFERER'];
+			header('location: '.'../../views/error.php?ID=e1');
+        //  echo "error insertando la relacion";
         }
       }
     }
@@ -21,9 +25,13 @@ if($_POST['pass1']==$_POST['pass2']){
     foreach ($paginas as $pag) {
       if(isset($_POST[$pag['pag_name']])){
         if($man->insertRelationUserPag($_POST['nombre'],$pag['pag_name'])){
-          echo "relacion insertada correctamente";
+			$pagina_anterior=$_SERVER['HTTP_REFERER'];
+			header('location: '.'../../views/correcto.php?ID=c2');
+         // echo "relacion insertada correctamente";
         }else{
-          echo "error insertando la relacion";
+			$pagina_anterior=$_SERVER['HTTP_REFERER'];
+			header('location: '.'../../views/error.php?ID=e2');
+         // echo "error insertando la relacion";
         }
       }
     }
@@ -31,26 +39,30 @@ if($_POST['pass1']==$_POST['pass2']){
     foreach ($funcionalidades as $fun) {
       if(isset($_POST[$fun['fun_name']])){
         if($man->insertRelationUserRol($_POST['nombre'],$fun['fun_name'])){
-          echo "relacion insertada correctamente";
+			$pagina_anterior=$_SERVER['HTTP_REFERER'];
+			header('location: '.'../../views/correcto.php?ID=c3');
+          //echo "relacion insertada correctamente";
         }else{
-          echo "error insertando la relacion";
+			$pagina_anterior=$_SERVER['HTTP_REFERER'];
+			header('location: '.'../../views/error.php?ID=e3');
+          //echo "error insertando la relacion";
         }
       }
     }
     echo "Usuario creado correctamente";
 	$pagina_anterior=$_SERVER['HTTP_REFERER'];
-	header('location: '.'../../views/correcto.php?ID=UC');
-    // redireccion a mensaje correcto aqui
+	header('location: '.'../../views/correcto.php?ID=c4');
+    // redireccion a mensaje correcto aqui crear usuario
   }else{
     echo "Error creando el usuario, ya existia un usuario con ese nombre";
 	$pagina_anterior=$_SERVER['HTTP_REFERER'];
-	header('location: '.'../../views/error.php?ID=1'); 
-    // redireccion a mensaje de error aqui
+	header('location: '.'../../views/error.php?ID=e4'); 
+    // redireccion a mensaje de error aqui crear usuario error
   }
 }else {
-  echo "Las contraseñas no coiciden";
-  $pagina_anterior=$_SERVER['HTTP_REFERER'];
-	header('location: '.'../../views/error.php?ID=2');
+	//echo "Las contraseñas no coiciden";
+	$pagina_anterior=$_SERVER['HTTP_REFERER'];
+	header('location: '.'../../views/error.php?ID=e5');
   //redireccion a mensaje de error aqui
 }
 

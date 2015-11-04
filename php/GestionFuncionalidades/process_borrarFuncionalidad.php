@@ -11,12 +11,14 @@ $man->connect(); //conectate a la bbdd
 if($confirm==1){
   //Borramos
   if($man->borrarFuncionalidad($borrar)){
-    echo "Borrado Correctamente<br>";
-    echo "<button onclick='location.href=\"../../GestionFuncionalidades/GestionFuncionalidades.php\"'>OK</button>";
+	  header('location: '.'../../views/correcto.php?ID=c14');
+   // echo "Borrado Correctamente<br>";
+   // echo "<button onclick='location.href=\"../../GestionFuncionalidades/GestionFuncionalidades.php\"'>OK</button>";
   }
   else{
-    echo "todo mal";
-    echo "<button onclick='location.href=\"../../GestionFuncionalidades/GestionFuncionalidades.php\"'>OK</button>";
+	  header('location: '.'../../views/error.php?ID=c14');
+   // echo "todo mal";
+    //echo "<button onclick='location.href=\"../../GestionFuncionalidades/GestionFuncionalidades.php\"'>OK</button>";
   }
 }else{//Pide confirmación
   echo "¿Seguro que desea borrar?<br>";
