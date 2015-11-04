@@ -11,10 +11,12 @@ foreach ($funcionalidades as $fun) {
   $man->deleteRelationPagFun($_POST['nombre'],$fun['fun_name']);
   if(isset($_POST[$fun['fun_name']])){
     if($man->insertRelationPagFun($_POST['nombre'],$fun['fun_name'])){
-      echo "relacion insertada correctamente<br>";
+		header('location: '.'../../views/correcto.php?ID=c3');
+      //echo "relacion insertada correctamente<br>";
     }
     else{
-      echo 'error insertando la relación';
+		header('location: '.'../../views/error.php?ID=c3');
+      //echo 'error insertando la relación';
     }
   }
 }
@@ -23,9 +25,11 @@ foreach ($usuarios as $user) {
   $man->deleteRelationUserPag($user['user_name'],$_POST['nombre']);
   if(isset($_POST[$user['user_name']])){
     if($man->insertRelationUserPag($user['user_name'],$_POST['nombre'])){
-      echo "relacion insertada correctamente<br>";
+		header('location: '.'../../views/correcto.php?ID=c10');
+      //echo "relacion insertada correctamente<br>";
     }else{
-      echo 'error insertando la relación';
+		header('location: '.'../../views/error.php?ID=e10');
+      //echo 'error insertando la relación';
     }
   }
 }

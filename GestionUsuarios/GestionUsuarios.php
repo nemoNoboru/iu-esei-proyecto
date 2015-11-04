@@ -21,6 +21,26 @@
       <button class='btn btn-default' onclick="location.href='ModificarUsuario.php'"><?php echo $Idioma['Modificar']; ?></button>	<!--Boton para modificar un usuario-->
     </div>
   </div>
+  <!-- Modal para verificar borrado-->
+  	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><?php echo $Idioma['Validar']; ?></h4>
+      </div>
+      <div class="modal-body">
+        <?php echo $Idioma['Seguro']; ?>
+      </div>
+	  <?php $dato=1; ?>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">NO</button>
+        <button type="button" onclick='location.href="../php/GestionUsuarios/process_borrarUsuario.php?id=.<?php echo $dato; ?>.&confirm=0"' class="btn btn-primary">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="footer logo3"></div>
 <?php include("../views/footer.php");	//Incluye el footer
   renderFooter(); 						//Muestra el footer con la funcion definida en footer.php

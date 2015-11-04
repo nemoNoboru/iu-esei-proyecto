@@ -8,13 +8,19 @@ $man = DBManager::getInstance(); //crea instancia
 $man->connect(); //conectate a la bbdd
 if($_POST['pass1']==$_POST['pass2']){
   if($man->ModificarPass($_POST['pass1'],$_GET["id"])){
-    echo "Contraseña cambiada correctamente";
+		$pagina_anterior=$_SERVER['HTTP_REFERER'];
+		header('location: '.'../../views/correcto.php?ID=c5');
+    //echo "Contraseña cambiada correctamente";
     // redireccion a mensaje correcto aqui
   }else{
-    echo "Error durante el cambio de contraseña";
+		$pagina_anterior=$_SERVER['HTTP_REFERER'];
+		header('location: '.'../../views/error.php?ID=e5');
+   // echo "Error durante el cambio de contraseña";
     // redireccion a mensaje de error aqui
   }
 }else{
-  echo "Las contraseñas no coinciden";
+	$pagina_anterior=$_SERVER['HTTP_REFERER'];
+	header('location: '.'../../views/error.php?ID=e5');
+  //echo "Las contraseñas no coinciden";
 }
 ?>

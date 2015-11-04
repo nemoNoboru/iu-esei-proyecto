@@ -11,10 +11,14 @@ foreach ($paginas as $pag) {
   $man->deleteRelationUserPag($_POST['nombre'],$pag['pag_name']);
   if(isset($_POST[$pag['pag_name']])){
     if($man->insertRelationUserPag($_POST['nombre'],$pag['pag_name'])){
-      echo "relacion insertada correctamente<br>";
+		$pagina_anterior=$_SERVER['HTTP_REFERER'];
+		header('location: '.'../../views/correcto.php?ID=c2');
+      //echo "relacion insertada correctamente<br>";
     }
     else{
-      echo 'error insertando la relación';
+		$pagina_anterior=$_SERVER['HTTP_REFERER'];
+		header('location: '.'../../views/error.php?ID=e2');
+      //echo 'error insertando la relación';
     }
   }
 }
@@ -23,9 +27,13 @@ foreach ($roles as $rol) {
   $man->deleteRelationUserRol($_POST['nombre'],$rol['rol_name']);
   if(isset($_POST[$rol['rol_name']])){
     if($man->insertRelationUserRol($_POST['nombre'],$rol['rol_name'])){
-      echo "relacion insertada correctamente<br>";
+		$pagina_anterior=$_SERVER['HTTP_REFERER'];
+		header('location: '.'../../views/correcto.php?ID=c1');
+     // echo "relacion insertada correctamente<br>";
     }else{
-      echo 'error insertando la relación';
+		$pagina_anterior=$_SERVER['HTTP_REFERER'];
+		header('location: '.'../../views/error.php?ID=e1');
+		//echo 'error insertando la relación';
     }
   }
 }
@@ -34,10 +42,14 @@ foreach ($funcionalidades as $fun) {
   $man->deleteRelationUserFun($_POST['nombre'],$fun['fun_name']);
   if(isset($_POST[$fun['fun_name']])){
     if($man->insertRelationUserFun($_POST['nombre'],$fun['fun_name'])){
-      echo "relacion insertada correctamente<br>";
+		$pagina_anterior=$_SERVER['HTTP_REFERER'];
+		header('location: '.'../../views/correcto.php?ID=c3');
+      //echo "relacion insertada correctamente<br>";
     }
     else{
-      echo 'error insertando la relación';
+		$pagina_anterior=$_SERVER['HTTP_REFERER'];
+		header('location: '.'../../views/error.php?ID=e3');
+      //echo 'error insertando la relación';
     }
   }
 }

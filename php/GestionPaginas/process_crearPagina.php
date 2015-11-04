@@ -8,10 +8,12 @@ $man = DBManager::getInstance(); //crea instancia
 $man->connect(); //conectate a la bbdd
 
 if($man->insertarPag($_POST['nombre'],$_POST['desc'])){
-  echo "Pagina creada correctamente";
+	header('location: '.'../../views/correcto.php?ID=c11');
+ // echo "Pagina creada correctamente";
   // redireccion a mensaje correcto aqui
 }else{
-  echo "Error creado la pagina, ya existia una pagina con ese nombre";
+	header('location: '.'../../views/error.php?ID=e11');
+  //echo "Error creado la pagina, ya existia una pagina con ese nombre";
   // redireccion a mensaje de error aqui
 }
 
@@ -19,9 +21,11 @@ $funcionalidades = $man->listFuns();
 foreach ($funcionalidades as $fun) {
   if(isset($_POST[$fun['fun_name']])){
     if($man->insertRelationPagFun($_POST['nombre'],$fun['fun_name'])){
-      echo "relacion insertada correctamente";
+		header('location: '.'../../views/correcto.php?ID=c3');
+      //echo "relacion insertada correctamente";
     }else{
-      echo "error insertando la relacion";
+		header('location: '.'../../views/error.php?ID=e3');
+      //echo "error insertando la relacion";
     }
   }
 }
@@ -29,9 +33,11 @@ $usuarios = $man->listUsers();
 foreach ($usuarios as $user) {
   if(isset($_POST[$user['user_name']])){
     if($man->insertRelationUserPag($user['user_name'],$_POST['nombre'])){
-      echo "relacion insertada correctamente";
+		header('location: '.'../../views/correcto.php?ID=c10');
+      //echo "relacion insertada correctamente";
     }else{
-      echo "error insertando la relacion";
+		header('location: '.'../../views/error.php?ID=e10');
+      //echo "error insertando la relacion";
     }
   }
 }
