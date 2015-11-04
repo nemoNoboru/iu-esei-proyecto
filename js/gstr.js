@@ -13,12 +13,23 @@ function main() {
     $("[name='pass2']").blur(function(){ checkPass($(this)); });
 };
 
+function checkALL(){
+  var correction = true;
+  $("#formulario :input").each( function(){
+    if(!checkValidity($(this))){ //que pasa con los emails o las contrase~nas?
+      correction = false;
+    }
+  });
+  return correction;
+}
+
 function checkValidity(e){
   clean(e);
   if(vacio(e) && tooShort(e) && tooLong(e)){
     clean(e);
+    return true;
   }
-
+  return false;
 }
 
 function checkEmail(e){
@@ -62,9 +73,9 @@ function tooLong(e){
 
 function checkPass(e){
   if( $("[name='pass1']").val() != $("[name='pass2']").val() ){
-    putError(e,"pass don't march");
+    putError(e);
     sayError(e,"pass don't match");
-    sayError($("[name='pass1']"));
+    //sayError($("[name='pass1']"),"pass don't match");
     return true;
   }
   return false;
