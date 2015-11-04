@@ -5,7 +5,6 @@
 require_once("../php/DBManager.php");
 
 
-
 class RenderTableGestion {
 
   public function renderTableGestion(){
@@ -13,7 +12,6 @@ class RenderTableGestion {
     $this->man->connect(); //conectate a la bbdd
   }
 //Privates para uso interno
-
   //Muestra la fila cabecera de la tabla
   private function echoInit($arrayNames){
     require_once("getIdioma.php");
@@ -83,7 +81,8 @@ class RenderTableGestion {
       foreach($tupla as $campo){
         echo "<td>".$campo."</td>";
       }
-      echo "<td><button class='btn btn-default' onclick='location.href=\"../php/GestionUsuarios/process_borrarUsuario.php?id=$GET_id&confirm=0\"'>X</button></td>";
+      echo "<td><button onclick='location.href=\"../php/GestionUsuarios/process_borrarUsuario.php?id=$GET_id&confirm=0\"'>X</button></td>";
+	  //echo "<td><button type='button' class='btn btn-default' data-toggle='modal' data-target='#myModal' data-id='$GET_id' class='continuar'>E</td>";
       echo "</tr>";
     }
     $this->echoFin();
