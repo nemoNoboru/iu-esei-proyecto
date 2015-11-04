@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>GSTR</title>
+    <title>Cancerbero</title>
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/gstr.css" rel="stylesheet">
   </head>
@@ -23,7 +23,7 @@
 		//Comprobamos el valor de sesion y segun su valor cargo el array con el idioma deseado.
     echo "<nav class='navbar navbar-default'>";
     echo "<div class='container'>";
-    echo "<span class='navbar-brand'><a href='../Menu/MenuPrincipal.php'> GSTR </a></span>";
+    echo "<span class='navbar-brand'><a style='text-decoration: none' href='../Menu/MenuPrincipal.php'> Cancerbero </a></span>";
     echo '<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">';
     echo 'Idioma';
     echo '</button>';

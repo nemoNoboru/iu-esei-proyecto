@@ -20,7 +20,7 @@
       }
     }
     echo "</ul>";
-    echo "<br>";  
+    echo "<br>";
     echo "</div>";
   }
 ?>

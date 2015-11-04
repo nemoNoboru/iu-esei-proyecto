@@ -3,7 +3,7 @@ var body = document.getElementsByTagName("body")[0];
 body.addEventListener("load", main());
 addEventListener("keydown", function(event){
   if(event.keyCode == 13 ){
-    submit();
+    doSubmit();
     event.preventDefault();
   }
 });
@@ -15,7 +15,7 @@ function main() {
     $("[name='pass']").blur(function(){ checkPass($(this)); });
 };
 
-function submit(){
+function doSubmit(){
   if(checkValidity($("[name='username']")) && checkPass($("[name='pass']"))){
     $("#loginform").submit();
   }
@@ -37,6 +37,8 @@ function vacio(e) {
     sayError(e,"cannot be empty");
     return true;
   }
+  data = data.replace(/ /g,"_");
+  e.val(data);
   return false;
 }
 
@@ -67,7 +69,9 @@ function checkPass(e){
     pass1.val(hash);
     pass1.addClass("crypted");
     pass1.attr("readonly",true);
+    return true;
   }
+  return false;
 }
 
 function putError(e){
