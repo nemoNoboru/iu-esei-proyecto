@@ -1,2 +1,8 @@
--Las checkboxes de los Modificar no funcionan si el campo NOMBRE de la entidad está formado por maś de una palabra
--Los crear tienen que incluir popup en vez de copypaste
+COSAS QUE QUEDAN (Poquitas)
+-Verificar contraseña al crear un Usuarios [felipe]
+-Volver un popup la confirmación de borrado [felipe]
+-Pagina de correcto tras hacer un modificado bien [martin]
+-Quitar el snakecase en descripciones [felipe]
+-Modificarpagina roto en sql [martin]
+-Textareas en las descripciones de los creares (Hay que darles estilo too) [nara]
+-Raul rompio rendertablegestion para usuarios, chekear que pasa [raul]

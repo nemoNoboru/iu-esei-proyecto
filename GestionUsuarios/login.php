@@ -13,7 +13,7 @@
 							<div class="form-group">
 							<?php echo $Idioma['nick']; ?>: <input class="form-control" type="text" name="username"><br>
 							<?php echo $Idioma['Contraseña']; ?>: <input class="form-control" type="password" name="pass"><br>
-							<input type="submit" name="login" value="Login">
+							<div class="btn btn-default" onclick="doSubmit()"> Login </div>
 						</div>
 						</form>
 				</div>
