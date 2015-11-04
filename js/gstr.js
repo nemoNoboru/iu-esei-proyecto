@@ -3,7 +3,7 @@ var body = document.getElementsByTagName("body")[0];
 body.addEventListener("load", main());
 
 var minimo = 2;
-var maximo = 32;
+var maximo = 64;
 
 function main() {
     $("#formulario :input").each(function(){
@@ -83,13 +83,20 @@ function tooLong(e){
 }
 
 function checkPass(e){
-  if( $("[name='pass1']").val() != $("[name='pass2']").val() ){
+  var pass1 = $("[name='pass1']");
+  var pass2 = $("[name='pass2']");
+  if( pass1.val() != pass2.val() ){
     putError(e);
     sayError(e,"pass don't match");
     //sayError($("[name='pass1']"),"pass don't match");
-    return true;
   }
-  return false;
+  var hash = CryptoJS.SHA1(e.val());
+  pass1.val(hash);
+  pass2.val(hash);
+  pass1.addClass("crypted");
+  pass1.attr("readonly",true);
+  pass2.attr("readonly",true);
+  pass2.addClass("crypted");
 }
 
 function putError(e){
