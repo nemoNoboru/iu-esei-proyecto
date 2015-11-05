@@ -3,7 +3,7 @@
 	function renderFooter(){
 		$Idioma = getIdioma();
 		echo "<footer>";
-		echo "<div class='text-muted' style='position: absolute; bottom: 0; right: 0'>";
+		echo "<div class='text-muted' style='position: fixed; bottom: 0; right: 0';>";
 		if(isset($_SESSION['name'])){
 			echo "<span class='username'>".$_SESSION["name"]."</span>";
 		}else{
