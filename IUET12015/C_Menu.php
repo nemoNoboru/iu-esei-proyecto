@@ -35,5 +35,7 @@ $g->gestionar();
 	<a href='C_Gestion_Premios.php?accion=3'>Consulta de Premios</a></BR>
 
 <?php
+    header("Cache-control: private");
+    echo $_SESSION['name'];
 include 'Administrar.php';
 ?>

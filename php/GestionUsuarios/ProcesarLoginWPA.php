@@ -9,8 +9,8 @@ if(!$man->tryLogin($_POST["username"],$_POST["pass"])){  	//Se recogen los datos
   //echo "está todo mal";
 	header('location: '.'../../views/error.php?ID=e6');
 }else{
-															//caso positivo - Vamos al menu pricipal	
-															//Se guarda el nombre del usuario que ha iniciado sesion
+															//caso positivo - Vamos al menu pricipal
+	$_SESSION["name"] = $_POST['username'];														//Se guarda el nombre del usuario que ha iniciado sesion
   header("location:../../IUET12015/C_Menu.php"); 			//Se va al menu principal automaticamente
 }
 
