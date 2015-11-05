@@ -1,5 +1,7 @@
 <?php
-
+require_once("gestorPermisos.php");
+$g = new GestorPermisos("WPAmodificacionSocios");
+$g->gestionar();
 ?>
 
 <h1>Esta es la funcionalidad de Modificación de socios</h1>

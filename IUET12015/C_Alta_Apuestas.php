@@ -1,5 +1,7 @@
 <?php
-
+require_once("gestorPermisos.php");
+$g = new GestorPermisos("WPAaltaApuesta");
+$g->gestionar();
 ?>
 
 <h1>Esta es la funcionalidad de alta de apuestas</h1>

@@ -1,5 +1,7 @@
 <?php
-
+require_once("gestorPermisos.php");
+$g = new GestorPermisos("WPAmenu");
+$g->gestionar();
 ?>
 
 <h1>Menú Principal</h1></BR>
@@ -10,7 +12,7 @@
 	<a href='C_Baja_Socios.php'>Baja de Socios</a></BR>
 	<a href='C_Modificacion_Socios.php'>Modificación de Socios</a></BR>
 	<a href='C_Consulta_Socios.php'>Consulta de Socios</a></BR>
-	
+
 <h2>Gestión de Jornadas</h2></BR>
 
 	<a href='C_Gestion_Jornadas.php?accion=alta'>Alta de Jornadas</a></BR>

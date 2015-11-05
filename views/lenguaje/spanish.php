@@ -52,6 +52,7 @@ $Idioma = array(
 'Validar' => 'Validar',
 //*****************************************//
 //Lista de errores:
+'3' => 'No tienes permisos para acceder a esta pagina',
 'e1' => 'Error insertando la relacion (Roles)',
 'e2' => 'Error insertando la relacion (Páginas)',
 'e3' => 'Error insertando la relacion (Funcionalidades)',

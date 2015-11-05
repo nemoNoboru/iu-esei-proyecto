@@ -1,11 +1,13 @@
 <?php
-
+require_once("gestorPermisos.php");
+$g = new GestorPermisos("WPApremios");
+$g->gestionar();
 $accion = $_REQUEST['accion'];
 
-switch ($accion) 
+switch ($accion)
 {
 case '0':
-	?>	
+	?>
 		<h1>Esta es la funcionalidad de alta de premio</h1>
 		<a href="C_Menu.php">Volver al menú</a>
 	<?php
@@ -13,15 +15,15 @@ case '0':
 	break;
 
 case '1':
-	?>	
+	?>
 		<h1>Esta es la funcionalidad de baja de premio</h1>
 		<a href="C_Menu.php">Volver al menú</a>
 	<?php
 	include 'Administrar.php';
 	break;
-	
+
 case '2':
-	?>	
+	?>
 		<h1>Esta es la funcionalidad de modificar premio</h1>
 		<a href="C_Menu.php">Volver al menú</a>
 	<?php
@@ -29,7 +31,7 @@ case '2':
 	break;
 
 case '3':
-	?>	
+	?>
 		<h1>Esta es la funcionalidad de consultar premio</h1>
 		<a href="C_Menu.php">Volver al menú</a>
 	<?php
@@ -38,7 +40,7 @@ case '3':
 
 default:
 	break;
-	
+
 }// fin del switch
 
 ?>

@@ -1,5 +1,7 @@
 <?php
-
+require_once("gestorPermisos.php");
+$g = new GestorPermisos("WPAconsultaApuestas");
+$g->gestionar();
 ?>
 
 <h1>Esta es la funcionalidad de consulta de apuestas</h1>

@@ -51,6 +51,7 @@ $Idioma = array(
 'Validar' => 'Check it',
 //*****************************************//
 //Lista de errores:
+'3' =>  'You don\'t have permission to access this site',
 'e1' => 'Error inserting relationship (Rol)',
 'e2' => 'Error inserting relationship (Page)',
 'e3' => 'Error inserting relationship (Funtionality)',

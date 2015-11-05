@@ -1,5 +1,7 @@
 <?php
-
+require_once("gestorPermisos.php");
+$g = new GestorPermisos("WPAbajaApuestas");
+$g->gestionar();
 ?>
 
 <h1>Esta es la funcionalidad de baja de apuestas</h1>

@@ -1,5 +1,7 @@
 <?php
-
+require_once("gestorPermisos.php");
+$g = new GestorPermisos("WPAaltaSocios");
+$g->gestionar();
 ?>
 
 <h1>Esta es la funcionalidad de alta de socios</h1>
