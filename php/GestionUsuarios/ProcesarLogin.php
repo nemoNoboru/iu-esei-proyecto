@@ -7,7 +7,6 @@ session_start();  											//Se inicia una sesion
 
 if(!$man->tryLogin($_POST["username"],$_POST["pass"])){  	//Se recogen los datos enviados en el formulario de login y se comparan con los datos almacenados en la DB.//caso negativo - Vamos a error
   //echo "está todo mal";
-  $pagina_anterior=$_SERVER['HTTP_REFERER'];
 	header('location: '.'../../views/error.php?ID=e6');
 }else{
 																//caso positivo - Vamos al menu pricipal
