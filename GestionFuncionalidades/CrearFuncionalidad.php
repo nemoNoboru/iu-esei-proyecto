@@ -14,7 +14,7 @@
 	<form action="../php/GestionFuncionalidades/process_crearFuncionalidad.php" method="post" id="formulario">
 	<div class="form-group">
 
-		<h1>	<?php echo $Idioma['Crear funcionalidad'];?></h1>
+		<h1><?php echo $Idioma['Crear funcionalidad'];?></h1>
 			<?php echo $Idioma['Nombre'];?>: <input type="text" class="form-control" name="nombre"><br/>
 			<?php echo $Idioma['Descripcion'];?>: <br/> <textarea rows="5" cols="30" name="desc"></textarea><br/>
 

@@ -50,6 +50,13 @@ $Idioma = array(
 'Crear página' => 'Crear página',
 'Seguro' => '¿Seguro que quiere continuar?',
 'Validar' => 'Validar',
+'Seleccione usuario'=>'Seleccione usuario',
+'Nombre funcionalidad' => 'Nombre funcionalidad',
+'Seleccione funcionalidad'=>'Seleccione funcionalidad',
+'Seleccione pagina' => 'Seleccion página',
+'Nombre pagina' => 'Nombre página',
+'Nombre rol' =>'Nombre rol',
+'Seleccione rol' => 'Seleccionar rol',
 //*****************************************//
 //Lista de errores:
 '3' => 'No tienes permisos para acceder a esta pagina',
@@ -71,6 +78,7 @@ $Idioma = array(
 'e16' => 'No hay Paginas a modificar',
 'e17' => 'No hay Roles a modificar',
 'e18' => 'No hay Usuarios a modificar',
+'Nombre usuario' => 'Nombre usuario',
 //******************************************//
 //Valido . operacion exitosa:
 'c0' => 'Operación exitosa',

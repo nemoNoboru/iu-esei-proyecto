@@ -1,5 +1,6 @@
 <?php include("../views/header.php");
 	RenderBanner("Gestión de Usuarios");
+	$Idioma = getIdioma();
 ?>
 <div id="contenido" class="container">
 	<div class="row">
@@ -30,14 +31,15 @@
 				$table_maker = new RenderTable;
 				$combo_maker = new renderCombobox;
 
+				echo '<br/>'.$Idioma['Seleccione usuario'].':';
 				$combo_maker->comboboxBlankUsuario(); //ComboBox de Selección
 
 				$datos = $man->getDatosUsuario($_GET["id"]);
-				echo '<br/>Nombre Usuario:<input class="form-control" type=text value="' .$datos["user_name"].'"name="nombre" readonly><br>';
-				echo 'Descripcion:<br/><textarea  rows="5" cols="30" name="desc">' .$datos["user_desc"].''. '</textarea><br>';
-				echo 'Email:<input class="form-control" type=text value="'.$datos["user_email"].'"name="email"<br>';
+				echo '<br/>'.$Idioma['Nombre usuario'].':<input class="form-control" type=text value="' .$datos["user_name"].'"name="nombre" readonly><br>';
+				echo $Idioma['Descripcion'].'<br/><textarea  rows="5" cols="30" name="desc">' .$datos["user_desc"].''. '</textarea><br>';
+				echo $Idioma['Email'].':<input class="form-control" type=text value="'.$datos["user_email"].'"name="email"<br>';
 
-				echo '<br/>Contraseña: <a class="btn btn-default" href=\'ModificarPass.php?id='.$_GET["id"].'\'">Cambiar</a>';
+				echo '<br/>'.$Idioma['Contraseña'].': <a class="btn btn-default" href=\'ModificarPass.php?id='.$_GET["id"].'\'">Cambiar</a>';
 
 				$table_maker->tableRolByUser($datos["user_name"]);
 

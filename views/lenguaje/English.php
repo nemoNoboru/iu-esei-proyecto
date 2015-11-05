@@ -49,6 +49,14 @@ $Idioma = array(
 'Crear página' => 'Create page',
 'Seguro' => 'Sure?',
 'Validar' => 'Check it',
+'Nombre usuario' => 'User name',
+'Seleccione usuario' => 'Chose user',
+'Nombre funcionalidad' => 'Feature name',
+'Seleccione funcionalidad'=>'Chose feature',
+'Seleccione pagina' => 'Chose page',
+'Nombre pagina' => 'Page name',
+'Nombre rol' => 'Rol name',
+'Seleccione rol' => 'Chose rol',
 //*****************************************//
 //Lista de errores:
 '3' =>  'You don\'t have permission to access this site',
