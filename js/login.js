@@ -37,8 +37,10 @@ function vacio(e) {
     sayError(e,"cannot be empty");
     return true;
   }
-  data = data.replace(/ /g,"_");
-  e.val(data);
+  if(e.attr("name")=="nombre"){
+    data = data.replace(/ /g,"_");
+    e.val(data);
+  }
   return false;
 }
 
@@ -64,14 +66,19 @@ function tooLong(e){
 
 function checkPass(e){
   if(checkValidity(e)){
-    var pass1 = $("[name='pass']");
-    var hash = CryptoJS.SHA1(e.val());
-    pass1.val(hash);
-    pass1.addClass("crypted");
-    //pass1.attr("readonly",true);
+    if(!e.hasClass("crypted")){
+      var pass1 = $("[name='pass']");
+      var hash = CryptoJS.SHA1(e.val());
+      pass1.val(hash);
+      pass1.addClass("crypted");
+      pass1.after("<em class=' text-right glyphicon glyphicon-lock' > Encrypted</em>");
+      console.log("crypted");
+      //pass1.attr("readonly",true);
+    }
     return true;
   }
-  pass1.removeClass("crypted");
+  e.removeClass("crypted");
+  $("em").remove();
   return false;
 }
 

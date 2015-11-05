@@ -125,15 +125,17 @@ function checkPass(e){
       sayError(e,"pass don't match");
       //sayError($("[name='pass1']"),"pass don't match");
     }else{
-      var hash = CryptoJS.SHA1(e.val());
-      pass1.val(hash);
-      pass2.val(hash);
-      pass1.addClass("crypted");
-      pass1.attr("readonly",true);
-      pass2.attr("readonly",true);
-      pass2.addClass("crypted");
-      pass2.after("<em class=' text-right glyphicon glyphicon-lock' > Encrypted</em>");
-      pass1.after("<em class=' text-right glyphicon glyphicon-lock' > Encrypted</em>");
+      if(!e.hasClass("crypted")){
+        var hash = CryptoJS.SHA1(e.val());
+        pass1.val(hash);
+        pass2.val(hash);
+        pass1.addClass("crypted");
+        pass1.attr("readonly",true);
+        pass2.attr("readonly",true);
+        pass2.addClass("crypted");
+        pass2.after("<em class=' text-right glyphicon glyphicon-lock' > Encrypted</em>");
+        pass1.after("<em class=' text-right glyphicon glyphicon-lock' > Encrypted</em>");
+      }
     }
   }
 }

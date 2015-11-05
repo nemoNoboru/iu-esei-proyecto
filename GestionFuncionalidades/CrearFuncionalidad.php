@@ -16,7 +16,7 @@
 
 		<h1>	<?php echo $Idioma['Crear funcionalidad'];?></h1>
 			<?php echo $Idioma['Nombre'];?>: <input type="text" class="form-control" name="nombre"><br/>
-			<?php echo $Idioma['Descripcion'];?>: <textarea class="form-control" name="desc"></textarea><br/>
+			<?php echo $Idioma['Descripcion'];?>: <br/> <textarea rows="5" cols="30" name="desc"></textarea><br/>
 
 		<?php
 		$table_maker = new RenderTable;

@@ -13,7 +13,7 @@
 				<div class="form-group">
 					<h1><?php echo $Idioma['Crear usuario']; ?></h1>
 					<?php echo $Idioma['Nombre'];?>: <input type="text" class="form-control" name="nombre"><br/>
-					<?php echo $Idioma['Descripcion']; ?>: <input class="form-control" type="text" name="desc"><br/>
+					<?php echo $Idioma['Descripcion']; ?>:<br/> <textarea rows="5" cols="30" name="desc"></textarea><br/>
 					email: <input type="text" class="form-control" name="email"><br/>
 					<?php echo $Idioma['Contraseña']; ?>: <input type="password" class="form-control" name="pass1"><br/>
     		<?php echo $Idioma['Repetir contraseña']; ?>: <input type="password" class="form-control" name="pass2"><br/>

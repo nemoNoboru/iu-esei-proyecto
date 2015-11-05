@@ -3,6 +3,12 @@ html , body {
   #background-color: #e5e5e5;
 }
 
+.centered{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .error {
   border-color: #E53935 !important;
   background-color: #FFEBEE !important;
