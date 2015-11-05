@@ -38,7 +38,7 @@
 
 				$table_maker->tableFunByRol($datos["rol_name"]);
 
-				echo '<button class="btn btn-default" onclick="location.href=\'GestionRoles.php\'">' .$Idioma['Atras'].' </button>';
+				echo '<a class="btn btn-default" onclick="location.href=\'GestionRoles.php\'">' .$Idioma['Atras'].' </a>';
 				echo '<input type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"  value="' .$Idioma['Guardar'].'" class="continuar"/>';
 
 				echo '</form>';

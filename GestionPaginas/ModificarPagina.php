@@ -39,7 +39,7 @@
 
 				$table_maker->tableUserByPag($datos["pag_name"]);
 
-				echo '<button class="btn btn-default" onclick="location.href=\'GestionPaginas.php\'">' .$Idioma['Atras'].' </button>';
+				echo '<a class="btn btn-default" onclick="location.href=\'GestionPaginas.php\'">' .$Idioma['Atras'].' </a>';
 				echo '<input type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"  value="' .$Idioma['Guardar'].'" class="continuar"/>';
 
 				echo '</form>';
