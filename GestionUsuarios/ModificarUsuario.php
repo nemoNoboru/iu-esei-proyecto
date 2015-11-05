@@ -12,41 +12,45 @@
 		require_once("../php/DBManager.php");
 		$man = DBManager::getInstance();
 		$man->connect();
-		$redirect = $man->getMinIDUser();
-		if(!isset($_GET["id"])){ //cambiar por funcion que devuelva la primera id ocupada
-
-			header('Location: ModificarUsuario.php?id=' .$redirect["user_id"].'');
+		if(!$redirect = $man->getMinIDUser()){
+			header('Location: ../views/error.php?ID=e18');
 		}
 		else{
+			if(!isset($_GET["id"])){ //cambiar por funcion que devuelva la primera id ocupada
 
-			echo '<div class="col-md-9 col-sm-12">';
-			echo '<form action="../php/GestionUsuarios/process_modificarUsuario.php?="'.$_GET["id"].' method="post" '.'id="formulario">';
+			header('Location: ModificarUsuario.php?id=' .$redirect["user_id"].'');
+			}
+			else{
 
-			require_once("../views/renderTable.php");
-			require_once("../views/renderCombobox.php");
-			$table_maker = new RenderTable;
-			$combo_maker = new renderCombobox;
+				echo '<div class="col-md-9 col-sm-12">';
+				echo '<form action="../php/GestionUsuarios/process_modificarUsuario.php?="'.$_GET["id"].' method="post" '.'id="formulario">';
 
-			$combo_maker->comboboxBlankUsuario(); //ComboBox de Selección
+				require_once("../views/renderTable.php");
+				require_once("../views/renderCombobox.php");
+				$table_maker = new RenderTable;
+				$combo_maker = new renderCombobox;
 
-			$datos = $man->getDatosUsuario($_GET["id"]);
-			echo '<br/>Nombre Usuario:<input class="form-control" type=text value="' .$datos["user_name"].'"name="nombre" readonly><br>';
-			echo 'Descripcion:<br/><textarea  rows="5" cols="30" name="desc">' .$datos["user_desc"].''. '</textarea><br>';
-			echo 'Email:<input class="form-control" type=text value="'.$datos["user_email"].'"name="email"<br>';
+				$combo_maker->comboboxBlankUsuario(); //ComboBox de Selección
 
-			echo '<br/>Contraseña: <a class="btn btn-default" href=\'ModificarPass.php?id='.$_GET["id"].'\'">Cambiar</a>';
+				$datos = $man->getDatosUsuario($_GET["id"]);
+				echo '<br/>Nombre Usuario:<input class="form-control" type=text value="' .$datos["user_name"].'"name="nombre" readonly><br>';
+				echo 'Descripcion:<br/><textarea  rows="5" cols="30" name="desc">' .$datos["user_desc"].''. '</textarea><br>';
+				echo 'Email:<input class="form-control" type=text value="'.$datos["user_email"].'"name="email"<br>';
 
-			$table_maker->tableRolByUser($datos["user_name"]);
+				echo '<br/>Contraseña: <a class="btn btn-default" href=\'ModificarPass.php?id='.$_GET["id"].'\'">Cambiar</a>';
 
-			$table_maker->tablePagByUser($datos["user_name"]);
+				$table_maker->tableRolByUser($datos["user_name"]);
 
-			$table_maker->tableFunByUser($datos["user_name"]);
+				$table_maker->tablePagByUser($datos["user_name"]);
 
-			echo '<button class="btn btn-default" onclick="location.href=\'GestionUsuarios.php\'">' .$Idioma['Atras'].' </button>';
-			echo '<input type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"  value="' .$Idioma['Guardar'].'" class="continuar"/>';
+				$table_maker->tableFunByUser($datos["user_name"]);
 
-			echo '</form>';
-			echo '</div>';
+				echo '<button class="btn btn-default" onclick="location.href=\'GestionUsuarios.php\'">' .$Idioma['Atras'].' </button>';
+				echo '<input type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"  value="' .$Idioma['Guardar'].'" class="continuar"/>';
+
+				echo '</form>';
+				echo '</div>';
+			}
 		}
 	?>
 </div>

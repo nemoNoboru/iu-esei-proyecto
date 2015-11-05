@@ -12,39 +12,43 @@
 		require_once("../php/DBManager.php");
 		$man = DBManager::getInstance();
 		$man->connect();
-		$redirect = $man->getMinIDFun();
-		if(!isset($_GET["id"])){ //cambiar por funcion que devuelva la primera id ocupada
-
-			header('Location: ModificarFuncionalidad.php?id=' .$redirect["fun_id"].'');
+		if(!$redirect = $man->getMinIDFun()){
+			header('Location: ../views/error.php?ID=e15');
 		}
 		else{
+			if(!isset($_GET["id"])){ //cambiar por funcion que devuelva la primera id ocupada
 
-			echo '<div class="col-md-9 col-sm-12">';
-			echo '<form action="../php/GestionFuncionalidades/process_modificarFuncionalidad.php?="'.$_GET["id"].' method="post" '.'id="formulario">';
+				header('Location: ModificarFuncionalidad.php?id=' .$redirect["fun_id"].'');
+			}
+			else{
 
-			require_once("../views/renderTable.php");
-			require_once("../views/renderCombobox.php");
-			$table_maker = new RenderTable;
-			$combo_maker = new renderCombobox;
+				echo '<div class="col-md-9 col-sm-12">';
+				echo '<form action="../php/GestionFuncionalidades/process_modificarFuncionalidad.php?="'.$_GET["id"].' method="post" '.'id="formulario">';
 
-			$combo_maker->comboboxBlankFuncionalidad(); //ComboBox de Selección
+				require_once("../views/renderTable.php");
+				require_once("../views/renderCombobox.php");
+				$table_maker = new RenderTable;
+				$combo_maker = new renderCombobox;
 
-			$datos = $man->getDatosFuncion($_GET["id"]);
-			echo '<br/>Nombre Funcionalidad:<input class="form-control" type=text value="' .$datos["fun_name"].'"'. ' name="nombre" readonly><br>';
-			echo 'Descripcion:<br/><textarea rows="5" cols="30" name="desc">' .$datos["fun_desc"].''. '</textarea><br>';
+				$combo_maker->comboboxBlankFuncionalidad(); //ComboBox de Selección
+
+				$datos = $man->getDatosFuncion($_GET["id"]);
+				echo '<br/>Nombre Funcionalidad:<input class="form-control" type=text value="' .$datos["fun_name"].'"'. ' name="nombre" readonly><br>';
+				echo 'Descripcion:<br/><textarea rows="5" cols="30" name="desc">' .$datos["fun_desc"].''. '</textarea><br>';
 
 
-			$table_maker->tablePagByFun($datos["fun_name"]);
+				$table_maker->tablePagByFun($datos["fun_name"]);
 
-			$table_maker->tableRolByFun($datos["fun_name"]);
+				$table_maker->tableRolByFun($datos["fun_name"]);
 
-			$table_maker->tableUserByFun($datos["fun_name"]);
+				$table_maker->tableUserByFun($datos["fun_name"]);
 
-			echo '<button class="btn btn-default" onclick="location.href=\'GestionFuncionalidades.php\'">' .$Idioma['Atras'].' </button>';
-			echo '<input type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"  value="' .$Idioma['Guardar'].'" class="continuar"/>';
+				echo '<button class="btn btn-default" onclick="location.href=\'GestionFuncionalidades.php\'">' .$Idioma['Atras'].' </button>';
+				echo '<input type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"  value="' .$Idioma['Guardar'].'" class="continuar"/>';
 
-			echo '</form>';
-			echo '</div>';
+				echo '</form>';
+				echo '</div>';
+			}
 		}
 	?>
 </div>

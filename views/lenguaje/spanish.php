@@ -67,6 +67,10 @@ $Idioma = array(
 'e12' => 'No se pudo borrar la página',
 'e13' => 'Error creando funcionalidad, ya existe ese nombre',
 'e14' => 'No se pudo borrar funcionalidad',
+'e15' => 'No hay Funcionalidades a modificar',
+'e16' => 'No hay Paginas a modificar',
+'e17' => 'No hay Roles a modificar',
+'e18' => 'No hay Usuarios a modificar',
 //******************************************//
 //Valido . operacion exitosa:
 'c0' => 'Operacion exitosa',

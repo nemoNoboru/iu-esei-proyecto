@@ -1,8 +1,2 @@
-COSAS QUE QUEDAN (Poquitas)
--Verificar contraseña al crear un Usuarios [felipe]         [CHECKED]
--Volver un popup la confirmación de borrado [felipe]        [CHECKED]
--Pagina de correcto tras hacer un modificado bien [martin]  [CHECKED]
--Quitar el snakecase en descripciones [felipe]              [CHECKED]
--Modificarpagina roto en sql [martin]                       [?]
--Textareas en las descripciones de los creares (Hay que darles estilo too) [checked]
--Raul rompio rendertablegestion para usuarios, chekear que pasa [?]
+  COSAS QUE QUEDAN (Poquitas)
+-Cuando no hay entidades a modificar, tira error sql
