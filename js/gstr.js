@@ -4,6 +4,7 @@ body.addEventListener("load", main());
 
 var minimo = 2;
 var maximo = 64;
+var globalID = 0;
 
 function main() {
     $("#formulario :input").each(function(){
@@ -17,6 +18,35 @@ function doSubmit(){
     if(checkALL()){
       $("#formulario").submit();
     }
+}
+function doBorrar(type,id){
+  //console.log(type);
+  globalID = id;
+  $("#modalOK").off("click");
+  var packet = {type:type,id:id};
+  $("#modalOK").click(packet,BORRAR);
+  $("#myModal").modal();
+}
+
+function BORRAR(packet){
+  var type = packet.data.type;
+  var id = packet.data.id;
+  switch (type) {
+    case "usuario":
+      location.href="../php/GestionUsuarios/process_borrarUsuario.php?id="+id+"&confirm=1";
+    break;
+    case "rol":
+      location.href="../php/GestionRoles/process_borrarRol.php?id="+id+"&confirm=1";
+    break;
+    case "pagina":
+      location.href="../php/GestionPaginas/process_borrarPagina.php?id="+id+"&confirm=1";
+    break;
+    case "funcionalidad":
+      location.href="../php/GestionFuncionalidades/process_borrarFuncionalidad.php?id="+id+"&confirm=1";
+    break;
+    default:
+
+  }
 }
 
 function checkALL(){
@@ -59,8 +89,10 @@ function vacio(e) {
     sayError(e,"cannot be empty");
     return true;
   }
-  data = data.replace(/ /g,"_");
-  e.val(data);
+  if(e.attr("name")=="nombre"){
+    data = data.replace(/ /g,"_");
+    e.val(data);
+  }
   return false;
 }
 
@@ -85,20 +117,25 @@ function tooLong(e){
 }
 
 function checkPass(e){
-  var pass1 = $("[name='pass1']");
-  var pass2 = $("[name='pass2']");
-  if( pass1.val() != pass2.val() ){
-    putError(e);
-    sayError(e,"pass don't match");
-    //sayError($("[name='pass1']"),"pass don't match");
+  if(checkValidity(e)){
+    var pass1 = $("[name='pass1']");
+    var pass2 = $("[name='pass2']");
+    if( pass1.val() != pass2.val() ){
+      putError(e);
+      sayError(e,"pass don't match");
+      //sayError($("[name='pass1']"),"pass don't match");
+    }else{
+      var hash = CryptoJS.SHA1(e.val());
+      pass1.val(hash);
+      pass2.val(hash);
+      pass1.addClass("crypted");
+      pass1.attr("readonly",true);
+      pass2.attr("readonly",true);
+      pass2.addClass("crypted");
+      pass2.after("<em class=' text-right glyphicon glyphicon-lock' > Encrypted</em>");
+      pass1.after("<em class=' text-right glyphicon glyphicon-lock' > Encrypted</em>");
+    }
   }
-  var hash = CryptoJS.SHA1(e.val());
-  pass1.val(hash);
-  pass2.val(hash);
-  pass1.addClass("crypted");
-  pass1.attr("readonly",true);
-  pass2.attr("readonly",true);
-  pass2.addClass("crypted");
 }
 
 function putError(e){

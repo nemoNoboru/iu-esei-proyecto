@@ -68,9 +68,10 @@ function checkPass(e){
     var hash = CryptoJS.SHA1(e.val());
     pass1.val(hash);
     pass1.addClass("crypted");
-    pass1.attr("readonly",true);
+    //pass1.attr("readonly",true);
     return true;
   }
+  pass1.removeClass("crypted");
   return false;
 }
 

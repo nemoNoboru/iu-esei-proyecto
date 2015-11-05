@@ -19,7 +19,7 @@
 </div>
 </div>
 <div class="footer logo4"></div>
-
+<?php include("../views/popupGestion.php"); ?>
 <?php include("../views/footer.php");
 	renderFooter();
 ?>

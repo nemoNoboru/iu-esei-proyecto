@@ -1,8 +1,8 @@
 COSAS QUE QUEDAN (Poquitas)
--Verificar contraseña al crear un Usuarios [felipe]
--Volver un popup la confirmación de borrado [felipe]
--Pagina de correcto tras hacer un modificado bien [martin]
--Quitar el snakecase en descripciones [felipe]
--Modificarpagina roto en sql [martin]
+-Verificar contraseña al crear un Usuarios [felipe]         [CHECKED]
+-Volver un popup la confirmación de borrado [felipe]        [CHECKED]
+-Pagina de correcto tras hacer un modificado bien [martin]  [CHECKED]
+-Quitar el snakecase en descripciones [felipe]              [CHECKED]
+-Modificarpagina roto en sql [martin]                       
 -Textareas en las descripciones de los creares (Hay que darles estilo too) [nara]
 -Raul rompio rendertablegestion para usuarios, chekear que pasa [raul]

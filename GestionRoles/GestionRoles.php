@@ -21,6 +21,7 @@
 	<button class='btn btn-default' onclick="location.href='ModificarRol.php'"><?php echo $Idioma['Modificar']; ?></button>
 </div>
 </div>
+<?php include("../views/popupGestion.php"); ?>
 <div class="footer logo1"></div>
 <?php include ("../views/footer.php");
         RenderFooter();
