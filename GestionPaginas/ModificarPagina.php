@@ -12,37 +12,39 @@
 		require_once("../php/DBManager.php");
 		$man = DBManager::getInstance();
 		$man->connect();
-		$redirect = $man->getMinIDPag();
-		if(!isset($_GET["id"])){ //cambiar por funcion que devuelva la primera id ocupada
-
-			header('Location: ModificarPagina.php?id=' .$redirect["pag_id"].'');
+		if(!$redirect = $man->getMinIDPag()){
+			header('Location: ../views/error.php?ID=e16');
 		}
 		else{
+			if(!isset($_GET["id"])){ //cambiar por funcion que devuelva la primera id ocupada
+				header('Location: ModificarPagina.php?id=' .$redirect["pag_id"].'');
+			}
+			else{
+				echo '<div class="col-md-9 col-sm-12">';
+				echo '<form action="../php/GestionPaginas/process_modificarPagina.php?="'.$_GET["id"].' method="post" '.'id="formulario">';
 
-			echo '<div class="col-md-9 col-sm-12">';
-			echo '<form action="../php/GestionPaginas/process_modificarPagina.php?="'.$_GET["id"].' method="post" '.'id="formulario">';
+				require_once("../views/renderTable.php");
+				require_once("../views/renderCombobox.php");
+				$table_maker = new RenderTable;
+				$combo_maker = new renderCombobox;
 
-			require_once("../views/renderTable.php");
-			require_once("../views/renderCombobox.php");
-			$table_maker = new RenderTable;
-			$combo_maker = new renderCombobox;
+				$combo_maker->comboboxBlankPagina(); //ComboBox de Selección
 
-			$combo_maker->comboboxBlankPagina(); //ComboBox de Selección
-
-			$datos = $man->getDatosPagina($_GET["id"]);
-			echo '<br/>Nombre Página:<input class="form-control" type=text value="' .$datos["pag_name"].'"'. ' name="nombre" readonly><br>';
-			echo 'Descripcion:<br/><textarea rows="5" cols="30" name="desc">' .$datos["pag_desc"].''. '</textarea><br>';
+				$datos = $man->getDatosPagina($_GET["id"]);
+				echo '<br/>Nombre Página:<input class="form-control" type=text value="' .$datos["pag_name"].'"'. ' name="nombre" readonly><br>';
+				echo 'Descripcion:<br/><textarea rows="5" cols="30" name="desc">' .$datos["pag_desc"].''. '</textarea><br>';
 
 
-			$table_maker->tableFunByPag($datos["pag_name"]);
+				$table_maker->tableFunByPag($datos["pag_name"]);
 
-			$table_maker->tableUserByPag($datos["pag_name"]);
+				$table_maker->tableUserByPag($datos["pag_name"]);
 
-			echo '<button class="btn btn-default" onclick="location.href=\'GestionPaginas.php\'">' .$Idioma['Atras'].' </button>';
-			echo '<input type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"  value="' .$Idioma['Guardar'].'" class="continuar"/>';
+				echo '<button class="btn btn-default" onclick="location.href=\'GestionPaginas.php\'">' .$Idioma['Atras'].' </button>';
+				echo '<input type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"  value="' .$Idioma['Guardar'].'" class="continuar"/>';
 
-			echo '</form>';
-			echo '</div>';
+				echo '</form>';
+				echo '</div>';
+			}
 		}
 	?>
 </div>
