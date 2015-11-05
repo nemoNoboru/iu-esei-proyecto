@@ -1,5 +1,6 @@
 <?php include("../views/header.php");
 	RenderBanner("Gestión de Funcionalidades");
+	$Idioma = getIdioma();
 ?>
 
 <div id="contenido" class="container">
@@ -30,11 +31,12 @@
 				$table_maker = new RenderTable;
 				$combo_maker = new renderCombobox;
 
+				echo '<br/>'.$Idioma['Seleccione funcionalidad'].':';
 				$combo_maker->comboboxBlankFuncionalidad(); //ComboBox de Selección
 
 				$datos = $man->getDatosFuncion($_GET["id"]);
-				echo '<br/>Nombre Funcionalidad:<input class="form-control" type=text value="' .$datos["fun_name"].'"'. ' name="nombre" readonly><br>';
-				echo 'Descripcion:<br/><textarea rows="5" cols="30" name="desc">' .$datos["fun_desc"].''. '</textarea><br>';
+				echo '<br/>'.$Idioma['Nombre funcionalidad'].':<input class="form-control" type=text value="' .$datos["fun_name"].'"'. ' name="nombre" readonly><br>';
+				echo $Idioma['Descripcion'].':<br/><textarea rows="5" cols="30" name="desc">' .$datos["fun_desc"].''. '</textarea><br>';
 
 
 				$table_maker->tablePagByFun($datos["fun_name"]);

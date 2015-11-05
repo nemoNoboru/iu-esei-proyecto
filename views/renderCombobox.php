@@ -4,7 +4,8 @@
 * Autor: Nara
 */
 require_once ("../php/DBManager.php");
-require_once ("getIdioma.php");
+
+
 class renderCombobox {
 	public function renderCombobox(){
 		$this->man = DBManager::getInstance();
@@ -15,7 +16,7 @@ class renderCombobox {
 		//global $idioma;
 		//echo <'<div id="contenido cntenido-striped">';
 		echo  '<select name="forma" onchange="location = this.options[this.selectedIndex].value;" class = "form-control">';
-		echo "<option selected >---Seleccionar---</option>";
+		echo "<option selected >-----</option>";
 	}
 
 	private function echoFin(){

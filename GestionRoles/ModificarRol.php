@@ -1,5 +1,6 @@
 <?php include("../views/header.php");
 	RenderBanner("Gestión de Roles");
+	$Idioma = getIdioma();
 ?>
 
 <div id="contenido" class="container">
@@ -28,11 +29,12 @@
 				$table_maker = new RenderTable;
 				$combo_maker = new renderCombobox;
 
+				echo '<br/>'.$Idioma['Seleccione rol'].':';
 				$combo_maker->comboboxBlankRol(); //ComboBox de Selección
 
 				$datos = $man->getDatosRol($_GET["id"]);
-				echo '<br/>Nombre Rol:<input class="form-control" type=text value="' .$datos["rol_name"].'"'. ' name="nombre" readonly><br>';
-				echo 'Descripcion:<br/><textarea rows="5" cols="30" name="desc">' .$datos["rol_desc"].''. '</textarea><br>';
+				echo '<br/>'.$Idioma['Nombre rol'].':<input class="form-control" type=text value="' .$datos["rol_name"].'"'. ' name="nombre" readonly><br>';
+				echo $Idioma['Descripcion'].':<br/><textarea rows="5" cols="30" name="desc">' .$datos["rol_desc"].''. '</textarea><br>';
 
 				$table_maker->tableUserByRol($datos["rol_name"]);
 

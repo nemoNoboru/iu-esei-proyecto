@@ -1,5 +1,6 @@
 <?php include("../views/header.php");
 	RenderBanner("Gestión de Páginas");
+	$Idioma = getIdioma();
 ?>
 <div id="contenido" class="container">
 	<div class="row">
@@ -28,11 +29,12 @@
 				$table_maker = new RenderTable;
 				$combo_maker = new renderCombobox;
 
+				echo '<br/>'.$Idioma['Seleccione pagina'].':';
 				$combo_maker->comboboxBlankPagina(); //ComboBox de Selección
 
 				$datos = $man->getDatosPagina($_GET["id"]);
-				echo '<br/>Nombre Página:<input class="form-control" type=text value="' .$datos["pag_name"].'"'. ' name="nombre" readonly><br>';
-				echo 'Descripcion:<br/><textarea rows="5" cols="30" name="desc">' .$datos["pag_desc"].''. '</textarea><br>';
+				echo '<br/>'.$Idioma['Nombre pagina'].':<input class="form-control" type=text value="' .$datos["pag_name"].'"'. ' name="nombre" readonly><br>';
+				echo $Idioma['Descripcion'].':<br/><textarea rows="5" cols="30" name="desc">' .$datos["pag_desc"].''. '</textarea><br>';
 
 
 				$table_maker->tableFunByPag($datos["pag_name"]);
