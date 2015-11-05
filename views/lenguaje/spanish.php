@@ -57,6 +57,7 @@ $Idioma = array(
 'Nombre pagina' => 'Nombre página',
 'Nombre rol' =>'Nombre rol',
 'Seleccione rol' => 'Seleccionar rol',
+'Reintentar' => 'Reintentar',
 //*****************************************//
 //Lista de errores:
 '3' => 'No tienes permisos para acceder a esta pagina',
