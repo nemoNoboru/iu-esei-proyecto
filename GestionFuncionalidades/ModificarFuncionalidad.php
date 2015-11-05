@@ -43,7 +43,7 @@
 
 				$table_maker->tableUserByFun($datos["fun_name"]);
 
-				echo '<button class="btn btn-default" onclick="location.href=\'GestionFuncionalidades.php\'">' .$Idioma['Atras'].' </button>';
+				echo '<a class="btn btn-default" onclick="location.href=\'GestionFuncionalidades.php\'">' .$Idioma['Atras'].' </a>';
 				echo '<input type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"  value="' .$Idioma['Guardar'].'" class="continuar"/>';
 
 				echo '</form>';
