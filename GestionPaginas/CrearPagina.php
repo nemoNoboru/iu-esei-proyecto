@@ -27,7 +27,7 @@
 				$table_maker->tableBlankUsuario();
 				?>
 
-			  <button class="btn btn-default" onclick="history.go(-1)"><?php echo $Idioma['Atras']; ?></button>
+			  <a class="btn btn-default" onclick="location.href='GestionPaginas.php'"><?php echo $Idioma['Atras'];?></a>
 			  <input type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"  value="<?php echo $Idioma['Guardar']; ?>" class="continuar"/>
 			</div>
 			</form>

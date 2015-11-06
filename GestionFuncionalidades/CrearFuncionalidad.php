@@ -31,8 +31,8 @@
 		$table_maker->tableBlankUsuario();
 		?>
 
-		<button class="btn btn-default" onclick="history.go(-1)"><?php echo $Idioma['Atras']; ?></button>
-				<input type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"  value="<?php echo $Idioma['Guardar']; ?>" class="continuar"/>
+		<a class="btn btn-default" onclick="location.href='GestionFuncionalidades.php'"><?php echo $Idioma['Atras'];?></a>
+		<input type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"  value="<?php echo $Idioma['Guardar']; ?>" class="continuar"/>
 
 			</div>
 		</form>
