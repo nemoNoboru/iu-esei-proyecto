@@ -36,6 +36,7 @@ $Idioma = array(
 'Correo electronico' => 'Correo electrónico',
 'Repetir contraseña' => 'Repetir contraseña',
 'Seleccionar usuario' => 'Seleccionar usuario',
+'Modificar usuario' => 'Modificar usuario',
 'Modificar contraseña' => 'Modificar contraseña',
 'Modificar contraseña de usuario' => 'Modificar contraseña de usuario',
 'Crear funcionalidad' => 'Crear funcionalidad',
@@ -58,6 +59,8 @@ $Idioma = array(
 'Nombre rol' =>'Nombre rol',
 'Seleccione rol' => 'Seleccionar rol',
 'Reintentar' => 'Reintentar',
+'Modificar pagina' => 'Modificar pagina',
+'Modificar funcionalidad' => 'Modificar funcionalidad',
 //*****************************************//
 //Lista de errores:
 '3' => 'No tienes permisos para acceder a esta pagina',
@@ -97,5 +100,41 @@ $Idioma = array(
 'c12' => 'Página borrada',
 'c13' => 'Funcionalidad creada',
 'c14' => 'Funcionalidad borrada',
+//*********************************************//
+//tooltips
+'tcu' => 'Creacion de usuarios',
+'dcu' => 'Aqui podra crear un usuario y pinchando en la lista de checkboxes abajo podra relacionarla con roles, usuarios o paginas',
+'tmu' => 'Modificacion de usuarios',
+'dmu' => 'Aqui podra tanto consultar los permisos de los usuarios como modificarlos. Selecione en la lista de abajo el usuario que desea ver o modificar y automaticamente los campos y tablas se rellenaran con la informacion de su usuario.',
+'tgu' => 'Gestion de usuarios',
+'dgu' => 'Aqui podra consultar , borrar y crear usuarios. Para consultar mas detalles de un usuario en concreto haga click en modificar. Para borrar un usuario haga click en el boton de eliminar del usuario deseado',
+'tcr' => 'Creacion de roles',
+'dcr' => 'Aqui podra crear un rol y pinchando en la lista de checkboxes abajo podra relacionarla con usuarios o funcionalidades',
+'tgr' => 'Gestion de roles',
+'dgr' => 'Aqui podra consultar, borrar y crear roles. Para consultar mas detalles sobre un rol haga click en modificar. Para borrar un usuario haga click en el boton de eliminar del rol',
+'dmr' => 'Aqui podra tanto modificar como consultar roles. Simplemente seleccione el rol deseado en la lista abajo y se rellenaran los campos y las tablas con la informacion de los roles',
+'tmr' => 'Modificacion de roles',
+'tcp' => 'Crear pagina',
+'dcp' => 'Aqui puede crear paginas, entidad importantisima a la hora de permitir los accesos. Recuerde que debera nombrar la pagina con el nombre que le puso a la hora de integrarla. Vea mas informacion sobre esto en ayuda',
+'tgp' => 'Gestion de paginas',
+'dgp' => 'Aqui puede consultar, borrar y modificar paginas. Para ver los permisos sobre una pagina haga click en modificar y seleccionela.',
+'tmp' => 'Modificar pagina',
+'dmp' => 'Aqui podra consultar o modificar los permisos o descripciones de las paginas simplemente seleccionandolas en el cuadro de seleccion abajo',
+'tcf' => 'Crear funcionalidad',
+'dcf' => 'Aqui podra crear funcionalidades y asignarles permisos a usuarios, paginas o roles',
+'tgf' => 'Gestion funcionalidad',
+'dgf' => 'Aqui podra consultar, modificar o borrar funcionalidades. Para consultar detalles de las funcionalidades haga click en modificar',
+'tmf' => 'Modificar funcionalidad',
+'dmf' => 'Aqui podra obtener mas informacion o modificar una funcionalidad en concreto',
+//***************************************************//
+//menu
+'tusuarios' => 'Usuarios',
+'dusuarios' => 'Los usuarios son las personas que queremos permitir que vean o no nuestras paginas. Recuerde que la clave de un negocio es mantener a nuestros usuarios contentos y mimados. Pueden estar relacionadas con roles, funcionalidades o paginas directamente.',
+'tpaginas' => 'Paginas',
+'dpaginas' => 'Estas son las paginas que queremos gestionar. Pueden ser tanto paginas fisicas como escenarios. Recuerde, si lo de deja acceder correctamente a una pagina compruebe que tiene permisos y ademas compruebe la clase de integracion.',
+'tfuncionalidades' => 'Funcionalidades',
+'dfuncionalidades' => 'Una funcionalidad es un grupo de paginas. Asi de simple.',
+'troles' => 'Roles',
+'droles' => 'Como una funcionalidad es un grupo de paginas un rol es un grupo de usuarios. Asi, si asigna un rol a una funcionalidad se ahorra el trabajo de pinchar en un monton de cajitas',
 )
 ?>

@@ -30,7 +30,10 @@
 				require_once("../views/renderCombobox.php");
 				$table_maker = new RenderTable;
 				$combo_maker = new renderCombobox;
-
+				echo "<h1>";
+				echo $Idioma['Modificar funcionalidad'];
+				makeTooltip($Idioma['tmf'],$Idioma['dmf']);
+				echo '</h1>';
 				echo '<br/>'.$Idioma['Seleccione funcionalidad'].':';
 				$combo_maker->comboboxBlankFuncionalidad(); //ComboBox de Selección
 
@@ -44,9 +47,9 @@
 				$table_maker->tableRolByFun($datos["fun_name"]);
 
 				$table_maker->tableUserByFun($datos["fun_name"]);
-
-				echo '<a class="btn btn-default" onclick="location.href=\'GestionFuncionalidades.php\'">' .$Idioma['Atras'].' </a>';
-				echo '<input type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"  value="' .$Idioma['Guardar'].'" class="continuar"/>';
+			echo '<hr/>';
+				echo '<a class="btn btn-default btn-primary" onclick="location.href=\'GestionFuncionalidades.php\'">' .$Idioma['Atras'].' </a>';
+				echo ' <input type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"  value="' .$Idioma['Guardar'].'" class="continuar"/>';
 
 				echo '</form>';
 				echo '</div>';

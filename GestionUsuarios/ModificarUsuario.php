@@ -30,7 +30,9 @@
 				require_once("../views/renderCombobox.php");
 				$table_maker = new RenderTable;
 				$combo_maker = new renderCombobox;
-
+				echo '<h1>' . $Idioma['Modificar usuario'];
+				makeTooltip($Idioma['tmu'],$Idioma['dmu']);
+				echo '</h1>';
 				echo '<br/>'.$Idioma['Seleccione usuario'].':';
 				$combo_maker->comboboxBlankUsuario(); //ComboBox de Selección
 
@@ -46,9 +48,9 @@
 				$table_maker->tablePagByUser($datos["user_name"]);
 
 				$table_maker->tableFunByUser($datos["user_name"]);
-
-				echo '<a class="btn btn-default" onclick="location.href=\'GestionUsuarios.php\'">' .$Idioma['Atras'].' </a>';
-				echo '<input type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"  value="' .$Idioma['Guardar'].'" class="continuar"/>';
+				echo '<hr/>';
+				echo '<a class="btn btn-default" onclick="location.href=\'GestionUsuarios.php\'">' . $Idioma['Atras'] .' </a>';
+				echo ' <input type="button" class="btn btn-default btn-primary" data-toggle="modal" data-target="#myModal"  value="' . $Idioma['Guardar'] .'" class="continuar"/>';
 
 				echo '</form>';
 				echo '</div>';

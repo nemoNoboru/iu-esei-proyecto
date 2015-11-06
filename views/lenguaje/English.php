@@ -19,6 +19,7 @@ $Idioma = array(
 'Gestión de Funcionalidades' => 'Features management',
 'Gestion de Páginas' => 'Pages management',
 'Gestión de Páginas' => 'Pages management',
+'Modificar usuario' => 'Edit user',
 'Rol' => 'Rol',
 'Crear rol' => 'Create rol',
 'Nombre' => 'Nickname',

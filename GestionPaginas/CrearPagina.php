@@ -13,7 +13,7 @@
 		<div class="col-md-9 col-sm-12">
 			<form action="../php/GestionPaginas/process_crearPagina.php" method="post" id="formulario">
 
-				<h1><?php echo $Idioma['Crear página']; ?></h1>
+				<h1><?php echo $Idioma['Crear página']; makeTooltip($Idioma['tcp'],$Idioma['dcp']) ?></h1>
 				<div class="form-group">
 				<?php echo $Idioma['Nombre'];?>: <input type="text" class="form-control" name="nombre"><br/>
 				<?php echo $Idioma['Descripcion']; ?>: <br/> <textarea rows="5" cols="30" name="desc"></textarea><br/>
@@ -26,9 +26,9 @@
 				<?php
 				$table_maker->tableBlankUsuario();
 				?>
-
+<hr/>
 			  <a class="btn btn-default" onclick="location.href='GestionPaginas.php'"><?php echo $Idioma['Atras'];?></a>
-			  <input type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"  value="<?php echo $Idioma['Guardar']; ?>" class="continuar"/>
+			  <input type="button" class="btn btn-default btn-primary" data-toggle="modal" data-target="#myModal"  value="<?php echo $Idioma['Guardar']; ?>" class="continuar"/>
 			</div>
 			</form>
 		</div>

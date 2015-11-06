@@ -7,6 +7,7 @@ var maximo = 64;
 var globalID = 0;
 
 function main() {
+  $(function () { $('[data-toggle="popover"]').popover()}); //popover
     $("#formulario :input").each(function(){
       $(this).blur(function(){ checkValidity($(this)); } ); //<-- Should return all input elements in that specific form.
     });

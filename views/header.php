@@ -14,6 +14,7 @@
 
   require_once "../views/renderTable.php";
   require_once "../views/renderTableGestion.php";
+  require_once("../views/tooltip.php");
 
   //Añadido array de Idioma, se debe hacer include Idioma en la Pagina que llame a header.
 	function Renderbanner($nombre){

@@ -28,7 +28,10 @@
 				require_once("../views/renderCombobox.php");
 				$table_maker = new RenderTable;
 				$combo_maker = new renderCombobox;
-
+				echo "<h1>";
+				echo $Idioma['Modificar pagina'];
+				makeTooltip($Idioma['tmp'],$Idioma['dmp']);
+				echo '</h1>';
 				echo '<br/>'.$Idioma['Seleccione pagina'].':';
 				$combo_maker->comboboxBlankPagina(); //ComboBox de Selección
 
@@ -40,9 +43,9 @@
 				$table_maker->tableFunByPag($datos["pag_name"]);
 
 				$table_maker->tableUserByPag($datos["pag_name"]);
-
+				echo '<hr/>';
 				echo '<a class="btn btn-default" onclick="location.href=\'GestionPaginas.php\'">' .$Idioma['Atras'].' </a>';
-				echo '<input type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"  value="' .$Idioma['Guardar'].'" class="continuar"/>';
+				echo ' <input type="button" class="btn btn-default btn-primary" data-toggle="modal" data-target="#myModal"  value="' .$Idioma['Guardar'].'" class="continuar"/>';
 
 				echo '</form>';
 				echo '</div>';

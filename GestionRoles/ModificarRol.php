@@ -28,7 +28,10 @@
 				require_once("../views/renderCombobox.php");
 				$table_maker = new RenderTable;
 				$combo_maker = new renderCombobox;
-
+				echo "<h1>";
+				echo $Idioma['Modificar rol'];
+				makeTooltip($Idioma['tmr'],$Idioma['dmr']);
+				echo '</h1>';
 				echo '<br/>'.$Idioma['Seleccione rol'].':';
 				$combo_maker->comboboxBlankRol(); //ComboBox de Selección
 
@@ -39,9 +42,9 @@
 				$table_maker->tableUserByRol($datos["rol_name"]);
 
 				$table_maker->tableFunByRol($datos["rol_name"]);
-
+				echo '<hr/>';
 				echo '<a class="btn btn-default" onclick="location.href=\'GestionRoles.php\'">' .$Idioma['Atras'].' </a>';
-				echo '<input type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"  value="' .$Idioma['Guardar'].'" class="continuar"/>';
+				echo ' <input type="button" class="btn btn-default btn-primary" data-toggle="modal" data-target="#myModal"  value="' .$Idioma['Guardar'].'" class="continuar"/>';
 
 				echo '</form>';
 				echo '</div>';

@@ -18,7 +18,7 @@
    private function echoInit($nameTable){
      global $Idioma;
      echo  '<table class="table table-striped">';
-     echo  '<thead><tr><th>'.$Idioma[$nameTable].'</th><th class="text-right">'.$Idioma['permitir'].'</th></tr></thead>';
+     echo  '<thead><tr><th>'.$Idioma[$nameTable] .'</th><th class="text-right">'.$Idioma['permitir'].'</th></tr></thead>';
      echo  '<tbody>';
    }
 

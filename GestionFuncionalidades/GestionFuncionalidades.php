@@ -10,12 +10,13 @@
 ?>
 
 	<div class="col-md-9 col-sm-12">
-		<h1><?php echo $Idioma['Gestión de Funcionalidades']; ?></h1>
+		<h1><?php echo $Idioma['Gestión de Funcionalidades']; makeTooltip($Idioma['tgf'],$Idioma['dgf']); ?></h1>
 		<?php
 			$table_maker = new RenderTableGestion;
 			$table_maker->tableFuncionalidad();
 		?>
-		<button class="btn btn-default" onclick="location.href='CrearFuncionalidad.php'"><?php echo $Idioma['Crear']; ?></button>
+		<hr/>
+		<button class="btn btn-default btn-primary" onclick="location.href='CrearFuncionalidad.php'"><?php echo $Idioma['Crear']; ?></button>
 		<button class="btn btn-default" onclick="location.href='ModificarFuncionalidad.php'"><?php echo $Idioma['Modificar']; ?></button>
 	</div>
 </div>

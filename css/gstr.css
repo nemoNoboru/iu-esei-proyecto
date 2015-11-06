@@ -2,7 +2,13 @@ html , body {
   #background-image: url("../media/ft2.png") !important;
   #background-color: #e5e5e5;
 }
+.popover {
+  color:black !important;
+}
 
+.btn-link{
+  color: white !important;
+}
 .centered{
   display: block;
   margin-left: auto;

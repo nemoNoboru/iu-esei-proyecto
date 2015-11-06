@@ -2,4 +2,4 @@
 </BR>
 </BR>
 </BR>
-<a href='../GestionUsuarios/login.php'>Administrar</a>
+<a href='../Menu/MenuPrincipal.php'>Administrar</a>

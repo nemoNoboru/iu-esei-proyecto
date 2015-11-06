@@ -1,4 +1,5 @@
 <?php include("../views/header.php");
+	//require_once("../views/tooltip.php"); //prueba
 	RenderBanner("Gestión de Usuarios");
 	$Idioma = getIdioma();
 ?>
@@ -11,7 +12,7 @@
 		<div class="col-md-9 col-sm-12">
 			<form action="../php/GestionUsuarios/process_crearUsuario.php" method="post" id="formulario">
 				<div class="form-group">
-					<h1><?php echo $Idioma['Crear usuario']; ?></h1>
+					<h1><?php echo $Idioma['Crear usuario']; makeTooltip($Idioma['tcu'],$Idioma['dcu']); ?></h1>
 					<?php echo $Idioma['Nombre'];?>: <input type="text" class="form-control" name="nombre"><br/>
 					<?php echo $Idioma['Descripcion']; ?>:<br/> <textarea rows="5" cols="30" name="desc"></textarea><br/>
 					email: <input type="text" class="form-control" name="email"><br/>
@@ -31,9 +32,9 @@
 				<?php
 				$table_maker->tableBlankFuncionalidad();
 				?>
-
+<hr/>
 	  		<a class="btn btn-default" onclick="location.href='GestionUsuarios.php'"><?php echo $Idioma['Atras'];?></a>
-			<input type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"  value="<?php echo $Idioma['Guardar']; ?>" class="continuar"/>
+			<input type="button" class="btn btn-default btn-primary" data-toggle="modal" data-target="#myModal"  value="<?php echo $Idioma['Guardar']; ?>" class="continuar"/>
 			</div>
 			</form>
 		</div>

@@ -56,7 +56,7 @@ class RenderTableGestion {
         echo "<td>".$campo."</td>";
       }
       //echo "<td><button class='btn btn-default' onclick='location.href=\"../php/GestionRoles/process_borrarRol.php?id=$GET_id&confirm=0\"'>X</button></td>";
-      echo "<td><button class='btn btn-default' onclick='doBorrar(\"rol\",".$GET_id.")'>X</button></td>";
+      echo "<td><button class='btn btn-default btn-danger' onclick='doBorrar(\"rol\",".$GET_id.")'>X</button></td>";
       echo "</tr>";
     }
     $this->echoFin();
@@ -70,7 +70,7 @@ class RenderTableGestion {
         echo "<td>".$campo."</td>";
       }
       //echo "<td><button class='btn btn-default' onclick='location.href=\"../php/GestionFuncionalidades/process_borrarFuncionalidad.php?id=$GET_id&confirm=0\"'>X</button></td>";
-      echo "<td><button class='btn btn-default' onclick='doBorrar(\"funcionalidad\",".$GET_id.")'>X</button></td>";
+      echo "<td><button class='btn btn-default btn-danger' onclick='doBorrar(\"funcionalidad\",".$GET_id.")'>X</button></td>";
       echo "</tr>";
     }
     $this->echoFin();
@@ -84,7 +84,7 @@ class RenderTableGestion {
         echo "<td>".$campo."</td>";
       }
     //  echo "<td><button onclick='location.href=\"../php/GestionUsuarios/process_borrarUsuario.php?id=$GET_id&confirm=0\"'>X</button></td>";
-      echo "<td><button class='btn btn-default' onclick='doBorrar(\"usuario\",".$GET_id.")'>X</button></td>";
+      echo "<td><button class='btn btn-default btn-danger' onclick='doBorrar(\"usuario\",".$GET_id.")'>X</button></td>";
       echo "</tr>";
     }
     $this->echoFin();
@@ -98,7 +98,7 @@ class RenderTableGestion {
         echo "<td>".$campo."</td>";
       }
       //echo "<td><button class='btn btn-default' onclick='location.href=\"../php/GestionPaginas/process_borrarPagina.php?id=$GET_id&confirm=0\"'>X</button></td>";
-      echo "<td><button class='btn btn-default' onclick='doBorrar(\"pagina\",".$GET_id.")'>X</button></td>";
+      echo "<td><button class='btn btn-default btn-danger' onclick='doBorrar(\"pagina\",".$GET_id.")'>X</button></td>";
       echo "</tr>";
     }
     $this->echoFin();

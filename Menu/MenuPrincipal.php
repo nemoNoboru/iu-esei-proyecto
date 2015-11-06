@@ -11,7 +11,7 @@
       <a style="text-decoration: none" href="../GestionUsuarios/GestionUsuarios.php">
         <div class="BotonMenu">
           <div class="logo3"></div>
-          <?php echo $Idioma['Gestión de Usuarios']; ?>
+          <?php echo $Idioma['Gestión de Usuarios']; makeTooltip($Idioma['tusuarios'],$Idioma['dusuarios']); ?>
         </div>
       </a>
     </div>
@@ -19,7 +19,7 @@
       <a style="text-decoration: none" href="../GestionRoles/GestionRoles.php">
       <div class="BotonMenu">
         <div class="logo1"></div>
-        <?php echo $Idioma['Gestión de Roles']; ?>
+        <?php echo $Idioma['Gestión de Roles'];  makeTooltip($Idioma['troles'],$Idioma['droles']);  ?>
       </div>
       </a>
     </div>
@@ -29,7 +29,7 @@
       <a style="text-decoration: none" href="../GestionPaginas/GestionPaginas.php">
       <div class="BotonMenu">
         <div class="logo4"></div>
-        <?php echo $Idioma['Gestión de Páginas']; ?>
+        <?php echo $Idioma['Gestión de Páginas'];  makeTooltip($Idioma['tpaginas'],$Idioma['dpaginas']);  ?>
       </div>
       </a>
     </div>
@@ -37,7 +37,7 @@
       <a style="text-decoration: none" href="../GestionFuncionalidades/GestionFuncionalidades.php">
       <div class="BotonMenu">
         <div class="logo2"></div>
-        <?php echo $Idioma['Gestión de Funcionalidades']; ?>
+        <?php echo $Idioma['Gestión de Funcionalidades'];  makeTooltip($Idioma['tfuncionalidades'],$Idioma['dfuncionalidades']);  ?>
       </div>
       </a>
     </div>
