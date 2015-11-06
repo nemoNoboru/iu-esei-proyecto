@@ -7,7 +7,7 @@
                     "<a href='../GestionPaginas/GestionPaginas.php'>".$Idioma['Gestión de Páginas']."</a>",
                     "<a href='../GestionFuncionalidades/GestionFuncionalidades.php'>".$Idioma['Gestión de Funcionalidades']."</a>");
     echo "<div class=' lateral col-md-3 col-sm-12'>";
-    echo "<ul class='nav nav-pills nav-stacked'>";
+    echo "<ul class='nav nav-pills nav-stacked lateral '>";
     //echo "<li class= 'active'>";
     //echo $items[$no];
     //unset($items[$no]);
@@ -20,6 +20,7 @@
       }
     }
     echo "</ul>";
+    echo "<br>";
     echo "</div>";
   }
 ?>

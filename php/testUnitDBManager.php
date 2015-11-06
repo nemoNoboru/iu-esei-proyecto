@@ -3,9 +3,12 @@
  * Puede generar un monton de usuarios dummys que deberan de ser eliminados en su dia
  * Felipe Vieira
  */
+ session_start();
   require_once "DBManager.php";
   require_once "../views/renderTable.php";
-
+  require_once("../cancerbero.php");
+  $can = new Cancerbero("testUnit");
+  $can->handleAuto();
   $table = new RenderTable;
   $man =  DBManager::getInstance();
   $man1 = DBManager::getInstance();

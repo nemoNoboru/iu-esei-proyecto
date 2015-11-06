@@ -9,17 +9,18 @@
 	RenderLateral(2);
 ?>
 	<div class="col-md-9 col-sm-12">
-		<h1><?php echo $Idioma['Gestión de Páginas']; ?></h1>
+		<h1><?php echo $Idioma['Gestión de Páginas']; makeTooltip($Idioma['tgp'],$Idioma['dgp']); ?></h1>
 	<?php
 		$table_maker = new RenderTableGestion;
 		$table_maker->tablePagina();
 	?>
-		<button onclick="location.href='CrearPagina.php'"><?php echo $Idioma['Crear']; ?></button>
-		<button onclick="location.href='ModificarPagina.php'"><?php echo $Idioma['Modificar']; ?></button>
+	<hr/>
+		<button class='btn btn-default btn-primary' onclick="location.href='CrearPagina.php'"><?php echo $Idioma['Crear']; ?></button>
+		<button class='btn btn-default ' onclick="location.href='ModificarPagina.php'"><?php echo $Idioma['Modificar']; ?></button>
 </div>
 </div>
-
-
+<div class="footer logo4"></div>
+<?php include("../views/popupGestion.php"); ?>
 <?php include("../views/footer.php");
 	renderFooter();
 ?>

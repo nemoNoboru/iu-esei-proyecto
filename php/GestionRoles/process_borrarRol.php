@@ -11,12 +11,14 @@ $man->connect(); //conectate a la bbdd
 if($confirm==1){
   //Borramos
   if($man->borrarRol($borrar)){
-    echo "Borrado Correctamente<br>";
-    echo "<button onclick='location.href=\"../../GestionRoles/GestionRoles.php\"'>OK</button>";
+	  header('location: '.'../../views/correcto.php?ID=c8');
+   // echo "Borrado Correctamente<br>";
+   // echo "<button onclick='location.href=\"../../GestionRoles/GestionRoles.php\"'>OK</button>";
   }
   else{
-    echo "todo mal";
-    echo "<button onclick='location.href=\"../../GestionRoles/GestionRoles.php\"'>OK</button>";
+	  header('location: '.'../../views/error.php?ID=e8');
+    //echo "todo mal";
+    //echo "<button onclick='location.href=\"../../GestionRoles/GestionRoles.php\"'>OK</button>";
   }
 }else{//Pide confirmación
   echo "¿Seguro que desea borrar?<br>";

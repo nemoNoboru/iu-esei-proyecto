@@ -2,53 +2,60 @@
 	RenderBanner("Gestión de Páginas");
 	$Idioma = getIdioma();
 ?>
-
-
 <div id="contenido" class="container">
-<div class="row">
-		<?php include("../views/lateral.php");
-			RenderLateral(2);
-		?>
-		<div class="col-md-9 col-sm-12">
-	<form action="../php/GestionPaginas/process_modificarPagina.php" method="post" id="formulario">
-	<div class="form-group">
-		<h1>Modificar Pagina</h1>
-			<div class="tabla">
-				<table>
-					<tr><th>URL</th><th colspan='3'>ROLES</th></tr>
-					<tr><td>URL 1</td><td><input type="checkbox" name="opcion1" value="check1">rol1</td><td><input type="checkbox" name="opcion1" value="check1">rol2</td><td><input type="checkbox" name="opcion1" value="check1">rol3</td></tr>
-					<tr><td>URL 2</td><td><input type="checkbox" name="opcion1" value="check1">rol1</td><td><input type="checkbox" name="opcion1" value="check1">rol2</td><td><input type="checkbox" name="opcion1" value="check1">rol3</td></tr>
-					<tr><td>URL 3</td><td><input type="checkbox" name="opcion1" value="check1">rol1</td><td><input type="checkbox" name="opcion1" value="check1">rol2</td><td><input type="checkbox" name="opcion1" value="check1">rol3</td></tr>
-					<tr><td>URL 4</td><td><input type="checkbox" name="opcion1" value="check1">rol1</td><td><input type="checkbox" name="opcion1" value="check1">rol2</td><td><input type="checkbox" name="opcion1" value="check1">rol3</td></tr>
-				</table>
-			</div>
+	<div class="row">
+
+<?php include("../views/lateral.php");
+	RenderLateral(2);
+?>
+
+	<?php
+		require_once("../php/DBManager.php");
+		$man = DBManager::getInstance();
+		$man->connect();
+		if(!$redirect = $man->getMinIDPag()){
+			header('Location: ../views/error.php?ID=e16');
+		}
+		else{
+			if(!isset($_GET["id"])){ //cambiar por funcion que devuelva la primera id ocupada
+				header('Location: ModificarPagina.php?id=' .$redirect["pag_id"].'');
+			}
+			else{
+				echo '<div class="col-md-9 col-sm-12">';
+				echo '<form action="../php/GestionPaginas/process_modificarPagina.php?="'.$_GET["id"].' method="post" '.'id="formulario">';
+
+				require_once("../views/renderTable.php");
+				require_once("../views/renderCombobox.php");
+				$table_maker = new RenderTable;
+				$combo_maker = new renderCombobox;
+				echo "<h1>";
+				echo $Idioma['Modificar pagina'];
+				makeTooltip($Idioma['tmp'],$Idioma['dmp']);
+				echo '</h1>';
+				echo '<br/>'.$Idioma['Seleccione pagina'].':';
+				$combo_maker->comboboxBlankPagina(); //ComboBox de Selección
+
+				$datos = $man->getDatosPagina($_GET["id"]);
+				echo '<br/>'.$Idioma['Nombre pagina'].':<input class="form-control" type=text value="' .$datos["pag_name"].'"'. ' name="nombre" readonly><br>';
+				echo $Idioma['Descripcion'].':<br/><textarea rows="5" cols="30" name="desc">' .$datos["pag_desc"].''. '</textarea><br>';
 
 
-	  		<button class="btn btn-default" onclick="history.go(-1)"><?php echo $Idioma['Atras']; ?></button>
-			<input type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"  value="<?php echo $Idioma['Guardar']; ?>" class="continuar"/>
-			</div>
-			</form>
-		</div>
-	</div>
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel"><?php echo $Idioma['Validar']; ?></h4>
-      </div>
-      <div class="modal-body">
-        <?php echo $Idioma['Seguro']; ?>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">NO</button>
-        <button type="button" onclick="document.getElementById('formulario').submit();" class="btn btn-primary">OK</button>
-      </div>
-    </div>
-  </div>
+				$table_maker->tableFunByPag($datos["pag_name"]);
+
+				$table_maker->tableUserByPag($datos["pag_name"]);
+				echo '<hr/>';
+				echo '<a class="btn btn-default" onclick="location.href=\'GestionPaginas.php\'">' .$Idioma['Atras'].' </a>';
+				echo ' <input type="button" class="btn btn-default btn-primary" data-toggle="modal" data-target="#myModal"  value="' .$Idioma['Guardar'].'" class="continuar"/>';
+
+				echo '</form>';
+				echo '</div>';
+			}
+		}
+	?>
 </div>
-</div>
 
+<?php include("../views/popup.php");?>
+<div class="footer logo4"></div>
 <?php include("../views/footer.php");
 	renderFooter();
 ?>

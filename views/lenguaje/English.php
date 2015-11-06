@@ -1,5 +1,6 @@
 <?php
 $Idioma = array(
+'salir' => 'Exit',
 'ID' => 'ID',
 'Email' => 'Email',
 'nick' => 'nickname',
@@ -18,6 +19,7 @@ $Idioma = array(
 'Gestión de Funcionalidades' => 'Features management',
 'Gestion de Páginas' => 'Pages management',
 'Gestión de Páginas' => 'Pages management',
+'Modificar usuario' => 'Edit user',
 'Rol' => 'Rol',
 'Crear rol' => 'Create rol',
 'Nombre' => 'Nickname',
@@ -48,12 +50,47 @@ $Idioma = array(
 'Crear página' => 'Create page',
 'Seguro' => 'Sure?',
 'Validar' => 'Check it',
+'Nombre usuario' => 'User name',
+'Seleccione usuario' => 'Chose user',
+'Nombre funcionalidad' => 'Feature name',
+'Seleccione funcionalidad'=>'Chose feature',
+'Seleccione pagina' => 'Chose page',
+'Nombre pagina' => 'Page name',
+'Nombre rol' => 'Rol name',
+'Seleccione rol' => 'Chose rol',
+//*****************************************//
 //Lista de errores:
-'1' => 'Already exist this user',
-'2' => 'Passwords are not equals',
-//Valido:
-'Exito' => 'Sucesfull operation',
-'UC' => 'Create user',
-
+'3' =>  'You don\'t have permission to access this site',
+'e1' => 'Error inserting relationship (Rol)',
+'e2' => 'Error inserting relationship (Page)',
+'e3' => 'Error inserting relationship (Funtionality)',
+'e4' => 'Error, already exist this user',
+'e5' => 'Error, passwords not equals',
+'e6' => 'Error, wrong login',
+'e7' => 'Error, cant delete user',
+'e8' => 'Error, cant delete rol',
+'e9' => 'Error creating rol, already exist this name',
+'e10' => 'Error inserting relationship (User)',
+'e11' => 'Error creating page, already exist this name',
+'e12' => 'Error, cant delete page',
+'e13' => 'Error creating  functionality, already exist this name',
+'e14' => 'Error, cant delete functionality',
+//******************************************//
+//Valido . operacion exitosa:
+'c0' => 'Succes:',
+'c1' => 'Relationship inserted correctly(Rol)',
+'c2' => 'Relationship inserted correctly(Page)',
+'c3' => 'Relationship inserted correctly(Functionality)',
+'c4' => 'User created',
+'c5' => 'Password changed',
+'c6' => 'succes login',
+'c7' => 'User deleted',
+'c8' => 'Rol deleted',
+'c9' => 'Rol created',
+'c10' => 'Relationship inserted correctly(Users)',
+'c11' => 'Page created',
+'c12' => 'Page deleted',
+'c13' => 'Functionality created',
+'c14' => 'Functionality deleted',
 )
 ?>
