@@ -1,5 +1,6 @@
 <?php include("../views/header.php"); 	//Incluye el header
   RenderBanner("Menu Principal"); 		//Muestra el header con la funcion definida en header.php
+  cerberus("CER_Menu");
   $Idioma = getIdioma(); 				//Guarda en $Idioma el array asociativo que almacena el idioma. getIdioma() esta definido en header.php
 ?>
 <!-- DISCLAIMER: ESTE MENU PRINCIPAL ES PALERISIMO Y SOLO SIRVE PARA TESTEAR ENLACES -->

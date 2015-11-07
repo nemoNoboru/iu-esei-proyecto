@@ -15,9 +15,14 @@
   require_once "../views/renderTable.php";
   require_once "../views/renderTableGestion.php";
   require_once("../views/tooltip.php");
+  require_once("../cancerbero.php");
 
   //Añadido array de Idioma, se debe hacer include Idioma en la Pagina que llame a header.
-	function Renderbanner($nombre){
+  function cerberus($nombre_pagina){
+    $cerb = new Cancerbero($nombre_pagina);
+    $cerb->handleAuto();
+  }
+  function Renderbanner($nombre){
 		//Cargo la sesion apra tener acceso a los datos.
      session_start();
      $Idioma = getIdioma();

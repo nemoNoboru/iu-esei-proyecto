@@ -727,7 +727,7 @@ class DBManager {
           Usuario.user_id = User_Fun.user_id and
           User_Fun.fun_id = Pag_Fun.fun_id and
           Pag_Fun.pag_id = Pagina.pag_id and
-          Pagina.pag_name = "'.$fun.'"';
+          Pagina.pag_name = "'.$pag.'"';
     $result = $this->doQuery($toQuery);
     return $result->num_rows != 0;
   }

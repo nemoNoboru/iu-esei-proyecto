@@ -1,6 +1,6 @@
 <?php include("../views/header.php");
-	//require_once("../views/tooltip.php"); //prueba
 	RenderBanner("Gestión de Usuarios");
+	cerberus("CER_CrearUsuario");
 	$Idioma = getIdioma();
 ?>
 

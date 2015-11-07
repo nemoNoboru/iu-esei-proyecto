@@ -12,5 +12,8 @@
         exit();
       }
     }
+    public function AccessPage($u,$p){
+      return parent::canAccessPage($u,$p);
+    }
   }
 ?>

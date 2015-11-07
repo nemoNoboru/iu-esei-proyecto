@@ -1,5 +1,6 @@
 <?php include("../views/header.php");
 	RenderBanner("Gestión de Usuarios");
+	cerberus("CER_ModificarPass");
 ?>
 
 <div id="contenido" class="container">

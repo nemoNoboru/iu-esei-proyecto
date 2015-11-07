@@ -5,5 +5,5 @@ session_start();
 	$_SESSION["LE"]='sp';
 
 	//Redirijo a la pagina principal.
-	header('location:./GestionUsuarios/loginWPA.php');
+	header('location:./GestionUsuarios/login.php');
 ?>
