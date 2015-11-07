@@ -14,6 +14,7 @@ foreach ($paginas as $pag) {
     if($man->insertRelationUserPag($_POST['nombre'],$pag['pag_name'])){
 		}
     else{
+      header('location: '.'../../views/error.php?ID=e4');
 		}
   }
 }
@@ -23,6 +24,7 @@ foreach ($roles as $rol) {
   if(isset($_POST[$rol['rol_name']])){
     if($man->insertRelationUserRol($_POST['nombre'],$rol['rol_name'])){
 		}else{
+      header('location: '.'../../views/error.php?ID=e4');
 		}
   }
 }
@@ -33,6 +35,7 @@ foreach ($funcionalidades as $fun) {
     if($man->insertRelationUserFun($_POST['nombre'],$fun['fun_name'])){
 		}
     else{
+      header('location: '.'../../views/error.php?ID=e4');
 		}
   }
 }

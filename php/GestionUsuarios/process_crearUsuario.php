@@ -14,7 +14,7 @@ if($_POST['pass1']==$_POST['pass2']){
 			//header('location: '.'../../views/correcto.php?ID=c1');
           //echo "relacion insertada correctamente";
         }else{
-			//header('location: '.'../../views/error.php?ID=e1');
+			header('location: '.'../../views/error.php?ID=e1');
         //  echo "error insertando la relacion";
         }
       }
@@ -26,7 +26,7 @@ if($_POST['pass1']==$_POST['pass2']){
 			//header('location: '.'../../views/correcto.php?ID=c2');
          // echo "relacion insertada correctamente";
         }else{
-			//header('location: '.'../../views/error.php?ID=e2');
+			header('location: '.'../../views/error.php?ID=e2');
          // echo "error insertando la relacion";
         }
       }
@@ -38,7 +38,7 @@ if($_POST['pass1']==$_POST['pass2']){
 			//header('location: '.'../../views/correcto.php?ID=c3');
           //echo "relacion insertada correctamente";
         }else{
-			//header('location: '.'../../views/error.php?ID=e3');
+			header('location: '.'../../views/error.php?ID=e3');
           //echo "error insertando la relacion";
         }
       }
@@ -48,12 +48,12 @@ if($_POST['pass1']==$_POST['pass2']){
     // redireccion a mensaje correcto aqui crear usuario
   }else{
     echo "Error creando el usuario, ya existia un usuario con ese nombre";
-	//header('location: '.'../../views/error.php?ID=e4'); 
+	header('location: '.'../../views/error.php?ID=e4');
     // redireccion a mensaje de error aqui crear usuario error
   }
 }else {
 	//echo "Las contraseñas no coiciden";
-	//header('location: '.'../../views/error.php?ID=e5');
+	header('location: '.'../../views/error.php?ID=e5');
   //redireccion a mensaje de error aqui
 }
  header('location: '.'../../views/correcto.php?ID=c0');

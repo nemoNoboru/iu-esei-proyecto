@@ -77,7 +77,7 @@ $Idioma = array(
 'e14' => 'Error, cant delete functionality',
 //******************************************//
 //Valido . operacion exitosa:
-'c0' => 'Succes:',
+'c0' => 'Succes',
 'c1' => 'Relationship inserted correctly(Rol)',
 'c2' => 'Relationship inserted correctly(Page)',
 'c3' => 'Relationship inserted correctly(Functionality)',

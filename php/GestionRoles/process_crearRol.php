@@ -12,7 +12,7 @@ if($man->insertarRol($_POST['nombre'],$_POST['desc'])){
   //echo "Pagina creada correctamente";
   // redireccion a mensaje correcto aqui
 }else{
-	//header('location: '.'../../views/error.php?ID=e9');
+	header('location: '.'../../views/error.php?ID=e9');
   //echo "Error creado el rol, ya existia un rol con ese nombre";
   // redireccion a mensaje de error aqui
 }
@@ -24,7 +24,7 @@ foreach ($usuarios as $user) {
 		//header('location: '.'../../views/correcto.php?ID=c1');
      // echo "relacion insertada correctamente";
     }else{
-		//header('location: '.'../../views/error.php?ID=e1');
+		header('location: '.'../../views/error.php?ID=e1');
      // echo "error insertando la relacion";
     }
   }
@@ -37,7 +37,7 @@ foreach ($funcionalidades as $fun) {
 		//header('location: '.'../../views/correcto.php?ID=c3');
       //echo "relacion insertada correctamente";
     }else{
-		//header('location: '.'../../views/error.php?ID=e3');
+		header('location: '.'../../views/error.php?ID=e3');
      // echo "error insertando la relacion";
     }
   }

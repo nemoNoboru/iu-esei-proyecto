@@ -15,7 +15,7 @@ foreach ($paginas as $pag) {
       //echo "relacion insertada correctamente<br>";
     }
     else{
-		//header('location: '.'../../views/error.php?ID=e2');
+		header('location: '.'../../views/error.php?ID=e2');
       //echo 'error insertando la relación';
     }
   }
@@ -28,7 +28,7 @@ foreach ($roles as $rol) {
 		//header('location: '.'../../views/correcto.php?ID=c1');
      // echo "relacion insertada correctamente<br>";
     }else{
-		//header('location: '.'../../views/error.php?ID=e1');
+		header('location: '.'../../views/error.php?ID=e1');
       //echo 'error insertando la relación';
     }
   }
@@ -41,7 +41,7 @@ foreach ($usuarios as $user) {
 		//header('location: '.'../../views/correcto.php?ID=c10');
       //echo "relacion insertada correctamente<br>";
     }else{
-		//header('location: '.'../../views/error.php?ID=e10');
+		header('location: '.'../../views/error.php?ID=e10');
      // echo 'error insertando la relación';
     }
   }

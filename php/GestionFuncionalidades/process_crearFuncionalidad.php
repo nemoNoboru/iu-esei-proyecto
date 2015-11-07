@@ -12,7 +12,7 @@ if($man->insertarfun($_POST['nombre'],$_POST['desc'])){
   //echo "funcionalidad creada correctamente";
   // redireccion a mensaje correcto aqui
 }else{
-	//header('location: '.'../../views/error.php?ID=e13');
+	header('location: '.'../../views/error.php?ID=e13');
   //echo "Error creado la funcionalidad, ya existia una funcionalidad con ese nombre";
   // redireccion a mensaje de error aqui
 }
@@ -24,7 +24,7 @@ foreach ($paginas as $pag) {
 		//header('location: '.'../../views/correcto.php?ID=c2');
       //echo "relacion insertada correctamente";
     }else{
-		//header('location: '.'../../views/error.php?ID=e2');
+		header('location: '.'../../views/error.php?ID=e2');
       //echo "error insertando la relacion";
     }
   }
@@ -36,7 +36,7 @@ foreach ($roles as $rol) {
 	//	header('location: '.'../../views/correcto.php?ID=c1');
      // echo "relacion insertada correctamente";
     }else{
-		//header('location: '.'../../views/error.php?ID=e1');
+		header('location: '.'../../views/error.php?ID=e1');
      // echo "error insertando la relacion";
     }
   }
@@ -48,7 +48,7 @@ foreach ($usuarios as $user) {
 		//header('location: '.'../../views/correcto.php?ID=c10');
       //echo "relacion insertada correctamente";
     }else{
-		//header('location: '.'../../views/error.php?ID=c10');
+		header('location: '.'../../views/error.php?ID=c10');
      // echo "error insertando la relacion";
     }
   }

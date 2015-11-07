@@ -15,7 +15,7 @@ foreach ($funcionalidades as $fun) {
       //echo "relacion insertada correctamente<br>";
     }
     else{
-		//header('location: '.'../../views/error.php?ID=e3');
+		header('location: '.'../../views/error.php?ID=e3');
       //echo 'error insertando la relación';
     }
   }
@@ -28,7 +28,7 @@ foreach ($usuarios as $user) {
 		//header('location: '.'../../views/correcto.php?ID=c10');
      // echo "relacion insertada correctamente<br>";
     }else{
-		//header('location: '.'../../views/error.php?ID=e10');
+		header('location: '.'../../views/error.php?ID=e10');
      // echo 'error insertando la relación';
     }
   }
