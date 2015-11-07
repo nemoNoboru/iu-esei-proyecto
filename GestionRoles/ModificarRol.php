@@ -1,5 +1,6 @@
 <?php include("../views/header.php");
 	RenderBanner("Gestión de Roles");
+	cerberus("CER_ModificarRol");
 	$Idioma = getIdioma();
 ?>
 

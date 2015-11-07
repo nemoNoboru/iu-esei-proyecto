@@ -2,6 +2,7 @@
      Creada por FVieira para interfaces de Usuario ET1 -->
 <?php include("../views/header.php");
 	RenderBanner("Gestion de Páginas");
+	cerberus("CER_CrearPagina");
 	$Idioma = getIdioma();
 ?>
 
