@@ -1,6 +1,6 @@
 <?php include ("../views/header.php");
 	RenderBanner("Gestión de Roles");
-	//include("../views/getIdioma.php");
+	cerberus("CER_GestionRoles");
 	$Idioma = getIdioma();
 ?>
 <div class="container">

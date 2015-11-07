@@ -1,6 +1,8 @@
 <?php include("../views/header.php");
 	RenderBanner("Gestión de Funcionalidades");
+	cerberus("CER_GestionFuncionalidades");
 	$Idioma = getIdioma();
+
 ?>
 <div class="container">
 <div class="row">

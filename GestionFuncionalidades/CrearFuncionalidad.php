@@ -2,6 +2,7 @@
      Creada por FVieira para interfaces de Usuario ET1 -->
 <?php include("../views/header.php");
 	RenderBanner("Gestión de Funcionalidades");
+	cerberus("CER_CrearFuncionalidad");
 	$Idioma = getIdioma();
 ?>
 

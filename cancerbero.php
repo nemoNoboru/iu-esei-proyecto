@@ -21,6 +21,10 @@
      return $this->man->canUserInPag($usuario,$this->page);
    }
 
+   public function canAccessPage($usuario,$pagina){
+     return $this->man->canUserInPag($usuario,$pagina);
+   }
+
    public function handleAuto(){
      if(!isset($_SESSION['name'])){
        return false;

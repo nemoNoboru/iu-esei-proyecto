@@ -1,6 +1,7 @@
 <!-- header -->
 <?php include("../views/header.php");	//Incluye el header
   RenderBanner("Gestión de Usuarios");	//Muestra el header con la funcion definida en header.php
+  cerberus("CER_GestionUsuarios");
   $Idioma = getIdioma();
 ?>
 <!-- Barra Lateral -->

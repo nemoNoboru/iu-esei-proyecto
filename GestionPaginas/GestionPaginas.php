@@ -1,5 +1,6 @@
 <?php include("../views/header.php");
 	RenderBanner("Gestión de Páginas");
+	cerberus("CER_GestionPaginas");
 	$Idioma = getIdioma();
 ?>
 <div class="container">
