@@ -1,4 +1,8 @@
 <?php
+//#####################################################################################
+// CONFIG login
+$routeToMenu = "../../IUET12015/C_Menu.php"; //ROUTE TO MAIN PAGE OF YOUR APP
+// END
 
 require_once("../DBManager.php"); 							//Se incluye la clase que gestiona la DB
 $man = DBManager::getInstance(); 							//Se creaa un objeto de la calse DBManager, si ya hay alguno creado solo se devuelve el que ya hay.
@@ -10,7 +14,7 @@ if(!$man->tryLogin($_POST["username"],$_POST["pass"])){  	//Se recogen los datos
 	header('location: '.'../../views/error.php?ID=e6');
 }else{										//caso positivo - Vamos al menu pricipal
   $_SESSION["name"] = $_POST['username'];  					//Se guarda el nombre del usuario que ha iniciado sesion
-  header("location:../../Menu/MenuPrincipal.php"); 			//Se va al menu principal automaticamente
+  header("location:".$routeToMenu); 			//Se va al menu principal automaticamente
 }
 
 ?>
