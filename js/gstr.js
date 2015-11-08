@@ -111,7 +111,7 @@ function tooLong(e){
   var data = e.val();
   if(data.length > maximo ){
     putError(e);
-    sayError(e,"maximum 32 chars");
+    sayError(e,"maximum 64 chars");
     return true;
   }
   return false;

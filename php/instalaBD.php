@@ -1,6 +1,6 @@
 <?php
 // proceso de auto-instalacion de la base de datos de la ET1 hecha para que el señor Rodeiro no se canse de darle a importar en phpmyadmin
-$SQLEXPORT = file_get_contents("../bbdd/DumpBD-semi-final.sql");
+$SQLEXPORT = file_get_contents("../bbdd/DumpFinal.sql");
 $db;
 function connect(){
   global $db;
