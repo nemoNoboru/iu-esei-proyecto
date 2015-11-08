@@ -6,7 +6,9 @@ $man->connect(); //conectate a la bbdd
 
 $man->ModificarFuncionalidad($_POST['nombre'],$_POST['desc']);
 
-$paginas = $man->listPags();
+$paginas = $man->listPags();  // llama a la función de DBManager que retorna una lista con todas las páginas
+// para cada página de la lista que se hayan marcado en la funcionalidad, se modifica la relación correspondiente
+// pag-funcionalidad en la base de datos, llamando a la función insertRelationPagFun
 foreach ($paginas as $pag) {
   $man->deleteRelationPagFun($pag['pag_name'],$_POST['nombre']);
   if(isset($_POST[$pag['pag_name']])){
@@ -20,7 +22,9 @@ foreach ($paginas as $pag) {
     }
   }
 }
-$roles = $man->listRols();
+$roles = $man->listRols(); // llama a la función de DBManager que retorna una lista con todas los roles
+// para cada rol de la lista que se hayan marcado en la funcionalidad, se modifica la relación correspondiente
+// rol-funcionalidad en la base de datos, llamando a la función insertRelationRolFun
 foreach ($roles as $rol) {
   $man->deleteRelationRolFun($rol['rol_name'],$_POST['nombre']);
   if(isset($_POST[$rol['rol_name']])){
@@ -33,7 +37,9 @@ foreach ($roles as $rol) {
     }
   }
 }
-$usuarios = $man->listUsers();
+$usuarios = $man->listUsers(); // llama a la función de DBManager que retorna una lista con todas los usuarios
+// para cada usuario de la lista que se hayan marcado en la funcionalidad, se modifica la relación correspondiente
+// usuario-funcionalidad en la base de datos, llamando a la función insertRelationUserFun
 foreach ($usuarios as $user) {
   $man->deleteRelationUserFun($user['user_name'],$_POST['nombre']);
   if(isset($_POST[$user['user_name']])){

@@ -8,9 +8,9 @@ require_once("../DBManager.php");
 $man = DBManager::getInstance(); //crea instancia
 $man->connect(); //conectate a la bbdd
 
-if($confirm==1){
+if($confirm==1){ //confirmamos si queremos borrar
   //Borramos
-  if($man->borrarFuncionalidad($borrar)){
+  if($man->borrarFuncionalidad($borrar)){ // llama a la función de borrado de DBManager.
 	//  header('location: '.'../../views/correcto.php?ID=c14');
    // echo "Borrado Correctamente<br>";
    // echo "<button onclick='location.href=\"../../GestionFuncionalidades/GestionFuncionalidades.php\"'>OK</button>";
