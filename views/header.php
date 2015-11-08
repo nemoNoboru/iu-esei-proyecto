@@ -16,6 +16,7 @@
   require_once "../views/renderTableGestion.php";
   require_once("../views/tooltip.php");
   require_once("../cancerbero.php");
+  require_once('../config.php');
 
   //Añadido array de Idioma, se debe hacer include Idioma en la Pagina que llame a header.
   function cerberus($nombre_pagina){

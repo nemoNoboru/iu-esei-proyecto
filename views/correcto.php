@@ -1,12 +1,16 @@
 <?php include("../views/header.php");
-	  RenderBanner("Login");
+
+
+
+
+		RenderBanner("Login");
 		$len = getIdioma();
 		$checked = $_GET['ID'];
 		$cerb = new Cancerbero("CER_correcto");
 		if($cerb->canAccessPage($_SESSION["name"],"CER_Menu")){
 			$redirect = "../Menu/MenuPrincipal.php";
 		}else{
-			$redirect = "../IUET12015/C_Menu.php";
+			$redirect = "../".$routeToMenu;
 		}
 ?>
   <div id='loginbox' class="container">

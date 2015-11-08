@@ -1,7 +1,9 @@
 <?php
 //#####################################################################################
 // CONFIG login
-$routeToMenu = "../../IUET12015/C_Menu.php"; //ROUTE TO MAIN PAGE OF YOUR APP
+require_once('../../config.php');
+$routeToMenu = '../../'.$routeToMenu;
+//$routeToMenu = "../../IUET12015/C_Menu.php"; //ROUTE TO MAIN PAGE OF YOUR APP
 // END
 
 require_once("../DBManager.php"); 							//Se incluye la clase que gestiona la DB

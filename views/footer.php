@@ -9,7 +9,7 @@
 		}else{
 			echo "<span class='username'>anon</span>";
 		}
-		echo "<a href='../../php/GestionUsuarios/process_salir.php'><span  class='text-right'> ".$Idioma['salir']."</span></a>";
+		echo "<a href='../php/GestionUsuarios/process_salir.php'><span  class='text-right'> ".$Idioma['salir']."</span></a>";
 		echo "</div></footer>";
 	}
 ?>

@@ -3,8 +3,6 @@
   cerberus("CER_Menu");
   $Idioma = getIdioma(); 				//Guarda en $Idioma el array asociativo que almacena el idioma. getIdioma() esta definido en header.php
 ?>
-<!-- DISCLAIMER: ESTE MENU PRINCIPAL ES PALERISIMO Y SOLO SIRVE PARA TESTEAR ENLACES -->
-
 
 <div class="container"> <!-- Este div llega hasta footer, representa toda la interfaz principal -->
   <div class="row">
