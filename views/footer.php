@@ -8,6 +8,7 @@
 			echo "<span class='username'>".$_SESSION["name"]."</span>";
 		}else{
 			echo "<span class='username'>anon</span>";
+			$_SESSION['name'] = 'anon';
 		}
 		echo "<a href='../php/GestionUsuarios/process_salir.php'><span  class='text-right'> ".$Idioma['salir']."</span></a>";
 		echo "</div></footer>";

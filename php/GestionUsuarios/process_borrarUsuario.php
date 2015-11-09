@@ -1,4 +1,6 @@
 <?php
+require_once("../../cancerbero.php");
+
 $borrar = $_GET["id"];				//Leemos la id del usuario que hay que borrar
 $confirm = $_GET["confirm"];		//Leemos la variable confirm, la cual indica si hay que pedir confirmacion o borrar el usuario
 
