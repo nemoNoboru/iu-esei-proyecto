@@ -1,7 +1,15 @@
 <?php include("../views/header.php");
-	  RenderBanner("Login");
+	  RenderBanner("");
 		$len = getIdioma();
 		$error = $_GET['ID'];
+		$cerb = new Cancerbero("CER_error");
+		if(!$_GET["ID"]=='e6'){
+			if($cerb->canAccessPage($_SESSION["name"],"CER_Menu")){
+				$redirect = "../Menu/MenuPrincipal.php";
+			}else{
+				$redirect = "../".$routeToMenu;
+			}
+		}
 ?>
   <div id='loginbox' class="container">
 		<div class="row">
@@ -12,7 +20,7 @@
 				if($_GET["ID"]=='e6'){
 					echo '<p class="text-center"><a class="btn btn-default" href="../GestionUsuarios/login.php">'.$len['Reintentar'].'</a></p><br>';
 				}else{
-					echo '<p class="text-center"><a class="btn btn-default" href="../Menu/MenuPrincipal.php">'.$len['Menu Principal'].'</a></p><br>';
+					echo '<p class="text-center"><a class="btn btn-default" href="'.$redirect.'">'.$len['Menu Principal'].'</a></p><br>';
 				}
 				?>
 			</div>

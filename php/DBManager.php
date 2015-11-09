@@ -147,7 +147,7 @@ class DBManager {
                 from Usuario , Rol , User_Rol
                 where Usuario.user_name = '".$user."' and
                       Usuario.user_id = User_Rol.user_id and
-                      User_Rol.rol_id = Rol.rol_id";
+                      User_Rol.rol_id = Rol.rol_id order by rol_name";
     $result = $this->doQuery($toQuery);
     return $this->returnArray($result);
   }
@@ -158,7 +158,7 @@ class DBManager {
                 from Funcionalidad , Rol , Rol_Fun
                 where Funcionalidad.fun_name = '".$fun."' and
                       Funcionalidad.fun_id = Rol_Fun.fun_id and
-                      Rol_Fun.rol_id = Rol.rol_id";
+                      Rol_Fun.rol_id = Rol.rol_id order by rol_name";
     $result = $this->doQuery($toQuery);
     return $this->returnArray($result);
   }
@@ -169,7 +169,7 @@ class DBManager {
                 from Usuario , Rol , User_Rol
                 where rol_name = '".$rol."' and
                       Rol.rol_id = User_Rol.rol_id and
-                      User_Rol.user_id = Usuario.user_id";
+                      User_Rol.user_id = Usuario.user_id order by user_name";
     $result = $this->doQuery($toQuery);
     return $this->returnArray($result);
   }
@@ -180,7 +180,7 @@ class DBManager {
                 from Usuario , Pagina , User_Pag
                 where pag_name = '".$pag."' and
                       Pagina.pag_id = User_Pag.pag_id and
-                      User_Pag.user_id = Usuario.user_id";
+                      User_Pag.user_id = Usuario.user_id order by user_name";
     $result = $this->doQuery($toQuery);
     return $this->returnArray($result);
   }
@@ -191,7 +191,7 @@ class DBManager {
                 from Usuario , Funcionalidad , User_Fun
                 where fun_name = '".$fun."' and
                       Funcionalidad.fun_id = User_Fun.fun_id and
-                      User_Fun.user_id = Usuario.user_id";
+                      User_Fun.user_id = Usuario.user_id order by user_name";
     $result = $this->doQuery($toQuery);
     return $this->returnArray($result);
   }
@@ -202,7 +202,7 @@ class DBManager {
                 from Usuario , Pagina , User_Pag
                 where user_name = '".$user."' and
                       Usuario.user_id = User_Pag.user_id and
-                      User_Pag.pag_id = Pagina.pag_id";
+                      User_Pag.pag_id = Pagina.pag_id order by pag_name";
     $result = $this->doQuery($toQuery);
     return $this->returnArray($result);
   }
@@ -213,7 +213,7 @@ class DBManager {
                 from Pagina , Funcionalidad , Pag_Fun
                 where fun_name = '".$fun."' and
                       Funcionalidad.fun_id = Pag_Fun.fun_id and
-                      Pag_Fun.pag_id = Pagina.pag_id";
+                      Pag_Fun.pag_id = Pagina.pag_id order by pag_name";
     $result = $this->doQuery($toQuery);
     return $this->returnArray($result);
   }
@@ -224,7 +224,7 @@ class DBManager {
                 from Funcionalidad , Rol , Rol_Fun
                 where rol_name = '".$rol."' and
                       Rol.rol_id = Rol_Fun.rol_id and
-                      Rol_Fun.fun_id = Funcionalidad.fun_id";
+                      Rol_Fun.fun_id = Funcionalidad.fun_id order by fun_name";
     $result = $this->doQuery($toQuery);
     return $this->returnArray($result);
   }
@@ -235,7 +235,7 @@ class DBManager {
                 from Funcionalidad , Pagina , Pag_Fun
                 where pag_name = '".$pag."' and
                       Pagina.pag_id = Pag_Fun.pag_id and
-                      Pag_Fun.fun_id = Funcionalidad.fun_id";
+                      Pag_Fun.fun_id = Funcionalidad.fun_id order by fun_name";
     $result = $this->doQuery($toQuery);
     return $this->returnArray($result);
   }
@@ -244,35 +244,35 @@ class DBManager {
                 from Funcionalidad , Usuario , User_Fun
                 where user_name = '".$user."' and
                       Usuario.user_id = User_Fun.user_id and
-                      User_Fun.fun_id = Funcionalidad.fun_id";
+                      User_Fun.fun_id = Funcionalidad.fun_id order by fun_name";
     $result = $this->doQuery($toQuery);
     return $this->returnArray($result);
   }
 
   //Devuelve un array con los nombres de todas las funcionalidades
   public function listFuns(){
-    $toQuery = "select fun_name from Funcionalidad";
+    $toQuery = "select fun_name from Funcionalidad group by fun_name";
     $result = $this->doQuery($toQuery);
     return $this->returnArray($result);
   }
 
   //Devuelve un array con los nombres de todos los usuarios
   public function listUsers(){
-    $toQuery = "select user_name from Usuario";
+    $toQuery = "select user_name from Usuario group by user_name";
     $result = $this->doQuery($toQuery);
     return $this->returnArray($result);
   }
 
   //Devuelve un array con los nombres de todas las paginas
   public function listPags(){
-    $toQuery = "select pag_name from Pagina";
+    $toQuery = "select pag_name from Pagina order by pag_name";
     $result = $this->doQuery($toQuery);
     return $this->returnArray($result);
   }
 
   //Devuelve un array con los nombres de todos los roles
   public function listRols(){
-    $toQuery = "select rol_name from Rol";
+    $toQuery = "select rol_name from Rol order by rol_name";
     $result = $this->doQuery($toQuery);
     return $this->returnArray($result);
   }
@@ -281,22 +281,22 @@ class DBManager {
 //Funciones que devuelven los datos que van a ser mostrados en las paginas de gestion
 //Estas funciones las usa la clase RenderTableGestion
   public function listGestionFuns(){
-    $toQuery = "select fun_name, fun_desc, fun_id from Funcionalidad";
+    $toQuery = "select fun_name, fun_desc, fun_id from Funcionalidad order by fun_name";
     $result = $this->doQuery($toQuery);
     return $this->returnArray($result);
   }
   public function listGestionUsers(){
-    $toQuery = "select user_name, user_id, user_email from Usuario";
+    $toQuery = "select user_name, user_id, user_email from Usuario order by user_name";
     $result = $this->doQuery($toQuery);
     return $this->returnArray($result);
   }
   public function listGestionPags(){
-    $toQuery = "select pag_name, pag_desc, pag_id  from Pagina";
+    $toQuery = "select pag_name, pag_desc, pag_id  from Pagina order by pag_name";
     $result = $this->doQuery($toQuery);
     return $this->returnArray($result);
   }
   public function listGestionRols(){
-    $toQuery = "select rol_name,rol_desc, rol_id from Rol";
+    $toQuery = "select rol_name,rol_desc, rol_id from Rol order by rol_name";
     $result = $this->doQuery($toQuery);
     return $this->returnArray($result);
   }
