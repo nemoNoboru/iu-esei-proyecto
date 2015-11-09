@@ -1,5 +1,5 @@
 <?php include("../views/header.php");
-	  RenderBanner("Login");
+	  RenderBanner("Ha ocurrido un error");
 		$len = getIdioma();
 		$error = $_GET['ID'];
 ?>

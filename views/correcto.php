@@ -3,7 +3,7 @@
 
 
 
-		RenderBanner("Login");
+		RenderBanner("Correcto");
 		$len = getIdioma();
 		$checked = $_GET['ID'];
 		$cerb = new Cancerbero("CER_correcto");
