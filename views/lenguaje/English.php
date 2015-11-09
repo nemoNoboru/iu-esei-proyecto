@@ -42,6 +42,7 @@ $Idioma = array(
 'Url' => 'Url',
 'Seleccionar pagina' => 'Select page',
 'Ha ocurrido un error' => 'An error has ocurred',
+'Correcto' => 'Success',
 '¿Esta usted seguro/a?' => 'Are you sure?',
 'Accion a confirmar' => 'Action to confirm',
 'Crear usuario' => 'Create user',
