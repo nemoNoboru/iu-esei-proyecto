@@ -3,6 +3,7 @@
  * Esta dise~nada para servir de nexo de integracion entre el gestionador de permisos y la aplicacion en si.
  * FVieira, para el proyecto de interfaces de usuario
  */
+ $root = 'root'; // usuario con poder total sobre todo
  require_once("php/DBManager.php");
  class Cancerbero {
 
@@ -28,6 +29,19 @@
      return $this->man->canUserInPag($usuario,$this->page);
    }
 
+   public function checkUserAndID($id,$usuario){
+     global $root;
+     if($usuario == $root){ return true; }
+     if($id != $this->man->getIdUser($usuario)){
+       header('location:../views/error.php?ID=3');
+       exit();
+      }
+     if(!$this->canAccess($usuario)){
+       header('location:../views/error.php?ID=3');
+       exit();
+     }
+   }
+
    public function canAccessPage($usuario,$pagina){
      return $this->man->canUserInPag($usuario,$pagina);
    }
@@ -38,5 +52,4 @@
        exit();
      }
    }
-
  }

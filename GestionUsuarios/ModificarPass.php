@@ -1,6 +1,7 @@
 <?php include("../views/header.php");
 	RenderBanner("Gestión de Usuarios");
-	cerberus("CER_ModificarPass");
+	$can = new Cancerbero("CER_ModificarPass");
+	$can->checkUserAndID($_GET['id'],$_SESSION['name']);
 ?>
 
 <div id="contenido" class="container">
