@@ -17,7 +17,14 @@
      $this->page = $Pagename;
    }
 
+   public function getDB(){
+     return $this->man;
+   }
+
    public function canAccess($usuario){
+     if(!isset($_SESSION['name'])){
+       return false;
+     }
      return $this->man->canUserInPag($usuario,$this->page);
    }
 
@@ -26,9 +33,6 @@
    }
 
    public function handleAuto(){
-     if(!isset($_SESSION['name'])){
-       return false;
-     }
      if(!$this->canAccess($_SESSION['name'])){
        header('location:../views/error.php?ID=3');
        exit();
