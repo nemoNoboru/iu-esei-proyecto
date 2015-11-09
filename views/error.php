@@ -1,5 +1,5 @@
 <?php include("../views/header.php");
-	  RenderBanner("");
+	  RenderBanner("Ha ocurrido un error");
 		$len = getIdioma();
 		$error = $_GET['ID'];
 		$cerb = new Cancerbero("CER_error");
