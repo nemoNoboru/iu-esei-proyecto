@@ -50,8 +50,8 @@
         <?php echo $Idioma['Seguro']; ?>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">NO</button>
-        <button type="button" onclick="document.getElementById('formulario').submit();" class="btn btn-primary">OK</button>
+        <a class="btn btn-default" onclick="location.href='GestionFuncionalidades.php'"><?php echo $Idioma['Atras'];?></a>
+        <input type="button" class="btn btn-default btn-primary" data-toggle="modal" data-target="#myModal"  value="<?php echo $Idioma['Guardar']; ?>" class="continuar"/>
       </div>
     </div>
 	</div>
