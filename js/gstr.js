@@ -52,11 +52,12 @@ function BORRAR(packet){
 
 function checkALL(){
   var correction = true;
-  $("#formulario :input[type='text']").each( function(){
+  $("#formulario :input[type='text'] , textarea").each( function(){
     if(!checkValidity($(this))){ //que pasa con los emails o las contrase~nas?
       correction = false;
     }
   });
+
   $("#formulario :input[type='password']").each( function(){
     if(!checkValidity($(this))){ //que pasa con los emails o las contrase~nas?
       correction = false;
