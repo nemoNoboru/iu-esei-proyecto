@@ -36,6 +36,6 @@ $g->gestionar();
 
 <?php
     header("Cache-control: private");
-    echo $_SESSION['name'];
+    //echo $_SESSION['name'];
 include 'Administrar.php';
 ?>

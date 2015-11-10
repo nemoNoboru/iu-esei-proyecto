@@ -39,7 +39,7 @@
     echo "<ul class='nav navbar-nav navbar-right'>";
     echo '<li><a href="../php/CambioIdioma.php?leng=en">EN</a></li>';
     echo '<li><a href="../php/CambioIdioma.php?leng=sp">ES</a></li>';
-    echo '<li><a href="../php/CambioIdioma.php?leng=br">BR</a></li>';
+    //echo '<li><a href="../php/CambioIdioma.php?leng=br">BR</a></li>';
     echo '</ul>';
     echo '</div>';
     echo "</div>";

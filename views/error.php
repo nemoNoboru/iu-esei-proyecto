@@ -3,10 +3,9 @@
 		$len = getIdioma();
 		$error = $_GET['ID'];
 		$cerb = new Cancerbero("CER_error");
+		$redirect = "../Menu/MenuPrincipal.php";
 		if(!$_GET["ID"]=='e6'){
-			if($cerb->canAccessPage($_SESSION["name"],"CER_Menu")){
-				$redirect = "../Menu/MenuPrincipal.php";
-			}else{
+			if(!$cerb->canAccessPage($_SESSION["name"],"CER_Menu")){
 				$redirect = "../".$routeToMenu;
 			}
 		}
@@ -20,6 +19,7 @@
 				if($_GET["ID"]=='e6'){
 					echo '<p class="text-center"><a class="btn btn-default" href="../GestionUsuarios/login.php">'.$len['Reintentar'].'</a></p><br>';
 				}else{
+					global $redirect;
 					echo '<p class="text-center"><a class="btn btn-default" href="'.$redirect.'">'.$len['Menu Principal'].'</a></p><br>';
 				}
 				?>
